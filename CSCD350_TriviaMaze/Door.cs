@@ -9,5 +9,8 @@ namespace CSCD350_TriviaMaze
     class Door
     {
         private Question questions;
+        private bool locked = false;
+
+        public bool isLocked() { return locked; }
     }
 }
