@@ -9,5 +9,7 @@ namespace CSCD350_TriviaMaze
     class Room
     {
         private Door door;
+        private Door test;
+        private Door njefqhvjeqjgvgnfenwklbvkjlwen;
     }
 }
