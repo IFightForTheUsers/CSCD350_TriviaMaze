@@ -10,7 +10,6 @@ namespace CSCD350_TriviaMaze
     {
         private Door door;
         private Door test;
-        private Door njefqhvjeqjgvgnfenwklbvkjlwen;
         private Door test2;
     }
 }
