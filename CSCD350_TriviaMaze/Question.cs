@@ -8,6 +8,6 @@ namespace CSCD350_TriviaMaze
 {
     interface Question
     {
-        
+        Boolean ask();
     }
 }
