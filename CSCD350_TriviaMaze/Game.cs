@@ -20,6 +20,7 @@ namespace CSCD350_TriviaMaze
         {
             this.player = new Player("PlayerName");
             this.maze = new Maze();
+            this.player.setAt(this.maze.getEntry().knock(null));
 
         }
 

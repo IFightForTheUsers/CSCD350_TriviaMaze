@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/* Enterance class.
+ * all attempts to leave return the class it points to
+ */
+
 namespace CSCD350_TriviaMaze
 {
     class Entrance : Panel
@@ -14,18 +18,12 @@ namespace CSCD350_TriviaMaze
 
         public Room knock(Room from)
         {
-            if (from == room)
-                return from;
-            else
-                throw new WallHackException();
+            return from;
         }
 
         public Room kick(Room from)
         {
-            if (from == room)
-                return from;
-            else
-                throw new WallHackException();
+            return from;
         }
 
         public void rewire(Panel obj)

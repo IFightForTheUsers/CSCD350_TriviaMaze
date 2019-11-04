@@ -9,6 +9,17 @@ namespace CSCD350_TriviaMaze
     class Player
     {
         private string name;
+        private Room roomIn;
+
+        public void setAt(Room room)
+        {
+            roomIn = room;
+        }
+
+        public Room getAt()
+        {
+            return roomIn;
+        }
 
         public Player(string name)
         {
