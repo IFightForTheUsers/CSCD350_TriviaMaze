@@ -43,9 +43,9 @@ namespace CSCD350_TriviaMaze
             Console.WriteLine("Game Initialized...");
             OpenSQLConnection();
             string name;
-            Regex nameCheck = new Regex(@"^[A-Z]{1}[a-z]{1,15}, [A-Z]{1}[a-z]{1,15}, [A-Z](\.[A-Z]){0,2}$");
+            Regex nameCheck = new Regex(@"^[A-Za-z0-9]{1,15}$");
             do {
-                Console.Write("\nEnter Player Name --> ");
+                Console.Write("\nEnter Player Name (1-15 characters, alphanumeric no special characters)--> ");
                 name = Console.ReadLine();
                 if (nameCheck.IsMatch(name))
                 {
