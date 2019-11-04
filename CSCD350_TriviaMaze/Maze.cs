@@ -9,6 +9,11 @@ namespace CSCD350_TriviaMaze
     class Maze
     {
         private Room[,] rooms;
+        private Entrance ingress;
+        private Exit egress;
+
+        public Entrance getEntry() { return ingress; }
+        public Exit getExit() { return egress; }
 
         // constructors
         public Maze()
@@ -29,11 +34,14 @@ namespace CSCD350_TriviaMaze
                     new Door(rooms[x, y], rooms[x, y + 1], 's');
                 }
             }
+            // hard add the entry and exit
+            ingress = new Entrance(rooms[0, 0]);
+            egress = new Exit(rooms[3, 3]);
             foreach (Room r in rooms)
             { // wrap all the Doors with TestQuestions... hopefully
-                if (!(r.east is Wall))
+                if (!(r.east is Wall) && !(r.east is Exit) && !(r.east is Entrance))
                     new TestQuestion(r.east);
-                if (!(r.south is Wall))
+                if (!(r.east is Wall) && !(r.east is Exit) && !(r.east is Entrance))
                     new TestQuestion(r.south);
             }
         } // end Maze()

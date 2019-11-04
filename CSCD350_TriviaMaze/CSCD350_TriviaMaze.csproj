@@ -64,6 +64,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Door.cs" />
+    <Compile Include="Entrance.cs" />
+    <Compile Include="Exit.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Maze.cs" />
     <Compile Include="Panel.cs" />
