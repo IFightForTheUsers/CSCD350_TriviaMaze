@@ -70,7 +70,6 @@ namespace CSCD350_TriviaMaze
                     break;
                 default:
                     throw new ArgumentException("direction must be n, s, e || w");
-                    break;
             }
         }
     }
