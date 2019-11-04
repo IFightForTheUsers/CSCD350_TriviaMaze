@@ -11,6 +11,10 @@ namespace CSCD350_TriviaMaze
         private Question question;
         private bool locked = false;
 
+        public Door(Question question)
+        {
+
+        }
         public bool isLocked() { return locked; }
 
         public bool knock()
