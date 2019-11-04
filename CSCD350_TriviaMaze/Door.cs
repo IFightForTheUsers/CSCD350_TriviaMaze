@@ -12,6 +12,10 @@ namespace CSCD350_TriviaMaze
         private Room room1;
         private Room room2;
 
+        public Door(Question question)
+        {
+
+        }
         public bool isLocked() { return locked; }
 
         public Room knock(Room from)
