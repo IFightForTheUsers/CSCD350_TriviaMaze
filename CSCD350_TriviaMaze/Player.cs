@@ -14,5 +14,17 @@ namespace CSCD350_TriviaMaze
         {
             this.name = name;
         }
+
+        public string Name
+        {
+            get { return name; }
+            set
+            {
+                if (value != null)
+                {
+                    name = value;
+                }
+            }
+        }
     }
 }
