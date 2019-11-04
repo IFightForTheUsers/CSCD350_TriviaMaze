@@ -9,8 +9,20 @@ namespace CSCD350_TriviaMaze
     class Room
     {
         private Door door;
-        private Door test;
-        private Door test2;
-        private Door test3;
+
+        public Room(Door door)
+        {
+            this.door = door;
+        }
+
+        public Door Door {
+            get { return door; } 
+            set { 
+                if (value != null)
+                {
+                    door = value;
+                }
+            } 
+        }
     }
 }

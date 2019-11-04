@@ -21,11 +21,12 @@ namespace CSCD350_TriviaMaze
         public static void Main(string[] args)
         {
             Console.WriteLine("Game Initialized...");
-
-            Console.Write("\nEnter Player Name --> ");
-
-            string name = Console.ReadLine();
-
+            string name;
+            do {
+                Console.Write("\nEnter Player Name --> ");
+                name = Console.ReadLine();
+                player.Name = name;
+            } while (name == null);
             Console.ReadLine();
         }
     }
