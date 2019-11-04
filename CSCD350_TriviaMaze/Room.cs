@@ -14,15 +14,5 @@ namespace CSCD350_TriviaMaze
         {
             this.door = door;
         }
-
-        public Door Door {
-            get { return door; } 
-            set { 
-                if (value != null)
-                {
-                    door = value;
-                }
-            } 
-        }
     }
 }
