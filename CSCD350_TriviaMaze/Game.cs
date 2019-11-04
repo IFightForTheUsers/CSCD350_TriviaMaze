@@ -26,7 +26,7 @@ namespace CSCD350_TriviaMaze
         public void OpenSQLConnection()
         {
             SQLiteCommand command = null;
-            if (!(File.Exists(@"")))
+            if (!(File.Exists(@"Question_Database.sqlite")))
             {
                 SQLiteConnection.CreateFile(@"");
                 connection = new SQLiteConnection(@"");
