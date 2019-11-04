@@ -27,6 +27,18 @@ namespace CSCD350_TriviaMaze
                 throw new WallHackException();
         }
 
+        public void rewire(Panel obj)
+        {
+            if (room.north == this)
+                room.north = obj;
+            else if (room.south == this)
+                room.south = obj;
+            else if (room.west == this)
+                room.west = obj;
+            else
+                room.east = obj;
+        }
+
         public Wall(Room owner)
         {
             room = owner;
