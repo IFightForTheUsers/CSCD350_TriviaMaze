@@ -13,6 +13,13 @@ namespace CSCD350_TriviaMaze
         public Maze()
         {
             rooms = new Room[4, 4];
+            foreach (Room r in rooms)
+            { // populate rooms with cheat doors
+                r.north = new Door();
+                r.south = new Door();
+                r.west = new Door();
+                r.east = new Door();
+            }
         }
     }
 }

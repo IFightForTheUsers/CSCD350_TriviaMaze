@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace CSCD350_TriviaMaze
 {
-    class Room
+    class cheatQuestion : Question
     {
-        private Door north;
-        private Door south;
-        private Door east;
-        private Door west;
+        Boolean ask()
+        {
+            return true;
+        }
     }
 }
