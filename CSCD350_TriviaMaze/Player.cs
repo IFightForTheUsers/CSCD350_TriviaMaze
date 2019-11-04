@@ -10,15 +10,10 @@ namespace CSCD350_TriviaMaze
     {
         private string name;
         private Room roomIn;
-
-        public void setAt(Room room)
+        public Room at
         {
-            roomIn = room;
-        }
-
-        public Room getAt()
-        {
-            return roomIn;
+            get => roomIn;
+            set => roomIn = value;
         }
 
         public Player(string name)

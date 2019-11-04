@@ -20,7 +20,7 @@ namespace CSCD350_TriviaMaze
         {
             this.player = new Player("PlayerName");
             this.maze = new Maze();
-            this.player.setAt(this.maze.getEntry().knock(null));
+            this.player.at = this.maze.startingRoom;
 
         }
 
@@ -41,8 +41,9 @@ namespace CSCD350_TriviaMaze
 
         public static void Main(string[] args)
         {
+            Game game = new Game();
             Console.WriteLine("Game Initialized...");
-            OpenSQLConnection();
+            game.OpenSQLConnection();
             string name;
             Regex nameCheck = new Regex(@"^[A-Za-z0-9]{1,15}$");
             do {
@@ -50,7 +51,7 @@ namespace CSCD350_TriviaMaze
                 name = Console.ReadLine();
                 if (nameCheck.IsMatch(name))
                 {
-                    player.Name = name;
+                    game.player.Name = name;
                 }
                 else
                 {

@@ -10,9 +10,11 @@ namespace CSCD350_TriviaMaze
     {
         private Room[,] rooms;
         private Entrance ingress;
+        public Panel entrance => (Panel)ingress;
+        public Room startingRoom => ingress.knock(null);
         private Exit egress;
+        public Panel exit => (Panel)egress;
 
-        public Entrance getEntry() { return ingress; }
         public Exit getExit() { return egress; }
 
         // constructors
