@@ -10,6 +10,7 @@ namespace CSCD350_TriviaMaze
     {
         private Room[,] rooms;
 
+        // constructors
         public Maze()
         {
             rooms = new Room[4, 4];
@@ -28,6 +29,13 @@ namespace CSCD350_TriviaMaze
                     new Door(rooms[x, y], rooms[x, y + 1], 's');
                 }
             }
-        }
+            foreach (Room r in rooms)
+            { // wrap all the Doors with TestQuestions... hopefully
+                if (!(r.east is Wall))
+                    new TestQuestion(r.east);
+                if (!(r.south is Wall))
+                    new TestQuestion(r.south);
+            }
+        } // end Maze()
     }
 }

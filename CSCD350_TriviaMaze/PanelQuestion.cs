@@ -27,7 +27,7 @@ namespace CSCD350_TriviaMaze
             wrapped.rewire(obj);
         }
 
-        public PanelQuestion(Panel wrapping)
+        protected PanelQuestion(Panel wrapping)
         {
             wrapped = wrapping;
             wrapped.rewire(this);

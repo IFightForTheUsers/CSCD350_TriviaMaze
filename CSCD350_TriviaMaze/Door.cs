@@ -12,7 +12,7 @@ namespace CSCD350_TriviaMaze
         private Room room1;
         private Room room2;
 
-        public Door(Question question)
+        public Door(TestQuestion question)
         {
 
         }
