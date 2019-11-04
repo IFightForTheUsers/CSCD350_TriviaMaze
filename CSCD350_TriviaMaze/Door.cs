@@ -8,7 +8,8 @@ namespace CSCD350_TriviaMaze
 {
     class Door : Panel
     {
-        private bool locked = false; // flag for decorators to lock the door
+        private bool _locked = false; // flag for decorators to lock the door
+        public bool locked { get; }
         private Room room1;
         private Room room2;
 
@@ -34,7 +35,7 @@ namespace CSCD350_TriviaMaze
         }
 
         public Room kick(Room from) { // cheat to pass thru door
-            locked = false;
+            _locked = false;
             if (from == room1)
                 return room2;
             else if (from == room2)

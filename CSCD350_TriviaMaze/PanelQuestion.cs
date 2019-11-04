@@ -9,9 +9,8 @@ namespace CSCD350_TriviaMaze
     abstract class PanelQuestion : Panel
     {
         private Panel wrapped;
-        public bool isLocked()
-        {
-            return wrapped.isLocked();
+        public bool locked
+        { get { return wrapped.locked; }
         }
         public Room knock(Room from)
         {
