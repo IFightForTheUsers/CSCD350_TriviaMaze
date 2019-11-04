@@ -43,7 +43,7 @@ namespace CSCD350_TriviaMaze
         {
             Game game = new Game();
             Console.WriteLine("Game Initialized...");
-            game.OpenSQLConnection();
+            // game.OpenSQLConnection();
             string name;
             Regex nameCheck = new Regex(@"^[A-Za-z0-9]{1,15}$");
             do {

@@ -22,6 +22,13 @@ namespace CSCD350_TriviaMaze
         {
             rooms = new Room[4, 4];
             for (int x=0; x<4; x++)
+            {
+                for (int y=0; y<4; y++)
+                {
+                    rooms[x, y] = new Room();
+                }
+            }
+            for (int x=0; x<4; x++)
             { // add walls to maze edges
                 rooms[x, 0].north = new Wall(rooms[x, 0]);
                 rooms[x, 3].south = new Wall(rooms[x, 3]);
@@ -41,9 +48,9 @@ namespace CSCD350_TriviaMaze
             egress = new Exit(rooms[3, 3]);
             foreach (Room r in rooms)
             { // wrap all the Doors with TestQuestions... hopefully
-                if (!(r.east is Wall) && !(r.east is Exit) && !(r.east is Entrance))
+                if (r.east is Door)
                     new TestQuestion(r.east);
-                if (!(r.east is Wall) && !(r.east is Exit) && !(r.east is Entrance))
+                if (r.south is Door)
                     new TestQuestion(r.south);
             }
         } // end Maze()
