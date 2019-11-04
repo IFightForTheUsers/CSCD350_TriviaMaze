@@ -8,9 +8,9 @@ namespace CSCD350_TriviaMaze
 {
     class Room
     {
-        private Door north;
-        private Door south;
-        private Door east;
-        private Door west;
+        public Panel north;
+        public Panel south;
+        public Panel east;
+        public Panel west;
     }
 }

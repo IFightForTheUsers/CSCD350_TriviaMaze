@@ -63,14 +63,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cheatQuestion.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Maze.cs" />
+    <Compile Include="Panel.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="Wall.cs" />
+    <Compile Include="WallHackException.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
