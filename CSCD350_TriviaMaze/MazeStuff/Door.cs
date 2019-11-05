@@ -82,6 +82,11 @@ namespace TriviaMaze
                     room2.button.Content = null;
                 }
             }
+            else if (from == null)
+            {
+                room1.button.IsEnabled = false;
+                room2.button.IsEnabled = false;
+            }
             else
                 throw new WallHackException();
         }
