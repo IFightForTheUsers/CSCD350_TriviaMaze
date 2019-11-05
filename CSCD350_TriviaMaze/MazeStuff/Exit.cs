@@ -21,9 +21,19 @@ namespace TriviaMaze
             return null;
         }
 
+        public Room ghost(Room from)
+        {
+            return null;
+        }
+
         public Room kick(Room from)
         {
             return null;
+        }
+
+        public void setUIState(Room from)
+        {
+            // does nothing
         }
 
         public void rewire(Panel obj)

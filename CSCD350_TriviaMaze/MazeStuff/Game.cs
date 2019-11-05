@@ -19,8 +19,8 @@ namespace TriviaMaze
         public Game()
         {
             this.player = new Player("PlayerName");
-            this.maze = new Maze();
-            this.player.at = this.maze.startingRoom;
+            //this.maze = new Maze();
+            //this.player.at = this.maze.startingRoom;
 
         }
 

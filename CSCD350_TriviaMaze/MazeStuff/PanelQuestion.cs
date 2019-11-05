@@ -21,6 +21,16 @@ namespace TriviaMaze
             return wrapped.kick(from);
         }
 
+        public Room ghost(Room from)
+        {
+            return wrapped.ghost(from);
+        }
+
+        public void setUIState(Room from)
+        {
+            wrapped.setUIState(from);
+        }
+
         public void rewire(Panel obj)
         {
             wrapped.rewire(obj);

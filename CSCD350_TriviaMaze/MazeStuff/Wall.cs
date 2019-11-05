@@ -27,6 +27,16 @@ namespace TriviaMaze
                 throw new WallHackException();
         }
 
+        public Room ghost(Room from)
+        {
+            return null;
+        }
+
+        public void setUIState(Room from)
+        {
+            // does nothing
+        }
+
         public void rewire(Panel obj)
         {
             if (room.north == this)

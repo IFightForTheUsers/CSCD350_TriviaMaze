@@ -26,6 +26,17 @@ namespace TriviaMaze
             return from;
         }
 
+        public Room ghost(Room from)
+        {
+            return null;
+        }
+
+        public void setUIState(Room from)
+        {
+            if (from == null)
+                room.here();
+        }
+
         public void rewire(Panel obj)
         {
             if (room.north == this)
