@@ -10,16 +10,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace WindowingExperiment
+namespace TriviaMaze
 {
     /// <summary>
     /// Interaction logic for Maze.xaml
     /// </summary>
-    public partial class Maze : Window
+
+    public partial class MazeWindow : Window
     {
         private static readonly int roomPixelSize = 50;
         private Grid grid;
-        public Maze()
+        public MazeWindow()
         {
             InitializeComponent();
         }

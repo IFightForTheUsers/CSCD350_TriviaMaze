@@ -8,7 +8,7 @@ using System.IO;
 using System.Data;
 //using System.Data.SQLite;
 
-namespace CSCD350_TriviaMaze
+namespace TriviaMaze
 {
     class Game
     {

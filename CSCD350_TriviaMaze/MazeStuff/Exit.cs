@@ -8,7 +8,7 @@ using System.Threading.Tasks;
  * all attempts to leave return null
  */
 
-namespace CSCD350_TriviaMaze
+namespace TriviaMaze
 {
     class Exit : Panel
     {

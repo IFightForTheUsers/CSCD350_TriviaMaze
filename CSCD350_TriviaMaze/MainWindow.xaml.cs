@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WindowingExperiment
+namespace TriviaMaze
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -22,7 +22,7 @@ namespace WindowingExperiment
     public partial class MainWindow : Window
     {
         private static readonly Regex _regex = new Regex("[^0-9.-]+");
-        Maze maze = null;
+        MazeWindow maze = null;
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
         }
@@ -30,7 +30,7 @@ namespace WindowingExperiment
         private void btn1_Click(object sender, RoutedEventArgs e)
         {
             if (!_regex.IsMatch(maze_dim.Text)) {
-                maze = new Maze();
+                maze = new MazeWindow();
                 maze.Build(Int32.Parse(maze_dim.Text));
                 maze.Show();
             }
