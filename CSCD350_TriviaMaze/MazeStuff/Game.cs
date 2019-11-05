@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Data;
-using System.Data.SQLite;
+//using System.Data.SQLite;
 
 namespace CSCD350_TriviaMaze
 {
@@ -14,7 +14,7 @@ namespace CSCD350_TriviaMaze
     {
         private Player player;
         private Maze maze;
-        private SQLiteConnection connection { get; set; }
+        //private SQLiteConnection connection { get; set; }
 
         public Game()
         {
@@ -24,7 +24,7 @@ namespace CSCD350_TriviaMaze
 
         }
 
-        public void OpenSQLConnection()
+        /*public void OpenSQLConnection()
         {
             SQLiteCommand command = null;
             if (!(File.Exists(@"Question_Database.sqlite")))
@@ -37,9 +37,9 @@ namespace CSCD350_TriviaMaze
             }
             command.ExecuteReader();
 
-        }
+        }*/
 
-        public static void Main(string[] args)
+        /*public static void Main(string[] args)
         {
             Game game = new Game();
             Console.WriteLine("Game Initialized...");
@@ -59,6 +59,6 @@ namespace CSCD350_TriviaMaze
                 }
             } while (name == null);
             Console.ReadLine();
-        }
+        }*/
     }
 }
