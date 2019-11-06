@@ -123,11 +123,11 @@ namespace TriviaMaze
             room2 = y;
         }
 
-        public Door(Room x, Room y, char dir) // dir is which door this will be on room x can be n, s, e ,w
+        public Door(Room room1, Room room2, char dir) // dir is which door this will be on room x can be n, s, e ,w
         {
+            this.room1 = room1;
+            this.room2 = room2;
             _locked = false;
-            room1 = x;
-            room2 = y;
             switch (dir)
             {
                 case 'n':
@@ -144,7 +144,7 @@ namespace TriviaMaze
                     break;
                 case 'w':
                     room1.west = this;
-                    room1.east = this;
+                    room2.east = this;
                     break;
                 default:
                     throw new ArgumentException("direction must be n, s, e || w");

@@ -9,6 +9,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Diagnostics;
 
 namespace TriviaMaze
 {
@@ -71,16 +72,29 @@ namespace TriviaMaze
                     Grid.SetColumn(rooms[x, y].button, y);
                 }
             }
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < n; i++)
             { // add walls to maze edges
                 rooms[i, 0].north = new Wall(rooms[i, 0]);
-                rooms[i, 3].south = new Wall(rooms[i, 3]);
                 rooms[0, i].west = new Wall(rooms[0, i]);
-                rooms[3, i].east = new Wall(rooms[3, i]);
+                rooms[n-1, i].east = new Wall(rooms[n-1, i]);
+                rooms[i, n-1].south = new Wall(rooms[i, n-1]);
             }
-            for (int x = 0; x < 3; x++)
+            // corner check for walls
+            //NW corner
+            Debug.Assert(rooms[0, 0].north != null);
+            Debug.Assert(rooms[0, 0].west != null);
+            //NE corner
+            Debug.Assert(rooms[n-1, 0].north != null);
+            Debug.Assert(rooms[n-1, 0].east != null);
+            //SW corner
+            Debug.Assert(rooms[0, n-1].south != null);
+            Debug.Assert(rooms[0, n-1].west != null);
+            //SE corner
+            Debug.Assert(rooms[n-1, n-1].south != null);
+            Debug.Assert(rooms[n-1, n-1].east != null);
+            for (int y = 0; y < n-1; y++)
             { // now we add doors
-                for (int y = 0; y < 3; y++)
+                for (int x = 0; x < n-2; x++)
                 {
                     new Door(rooms[x, y], rooms[x + 1, y], 'e');
                     new Door(rooms[x, y], rooms[x, y + 1], 's');
@@ -88,7 +102,7 @@ namespace TriviaMaze
             }
             // hard add the entry and exit
             ingress = new Entrance(rooms[0, 0]);
-            egress = new Exit(rooms[3, 3]);
+            egress = new Exit(rooms[n-1, n-1]);
 
             rooms[0, 0].here();
             at = rooms[0, 0];
