@@ -73,13 +73,13 @@ namespace TriviaMaze
                 {
                     room1.button.IsEnabled = false;
                     room1.button.Background = Regulations.disabledColor;
-                    room2.button.Content = null;
+                    room1.button.Content = null;
                 }
                 else
                 {
                     room1.button.IsEnabled = true;
                     room1.button.Background = Regulations.validMoveColor;
-                    room2.button.Content = null;
+                    room1.button.Content = null;
                 }
             }
             else if (from == null)

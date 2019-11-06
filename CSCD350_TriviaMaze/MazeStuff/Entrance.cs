@@ -34,7 +34,7 @@ namespace TriviaMaze
         public void setUIState(Room from)
         {
             if (from == null)
-                room.here();
+                room.Here();
         }
 
         public void rewire(Panel obj)

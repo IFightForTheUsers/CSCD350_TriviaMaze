@@ -30,7 +30,7 @@ namespace TriviaMaze
             InitializeComponent();
         }
 
-        public String buttonName(int x, int y)
+        public String ButtonName(int x, int y)
         {
             return "b_x" + x + "y" + y;
         }
@@ -60,9 +60,9 @@ namespace TriviaMaze
                     Button temp = new Button();
                     rooms[x, y] = new Room(this);
                     Room lambda_var = rooms[x, y];
-                    temp.Click += (s, e) => { lambda_var.clicked(); };
+                    temp.Click += (s, e) => { lambda_var.Clicked(); };
                     rooms[x, y].button = temp;
-                    rooms[x, y].button.Name = buttonName(x,y);
+                    rooms[x, y].button.Name = ButtonName(x,y);
                     rooms[x, y].button.Height = Regulations.roomPixelSize;
                     rooms[x, y].button.Width = Regulations.roomPixelSize;
                     rooms[x, y].button.Background = Regulations.disabledColor;
@@ -94,17 +94,23 @@ namespace TriviaMaze
             Debug.Assert(rooms[n-1, n-1].east != null);
             for (int y = 0; y < n-1; y++)
             { // now we add doors
-                for (int x = 0; x < n-2; x++)
+                for (int x = 0; x < n; x++)
+                {
+                    new Door(rooms[x, y], rooms[x, y + 1], 's');
+                }
+            }
+            for (int y = 0; y < n; y++)
+            { // now we add doors
+                for (int x = 0; x < n - 1; x++)
                 {
                     new Door(rooms[x, y], rooms[x + 1, y], 'e');
-                    new Door(rooms[x, y], rooms[x, y + 1], 's');
                 }
             }
             // hard add the entry and exit
             ingress = new Entrance(rooms[0, 0]);
             egress = new Exit(rooms[n-1, n-1]);
 
-            rooms[0, 0].here();
+            rooms[0, 0].Here();
             at = rooms[0, 0];
             /*foreach (Room r in rooms)
             { // wrap all the Doors with TestQuestions...

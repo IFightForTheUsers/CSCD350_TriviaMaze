@@ -20,7 +20,8 @@ namespace TriviaMaze
                 throw new WallHackException();
         }
 
-        public Room kick(Room from) {
+        public Room kick(Room from)
+        {
             if (from == room)
                 return from;
             else
