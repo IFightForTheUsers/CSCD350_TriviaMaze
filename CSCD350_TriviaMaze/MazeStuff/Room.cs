@@ -53,27 +53,43 @@ namespace TriviaMaze
             //janky testing to find which door is being used
             if (this.north.ghost(this) == owner.at)
             {
-                owner.at.Clear();
-                owner.at = this;
-                this.Here();
+                temp = owner.at.south.knock(owner.at);
+                if (temp != owner.at)
+                {
+                    owner.at.Clear();
+                    owner.at = this;
+                    this.Here();
+                }
             }
             else if (this.south.ghost(this) == owner.at)
             {
-                owner.at.Clear();
-                owner.at = this;
-                this.Here();
+                temp = owner.at.north.knock(owner.at);
+                if (temp != owner.at)
+                {
+                    owner.at.Clear();
+                    owner.at = this;
+                    this.Here();
+                }
             }
             else if (this.east.ghost(this) == owner.at)
             {
-                owner.at.Clear();
-                owner.at = this;
-                this.Here();
+                temp = owner.at.west.knock(owner.at);
+                if (temp != owner.at)
+                {
+                    owner.at.Clear();
+                    owner.at = this;
+                    this.Here();
+                }
             }
             else if (this.west.ghost(this) == owner.at)
             {
-                owner.at.Clear();
-                owner.at = this;
-                this.Here();
+                temp = owner.at.east.knock(owner.at);
+                if (temp != owner.at)
+                {
+                    owner.at.Clear();
+                    owner.at = this;
+                    this.Here();
+                }
             }
             else
             {
