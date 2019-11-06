@@ -33,8 +33,13 @@ namespace TriviaMaze
 
         public void setUIState(Room from)
         {
-            if (from == null)
-                room.Here();
+            //
+        }
+
+        public override string ToString()
+        {
+            // just a stupid hash for debug testing to show isntance
+            return "Entrance@"+this.GetHashCode().ToString();
         }
 
         public void rewire(Panel obj)

@@ -38,6 +38,12 @@ namespace TriviaMaze
             // does nothing
         }
 
+        public override string ToString()
+        {
+            // just a stupid hash for debug testing to show isntance
+            return "Wall@" + this.GetHashCode().ToString();
+        }
+
         public void rewire(Panel obj)
         {
             if (room.north == this)

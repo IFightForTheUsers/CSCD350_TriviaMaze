@@ -16,7 +16,7 @@ namespace TriviaMaze
 
         public Room knock(Room from)
         {
-            if (!locked)
+            if (!_locked)
             {
                 if (from == room1)
                     return room2;
@@ -47,6 +47,12 @@ namespace TriviaMaze
                 return room1;
             else
                 throw new WallHackException();
+        }
+
+        public override string ToString()
+        {
+            // just a stupid hash for debug testing to show isntance
+            return "Door@"+this.GetHashCode().ToString();
         }
 
         public void setUIState(Room from)

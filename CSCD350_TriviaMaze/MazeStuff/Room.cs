@@ -43,11 +43,12 @@ namespace TriviaMaze
         public override string ToString()
         {
             // just a stupid hash for debug testing to show isntance
-            return this.GetHashCode().ToString();
+            return "Room@"+this.GetHashCode().ToString();
         }
         internal void Clicked()
         {
             //MessageBox.Show("eep! clicked Room is" + this.ToString() + " and we are at " + owner.at.ToString());
+            Room temp = null;
 
             //janky testing to find which door is being used
             if (this.north.ghost(this) == owner.at)

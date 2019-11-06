@@ -99,6 +99,8 @@ namespace TriviaMaze
                     new Door(rooms[x, y], rooms[x, y + 1], 's');
                 }
             }
+            Debug.Assert(rooms[0,0].south==rooms[0,1].north);
+            Debug.Assert(rooms[n-1, n-1].north == rooms[n-1, n-2].south);
             for (int y = 0; y < n; y++)
             { // now we add doors
                 for (int x = 0; x < n - 1; x++)
@@ -108,7 +110,9 @@ namespace TriviaMaze
             }
             // hard add the entry and exit
             ingress = new Entrance(rooms[0, 0]);
+            rooms[0, 0].west = ingress;
             egress = new Exit(rooms[n-1, n-1]);
+            rooms[n - 1, n - 1].east = egress;
 
             rooms[0, 0].Here();
             at = rooms[0, 0];
