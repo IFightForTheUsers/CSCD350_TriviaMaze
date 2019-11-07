@@ -8,6 +8,18 @@
         Title="MainWindow" Height="600" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <StackPanel>
+        <Menu IsMainMenu="True">
+            <MenuItem x:Name ="File" Header="_File" Height="18" Width="52" Click="File_Click">
+                <MenuItem x:Name="mnuFileStart" Header="Start"/>
+                <MenuItem x:Name="mnuStop" Header="S_top" IsEnabled="False" Click="mnuStop_Click"/>
+                <MenuItem x:Name="mnuOpenDBWindow" Header="_OpenDBWindow"/>
+                <MenuItem x:Name="mnuClose" Header="Exit" Click="mnuClose_Click"/>
+            </MenuItem>
+            <MenuItem x:Name="menuInf" Header="Help" Height="21" Width="51">
+                <MenuItem x:Name="mnuHelpAbout" Header="About" Click="mnuHelpAbout_Click"/>
+                <MenuItem x:Name="mnuInstructions" Header="Instructions" Click="mnuInstructions_Click"/>
+            </MenuItem>
+        </Menu>
 
         <Border  BorderBrush="Orange" BorderThickness="5" Height="150">
             <TextBlock Text="Trivia Maze" TextAlignment="Center" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -132,21 +144,10 @@
                 
             </Grid>
 
-            <Grid x:Name="Question" Grid.Column="1">
-                <Border BorderBrush="Chartreuse" BorderThickness="5" />
+            <Canvas x:Name ="Question" Grid.Column="1" HorizontalAlignment="Left" Height="326" Margin="10,10,0,0" VerticalAlignment="Top" Width="624">
 
-                <StackPanel>
-                    <TextBlock Text="[Question]" Margin="100 50 100 20" FontSize="30" FontWeight="Bold"/>
-
-                    <RadioButton x:Name="RadioButtonA" GroupName="MC" Content=" [ a ]" Margin="100 15"/>
-                    <RadioButton x:Name="RadioButtonB" GroupName="MC" Content=" [ b ]" Margin="100 15"/>
-                    <RadioButton x:Name="RadioButtonC" GroupName="MC" Content=" [ c ]" Margin="100 15"/>
-                    <RadioButton x:Name="RadioButtonD" GroupName="MC" Content=" [ d ]" Margin="100 15"/>
-
-                    <Button x:Name="SubmitAnswerButton" Content="Submit" HorizontalAlignment="Center" Padding="10" FontSize="15" FontWeight="Bold"/>
-                </StackPanel>
-                
-            </Grid>
+            </Canvas>
+            <Button x:Name="btn_Submit" Content="Submit" Canvas.Left="513" Canvas.Top="349" Width="96" RenderTransformOrigin="1.396,1.203" Height="35" Click="btn_Submit_Click" Grid.Column="1" Margin="517,341,31,35"/>
         </Grid>
 
 
