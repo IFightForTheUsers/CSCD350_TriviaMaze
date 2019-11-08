@@ -87,9 +87,9 @@ namespace TriviaMazeGUI
 
         private void btn_Submit_Click(object sender, RoutedEventArgs e)
         {
-            Question.Children.Remove(t);
-            Question.Children.Remove(f);
             Question.Children.Clear();
         }
+
+
     }
 }
