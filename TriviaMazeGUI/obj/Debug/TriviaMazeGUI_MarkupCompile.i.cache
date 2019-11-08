@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Supra\OneDrive - Eastern Washington University\Fall '19\CSCD 350\TriviaMaze\TriviaMazeGUI\TriviaMazeGUI\obj\Debug\
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\
 TriviaMazeGUI
 none
 false
 DEBUG;TRACE
-C:\Users\Supra\OneDrive - Eastern Washington University\Fall '19\CSCD 350\TriviaMaze\TriviaMazeGUI\TriviaMazeGUI\App.xaml
-2788926290
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\App.xaml
+41712510856
 
-7-718450854
+91116823749
 13152784993
-MainWindow.xaml;UserPrompt.xaml;
+About.xaml;Instructions.xaml;MainWindow.xaml;UserPrompt.xaml;
 
-True
+False
 
