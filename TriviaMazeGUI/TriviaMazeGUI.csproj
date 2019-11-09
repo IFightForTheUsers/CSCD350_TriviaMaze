@@ -37,6 +37,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.111.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,12 +62,25 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Door.cs" />
+    <Compile Include="Entrance.cs" />
+    <Compile Include="Exit.cs" />
+    <Compile Include="Game.cs" />
     <Compile Include="Instructions.xaml.cs">
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Maze.cs" />
+    <Compile Include="Panel.cs" />
+    <Compile Include="PanelQuestion.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="QuestionType.cs" />
+    <Compile Include="Room.cs" />
+    <Compile Include="TestQuestion.cs" />
     <Compile Include="UserPrompt.xaml.cs">
       <DependentUpon>UserPrompt.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Wall.cs" />
+    <Compile Include="WallHackException.cs" />
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

@@ -12,20 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-//using System.Data.SQLite;
+using System.Data.SQLite;
 
 namespace TriviaMazeGUI
 {
     public partial class MainWindow : Window
     {
-        //private SQLiteConnection connection { get; set; }
-        private RadioButton t;
-        private RadioButton f;
+        private SQLiteConnection connection { get; set; }
         private About about;
+        private QuestionType questionType;
+
         public MainWindow()
         {
             InitializeComponent();
-            TrueFalseQuestion();
+
             this.Loaded += MainWindow_Loaded;
         }
 
@@ -36,8 +36,36 @@ namespace TriviaMazeGUI
             UserPrompt userPromptWindow = new UserPrompt();
             userPromptWindow.Show();
 
+            loadQuestion();
+
             //string name = userPromptWindow.NameEntry.Text;
             //MessageBox.Show(name);
+        }
+
+        private void loadQuestion()
+        {
+
+            // random generate 0, 1, or 2 to decide what type of question?
+
+            questionType = QuestionType.MultipleChoice;
+
+            getQuestionType();
+        }
+
+        private void getQuestionType()
+        {
+            if (questionType == QuestionType.TrueFalse)
+            {
+                TrueFalseQuestion();
+            }
+            if (questionType == QuestionType.MultipleChoice)
+            {
+                MultipleChoiceQuestion();
+            }
+            if (questionType == QuestionType.ShortAnswer)
+            {
+                ShortAnswerQuestion();
+            }
         }
 
         private void File_Click(object sender, RoutedEventArgs e)
@@ -69,20 +97,92 @@ namespace TriviaMazeGUI
 
         private void TrueFalseQuestion()
         {
-            t = new RadioButton();
-            f = new RadioButton();
+            TextBlock q = new TextBlock();
+            q.FontSize = 20;
+            q.Margin = new Thickness(20);
+
+            RadioButton t = new RadioButton();
+            RadioButton f = new RadioButton();
+            t.Margin = new Thickness(10);
+            f.Margin = new Thickness(10);
+
             StackPanel sp = new StackPanel();
 
-            Question.Children.Add(sp);
+            sp.Children.Add(q);
             sp.Children.Add(t);
             sp.Children.Add(f);
+
+            Question.Children.Add(sp);
 
             Canvas.SetTop(sp, 50);
             Canvas.SetLeft(sp, 50);
 
+            q.Text = "[ Question ]";
             t.Content = "True";
             f.Content = "False";
 
+        }
+
+        private void MultipleChoiceQuestion()
+        {
+            TextBlock q = new TextBlock();
+            q.FontSize = 20;
+            q.Margin = new Thickness(20);
+
+            RadioButton a = new RadioButton();
+            RadioButton b = new RadioButton();
+            RadioButton c = new RadioButton();
+            RadioButton d = new RadioButton();
+            a.Margin = new Thickness(10);
+            b.Margin = new Thickness(10);
+            c.Margin = new Thickness(10);
+            d.Margin = new Thickness(10);
+
+            StackPanel sp = new StackPanel();
+            
+            sp.Children.Add(q);
+            sp.Children.Add(a);
+            sp.Children.Add(b);
+            sp.Children.Add(c);
+            sp.Children.Add(d);
+
+            Question.Children.Add(sp);
+
+            Canvas.SetTop(sp, 50);
+            Canvas.SetLeft(sp, 50);
+
+            q.Text = "[ Question ]";
+            a.Content = "A";
+            b.Content = "B";
+            c.Content = "C";
+            d.Content = "D";
+        }
+
+        private void ShortAnswerQuestion()
+        {
+            TextBlock q = new TextBlock();
+            q.FontSize = 20;
+            q.Margin = new Thickness(20);
+
+            TextBlock ans = new TextBlock();
+            ans.Text = "Answer: ";
+            ans.Margin = new Thickness(20, 20, 20 , 0);
+
+            TextBox input = new TextBox();
+            input.Margin = new Thickness(20, 5, 20, 20);
+
+            StackPanel sp = new StackPanel();
+
+            sp.Children.Add(q);
+            sp.Children.Add(ans);
+            sp.Children.Add(input);
+
+            Question.Children.Add(sp);
+
+            Canvas.SetTop(sp, 50);
+            Canvas.SetLeft(sp, 50);
+
+            q.Text = "[ Question ]";
         }
 
         private void btn_Submit_Click(object sender, RoutedEventArgs e)

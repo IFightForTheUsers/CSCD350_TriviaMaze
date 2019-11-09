@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SQLite;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace TriviaMazeGUI
 {
@@ -36,27 +39,27 @@ namespace TriviaMazeGUI
 
         }
 
-        public static void Main(string[] args)
-        {
-            Game game = new Game();
-            Console.WriteLine("Game Initialized...");
-            // game.OpenSQLConnection();
-            string name;
-            Regex nameCheck = new Regex(@"^[A-Za-z0-9]{1,15}$");
-            do
-            {
-                Console.Write("\nEnter Player Name (1-15 characters, alphanumeric no special characters)--> ");
-                name = Console.ReadLine();
-                if (nameCheck.IsMatch(name))
-                {
-                    game.player.Name = name;
-                }
-                else
-                {
-                    name = null;
-                }
-            } while (name == null);
-            Console.ReadLine();
-        }
+        //public static void Main(string[] args)
+        //{
+        //    Game game = new Game();
+        //    Console.WriteLine("Game Initialized...");
+        //    // game.OpenSQLConnection();
+        //    string name;
+        //    Regex nameCheck = new Regex(@"^[A-Za-z0-9]{1,15}$");
+        //    do
+        //    {
+        //        Console.Write("\nEnter Player Name (1-15 characters, alphanumeric no special characters)--> ");
+        //        name = Console.ReadLine();
+        //        if (nameCheck.IsMatch(name))
+        //        {
+        //            game.player.Name = name;
+        //        }
+        //        else
+        //        {
+        //            name = null;
+        //        }
+        //    } while (name == null);
+        //    Console.ReadLine();
+        //}
     }
 }

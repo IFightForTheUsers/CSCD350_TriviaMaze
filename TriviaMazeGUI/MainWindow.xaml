@@ -25,7 +25,7 @@
             <TextBlock Text="Trivia Maze" TextAlignment="Center" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
 
-        <Grid Height="411">
+        <Grid Height="392">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400" />
@@ -139,19 +139,21 @@
                     </Grid>
 
                 </StackPanel>
-                
-                
-                
+
+
+
             </Grid>
+
+            <Border Grid.Column="1" BorderBrush="Chartreuse" BorderThickness="5"/>
 
             <Canvas x:Name ="Question" Grid.Column="1" HorizontalAlignment="Left" Height="326" Margin="10,10,0,0" VerticalAlignment="Top" Width="624">
 
             </Canvas>
-            <Button x:Name="btn_Submit" Content="Submit" Canvas.Left="513" Canvas.Top="349" Width="96" RenderTransformOrigin="1.396,1.203" Height="35" Click="btn_Submit_Click" Grid.Column="1" Margin="517,341,31,35"/>
+            <Button x:Name="btn_Submit" Content="Submit" Canvas.Left="513" Canvas.Top="349" RenderTransformOrigin="1.396,1.203" Height="35" Click="btn_Submit_Click" Grid.Column="1" Margin="498,326,60,31"/>
         </Grid>
 
 
     </StackPanel>
-    
-    
+
+
 </Window>
