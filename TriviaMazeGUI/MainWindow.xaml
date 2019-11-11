@@ -8,24 +8,12 @@
         Title="MainWindow" Height="600" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
 
     <StackPanel>
-        <Menu IsMainMenu="True">
-            <MenuItem x:Name ="File" Header="_File" Height="18" Width="52" Click="File_Click">
-                <MenuItem x:Name="mnuFileStart" Header="Start"/>
-                <MenuItem x:Name="mnuStop" Header="S_top" IsEnabled="False" Click="mnuStop_Click"/>
-                <MenuItem x:Name="mnuOpenDBWindow" Header="_OpenDBWindow"/>
-                <MenuItem x:Name="mnuClose" Header="Exit" Click="mnuClose_Click"/>
-            </MenuItem>
-            <MenuItem x:Name="menuInf" Header="Help" Height="21" Width="51">
-                <MenuItem x:Name="mnuHelpAbout" Header="About" Click="mnuHelpAbout_Click"/>
-                <MenuItem x:Name="mnuInstructions" Header="Instructions" Click="mnuInstructions_Click"/>
-            </MenuItem>
-        </Menu>
 
         <Border  BorderBrush="Orange" BorderThickness="5" Height="150">
             <TextBlock Text="Trivia Maze" TextAlignment="Center" FontSize="50" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
 
-        <Grid Height="392">
+        <Grid Height="411">
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="400" />
@@ -33,115 +21,6 @@
             </Grid.ColumnDefinitions>
 
             <Grid x:Name="Board" Grid.Column="0">
-                <Border BorderBrush="Blue" BorderThickness="5" />
-
-                <StackPanel>
-                    <Grid Margin="40" Height="250">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="30" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="30" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-
-                        <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ZeroZero" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="OneZero" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="TwoZero" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="4" Grid.Row="0" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ThreeZero" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ZeroOne" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="2" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="OneOne" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="3" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="TwoOne" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="4" Grid.Row="1" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ThreeOne" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="2" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ZeroTwo" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="2" Grid.Row="2" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="OneTwo" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="3" Grid.Row="2" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="TwoTwo" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="4" Grid.Row="2" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ThreeTwo" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="1" Grid.Row="3" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ZeroThree" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="2" Grid.Row="3" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="OneThree" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="3" Grid.Row="3" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="TwoThree" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                        <Border Grid.Column="4" Grid.Row="3" BorderBrush="Black" BorderThickness="1">
-                            <TextBlock x:Name="ThreeThree" Text="-" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-
-                        <Label Grid.Column="0" Content="START" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <TransformGroup>
-                                    <RotateTransform Angle="90" />
-                                    <ScaleTransform ScaleX="-1" ScaleY="-1"/>
-                                </TransformGroup>
-                            </Label.LayoutTransform>
-                        </Label>
-
-                        <Label Grid.Column="5" Grid.Row="3" Content="FINSIH" HorizontalContentAlignment="Center" FontSize="15" FontWeight="Bold">
-                            <Label.LayoutTransform>
-                                <TransformGroup>
-                                    <RotateTransform Angle="-90" />
-                                    <ScaleTransform ScaleX="-1" ScaleY="-1"/>
-                                </TransformGroup>
-                            </Label.LayoutTransform>
-                        </Label>
-
-                        <!--<TextBlock Grid.Column="0" Grid.Row="0" Text="START" TextWrapping="Wrap" FontSize="20"/>-->
-                        <!--<TextBlock Grid.Column="5" Grid.Row="3" Text="FINISH" TextWrapping="Wrap" FontSize="20"/>-->
-                    </Grid>
-
-                    <Grid Height="70" Margin="10 0 10 0">
-
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-
-                        <Button Grid.Column="0" x:Name="Up" Content="Up" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Margin="10"/>
-                        <Button Grid.Column="1" x:Name="Down" Content="Down" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Margin="10"/>
-                        <Button Grid.Column="2" x:Name="Left" Content="Left" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Margin="10"/>
-                        <Button Grid.Column="3" x:Name="Right" Content="Right" FontSize="15" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Width="60" Height="30" Margin="10"/>
-                    </Grid>
-
-                </StackPanel>
-
-
-
             </Grid>
 
             <Border Grid.Column="1" BorderBrush="Chartreuse" BorderThickness="5"/>
@@ -149,6 +28,7 @@
             <Canvas x:Name ="Question" Grid.Column="1" HorizontalAlignment="Left" Height="326" Margin="10,10,0,0" VerticalAlignment="Top" Width="624">
 
             </Canvas>
+
             <Button x:Name="btn_Submit" Content="Submit" Canvas.Left="513" Canvas.Top="349" RenderTransformOrigin="1.396,1.203" Height="35" Click="btn_Submit_Click" Grid.Column="1" Margin="498,326,60,31"/>
         </Grid>
 

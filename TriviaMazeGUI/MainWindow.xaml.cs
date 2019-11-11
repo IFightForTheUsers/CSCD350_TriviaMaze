@@ -18,9 +18,12 @@ namespace TriviaMazeGUI
 {
     public partial class MainWindow : Window
     {
+        MazeGridBuilder maze;
+
         private SQLiteConnection connection { get; set; }
         private About about;
         private QuestionType questionType;
+        private Game game;
 
         public MainWindow()
         {
@@ -33,18 +36,25 @@ namespace TriviaMazeGUI
         {
             //MessageBox.Show("Loaded");
 
-            UserPrompt userPromptWindow = new UserPrompt();
-            userPromptWindow.Show();
+            //UserPrompt userPromptWindow = new UserPrompt();
+            //userPromptWindow.Show();
 
-            loadQuestion();
+            maze = new MazeGridBuilder();
+            maze.Build(4, Board);
+
+            game = new Game();
+            game.OpenSQLConnection();
+
+            MultipleChoiceQuestion();
+
+            //loadQuestion();
 
             //string name = userPromptWindow.NameEntry.Text;
             //MessageBox.Show(name);
         }
 
-        private void loadQuestion()
+        public void loadQuestion(SQLiteDataReader dr)
         {
-
             // random generate 0, 1, or 2 to decide what type of question?
 
             questionType = QuestionType.MultipleChoice;
@@ -139,7 +149,7 @@ namespace TriviaMazeGUI
             d.Margin = new Thickness(10);
 
             StackPanel sp = new StackPanel();
-            
+
             sp.Children.Add(q);
             sp.Children.Add(a);
             sp.Children.Add(b);
@@ -166,7 +176,7 @@ namespace TriviaMazeGUI
 
             TextBlock ans = new TextBlock();
             ans.Text = "Answer: ";
-            ans.Margin = new Thickness(20, 20, 20 , 0);
+            ans.Margin = new Thickness(20, 20, 20, 0);
 
             TextBox input = new TextBox();
             input.Margin = new Thickness(20, 5, 20, 20);

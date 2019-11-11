@@ -10,8 +10,7 @@ namespace TriviaMazeGUI
     {
         private Panel wrapped;
         public bool locked
-        {
-            get { return wrapped.locked; }
+        { get { return wrapped.locked; }
         }
         public Room knock(Room from)
         {
@@ -20,6 +19,16 @@ namespace TriviaMazeGUI
         public Room kick(Room from)
         {
             return wrapped.kick(from);
+        }
+
+        public Room ghost(Room from)
+        {
+            return wrapped.ghost(from);
+        }
+
+        public void setUIState(Room from)
+        {
+            wrapped.setUIState(from);
         }
 
         public void rewire(Panel obj)

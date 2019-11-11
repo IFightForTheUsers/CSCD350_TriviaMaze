@@ -21,9 +21,25 @@ namespace TriviaMazeGUI
             return null;
         }
 
+        public Room ghost(Room from)
+        {
+            return null;
+        }
+
         public Room kick(Room from)
         {
             return null;
+        }
+
+        public void setUIState(Room from)
+        {
+            // does nothing
+        }
+
+        public override string ToString()
+        {
+            // just a stupid hash for debug testing to show isntance
+            return "Exit@" + this.GetHashCode().ToString();
         }
 
         public void rewire(Panel obj)

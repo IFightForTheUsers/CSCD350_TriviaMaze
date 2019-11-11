@@ -10,7 +10,7 @@ namespace TriviaMazeGUI
     {
         private Room room;
 
-        public bool locked { get { return true; } }
+        public bool locked { get { return true; }  }
 
         public Room knock(Room from)
         {
@@ -26,6 +26,22 @@ namespace TriviaMazeGUI
                 return from;
             else
                 throw new WallHackException();
+        }
+
+        public Room ghost(Room from)
+        {
+            return null;
+        }
+
+        public void setUIState(Room from)
+        {
+            // does nothing
+        }
+
+        public override string ToString()
+        {
+            // just a stupid hash for debug testing to show isntance
+            return "Wall@" + this.GetHashCode().ToString();
         }
 
         public void rewire(Panel obj)

@@ -101,3 +101,6 @@ C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaM
 C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.Properties.Resources.resources
 C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.GenerateResource.cache
 C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.CopyComplete
+C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.dll
+C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.xml
+C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.dll.config

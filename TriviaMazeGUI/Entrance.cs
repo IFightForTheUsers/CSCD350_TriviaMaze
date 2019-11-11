@@ -26,6 +26,22 @@ namespace TriviaMazeGUI
             return from;
         }
 
+        public Room ghost(Room from)
+        {
+            return null;
+        }
+
+        public void setUIState(Room from)
+        {
+            //
+        }
+
+        public override string ToString()
+        {
+            // just a stupid hash for debug testing to show isntance
+            return "Entrance@"+this.GetHashCode().ToString();
+        }
+
         public void rewire(Panel obj)
         {
             if (room.north == this)
