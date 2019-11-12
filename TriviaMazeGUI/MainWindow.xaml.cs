@@ -18,6 +18,7 @@ namespace TriviaMazeGUI
 {
     public partial class MainWindow : Window
     {
+        enum QuestionType{ TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 }
         MazeGridBuilder maze;
 
         private SQLiteConnection connection { get; set; }
@@ -29,7 +30,6 @@ namespace TriviaMazeGUI
         public MainWindow()
         {
             InitializeComponent();
-
             this.Loaded += MainWindow_Loaded;
         }
 
@@ -132,6 +132,7 @@ namespace TriviaMazeGUI
             q.Text = "[ Question ]";
             t.Content = "True";
             f.Content = "False";
+            this.questionType = QuestionType.TrueFalse;
 
         }
 
@@ -168,6 +169,7 @@ namespace TriviaMazeGUI
             b.Content = "B";
             c.Content = "C";
             d.Content = "D";
+            this.questionType = QuestionType.MultipleChoice;
         }
 
         private void ShortAnswerQuestion()
@@ -195,20 +197,24 @@ namespace TriviaMazeGUI
             Canvas.SetLeft(sp, 50);
 
             q.Text = "[ Question ]";
+            this.questionType = QuestionType.ShortAnswer;
         }
 
         private void btn_Submit_Click(object sender, RoutedEventArgs e)
         {
             Question.Children.GetType();
-            if (this.questionType.Equals(0))
+            if (this.questionType.Equals(QuestionType.TrueFalse))
             {
 
             }
-            else if(this.questionType.Equals(1))
+            else if(this.questionType.Equals(this.questionType.Equals(QuestionType.MultipleChoice)))
             {
 
             }
-            else if(this.questionType.Equals(2))
+            else if (this.questionType.Equals(QuestionType.ShortAnswer))
+            {
+
+            }
 
             Question.Children.Clear();
         }
