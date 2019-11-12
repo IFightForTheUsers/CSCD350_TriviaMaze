@@ -22,6 +22,7 @@ namespace TriviaMazeGUI
 
         private SQLiteConnection connection { get; set; }
         private About about;
+        private Instructions instruction;
         private QuestionType questionType;
         private Game game;
 
@@ -102,7 +103,8 @@ namespace TriviaMazeGUI
 
         private void mnuInstructions_Click(object sender, RoutedEventArgs e)
         {
-
+            this.instruction = new Instructions();
+            this.instruction.Show();
         }
 
         private void TrueFalseQuestion()
@@ -197,6 +199,17 @@ namespace TriviaMazeGUI
 
         private void btn_Submit_Click(object sender, RoutedEventArgs e)
         {
+            Question.Children.GetType();
+            if (this.questionType.Equals(0))
+            {
+
+            }
+            else if(this.questionType.Equals(1))
+            {
+
+            }
+            else if(this.questionType.Equals(2))
+
             Question.Children.Clear();
         }
 

@@ -12,4 +12,5 @@ namespace TriviaMazeGUI
         MultipleChoice = 1,
         ShortAnswer = 2
     }
+
 }
