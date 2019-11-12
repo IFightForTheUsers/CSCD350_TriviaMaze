@@ -72,12 +72,15 @@
     </Compile>
     <Compile Include="Maze.cs" />
     <Compile Include="MazeGridBuilder.cs" />
+    <Compile Include="MultipleChoiceQuestion.cs" />
     <Compile Include="Panel.cs" />
     <Compile Include="PanelQuestion.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Regulations.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="ShortAnswerQuestion.cs" />
     <Compile Include="TestQuestion.cs" />
+    <Compile Include="TrueFalseQuestion.cs" />
     <Compile Include="UserPrompt.xaml.cs">
       <DependentUpon>UserPrompt.xaml</DependentUpon>
     </Compile>
