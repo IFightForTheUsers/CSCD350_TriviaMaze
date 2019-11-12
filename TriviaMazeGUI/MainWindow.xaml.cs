@@ -202,23 +202,47 @@ namespace TriviaMazeGUI
 
         private void btn_Submit_Click(object sender, RoutedEventArgs e)
         {
-            Question.Children.GetType();
+
             if (this.questionType.Equals(QuestionType.TrueFalse))
             {
-
+                TrueFalseAnswer();
             }
-            else if(this.questionType.Equals(this.questionType.Equals(QuestionType.MultipleChoice)))
+            else if(this.questionType.Equals(QuestionType.MultipleChoice))
             {
-
+                MultipleChoiceAnswer();
             }
             else if (this.questionType.Equals(QuestionType.ShortAnswer))
             {
-
+                ShortAnswerAnswer();
             }
 
             Question.Children.Clear();
         }
 
+        //Canvas will only ever have one child
+        private void TrueFalseAnswer()
+        {
+            StackPanel temp = (StackPanel)Question.Children[0];
+            RadioButton btnA = (RadioButton)temp.Children[1];
+            RadioButton btnB = (RadioButton)temp.Children[2];
+            if (btnA.IsChecked == true)
+            {
+                MessageBox.Show("hi");
+            }
+            else if (btnB.IsChecked == false)
+            {
+
+            }
+        }
+        private void MultipleChoiceAnswer()
+        {
+            StackPanel temp = (StackPanel)Question.Children[0];
+            MessageBox.Show(temp.Children[1].ToString());
+        }
+        private void ShortAnswerAnswer()
+        {
+            StackPanel temp = (StackPanel)Question.Children[0];
+        }
 
     }
 }

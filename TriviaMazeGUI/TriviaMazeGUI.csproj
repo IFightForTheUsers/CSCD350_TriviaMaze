@@ -75,7 +75,6 @@
     <Compile Include="Panel.cs" />
     <Compile Include="PanelQuestion.cs" />
     <Compile Include="Player.cs" />
-    <Compile Include="QuestionType.cs" />
     <Compile Include="Regulations.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="TestQuestion.cs" />
