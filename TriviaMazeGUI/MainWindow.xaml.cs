@@ -20,6 +20,8 @@ namespace TriviaMazeGUI
     {
         enum QuestionType{ TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 }
         MazeGridBuilder maze;
+        private static readonly Lazy<MainWindow> lazy = new Lazy<MainWindow> (()=> new MainWindow());
+        public static MainWindow Instance { get { return lazy.Value; } }
 
         private SQLiteConnection connection { get; set; }
         private About about;
@@ -27,7 +29,7 @@ namespace TriviaMazeGUI
         private QuestionType questionType;
         private Game game;
 
-        public MainWindow()
+        private MainWindow()
         {
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
