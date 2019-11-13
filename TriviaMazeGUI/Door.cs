@@ -9,7 +9,17 @@ namespace TriviaMazeGUI
     class Door : Panel
     {
         private bool _locked = false; // flag for decorators to lock the door
-        public bool locked { get; }
+        public bool locked {
+            get
+            {
+                return _locked;
+            }
+            set
+            {
+                if (value == true)
+                    _locked = true;
+            }
+        }
         private Room room1;
         private Room room2;
         public bool isLocked() { return locked; }

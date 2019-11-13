@@ -10,7 +10,7 @@ namespace TriviaMazeGUI
     {
         private Room room;
 
-        public bool locked { get { return true; }  }
+        public bool locked { get { return true; } set { }  }
 
         public Room knock(Room from)
         {

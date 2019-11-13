@@ -10,7 +10,9 @@ namespace TriviaMazeGUI
     {
         private Panel wrapped;
         public bool locked
-        { get { return wrapped.locked; }
+        {
+            get { return wrapped.locked; }
+            set { wrapped.locked = value;  }
         }
         public Room knock(Room from)
         {
