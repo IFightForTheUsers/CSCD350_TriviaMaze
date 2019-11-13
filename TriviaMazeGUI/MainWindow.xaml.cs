@@ -227,7 +227,7 @@ namespace TriviaMazeGUI
             RadioButton btnB = (RadioButton)temp.Children[2];
             if (btnA.IsChecked == true)
             {
-                MessageBox.Show("hi");
+                MessageBox.Show("i");
             }
             else if (btnB.IsChecked == false)
             {
