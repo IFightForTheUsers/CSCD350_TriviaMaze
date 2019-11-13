@@ -166,7 +166,9 @@ namespace TriviaMazeGUI
             Canvas.SetTop(sp, 50);
             Canvas.SetLeft(sp, 50);
 
-            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice WHERE Q = 1;", connection);
+            int paramOne = 2;
+            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice WHERE Q = @1", connection);
+            ins.Parameters.Add(new SQLiteParameter("@1", paramOne));
             using (SQLiteDataReader read = ins.ExecuteReader())
             {
                 if (read.Read())
@@ -227,7 +229,7 @@ namespace TriviaMazeGUI
                 ShortAnswerAnswer();
             }
 
-            Question.Children.Clear();
+            //Question.Children.Clear();
         }
 
         //Canvas will only ever have one child
@@ -252,8 +254,9 @@ namespace TriviaMazeGUI
             RadioButton btnB = (RadioButton)temp.Children[2];
             RadioButton btnC = (RadioButton)temp.Children[3];
             RadioButton btnD = (RadioButton)temp.Children[4];
-            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice WHERE Q = 1;", connection);
-
+            int paramOne = 2;
+            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice WHERE Q = @1", connection);
+            ins.Parameters.Add(new SQLiteParameter("@1", paramOne));
             using (SQLiteDataReader read = ins.ExecuteReader())
             {
                 if (read.Read())
