@@ -31,6 +31,8 @@ namespace TriviaMazeGUI
         {
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
+            connection = new SQLiteConnection(@"Data Source=TriviaMazeQuestions.db;Version=3;");
+            connection.Open();
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
@@ -164,11 +166,20 @@ namespace TriviaMazeGUI
             Canvas.SetTop(sp, 50);
             Canvas.SetLeft(sp, 50);
 
-            q.Text = "[ Question ]";
-            a.Content = "A";
-            b.Content = "B";
-            c.Content = "C";
-            d.Content = "D";
+            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice WHERE Q = 1;", connection);
+            using (SQLiteDataReader read = ins.ExecuteReader())
+            {
+                if (read.Read())
+                {
+                    q.Text = (string)read["Question"];
+                    a.Content = read["A"];
+                    b.Content = read["B"];
+                    c.Content = read["C"];
+                    d.Content = read["D"];
+                }
+                read.Close();
+            }
+            
             this.questionType = QuestionType.MultipleChoice;
         }
 
@@ -237,7 +248,64 @@ namespace TriviaMazeGUI
         private void MultipleChoiceAnswer()
         {
             StackPanel temp = (StackPanel)Question.Children[0];
-            MessageBox.Show(temp.Children[1].ToString());
+            RadioButton btnA = (RadioButton)temp.Children[1];
+            RadioButton btnB = (RadioButton)temp.Children[2];
+            RadioButton btnC = (RadioButton)temp.Children[3];
+            RadioButton btnD = (RadioButton)temp.Children[4];
+            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice WHERE Q = 1;", connection);
+
+            using (SQLiteDataReader read = ins.ExecuteReader())
+            {
+                if (read.Read())
+                {
+                    if (btnA.IsChecked == true)
+                    {
+                        if ((string)read["answer"] == "A")
+                        {
+                            MessageBox.Show("Correct Answer");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong Answer");
+                        }
+                    }
+                    else if (btnB.IsChecked == true)
+                    {
+                        if ((string)read["answer"] == "B")
+                        {
+                            MessageBox.Show("Correct Answer");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong answer");
+                        }
+                    }
+                    else if (btnC.IsChecked == true)
+                    {
+                        if ((string)read["answer"] == "C")
+                        {
+                            MessageBox.Show("Correct Answer");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong Answer");
+                        }
+                    }
+                    else if (btnD.IsChecked == true)
+                    {
+                        if ((string)read["answer"] == "D")
+                        {
+                            MessageBox.Show("Correct Answer");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Wrong Answer");
+                        }
+                    }
+                }
+                read.Close();
+            }
+
         }
         private void ShortAnswerAnswer()
         {
