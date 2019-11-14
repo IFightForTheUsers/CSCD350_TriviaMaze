@@ -28,7 +28,10 @@ namespace TriviaMazeGUI
 
         public Room ghost(Room from)
         {
-            return null;
+            if (from == null)
+                return room;
+            else
+                return null;
         }
 
         public void setUIState(Room from)

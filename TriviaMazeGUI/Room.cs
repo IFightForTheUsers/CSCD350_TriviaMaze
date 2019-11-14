@@ -11,7 +11,6 @@ namespace TriviaMazeGUI
 {
     class Room
     {
-        private MazeGridBuilder owner;
         internal Button button;
         internal Panel north;
         internal Panel south;
@@ -23,21 +22,63 @@ namespace TriviaMazeGUI
             button.IsEnabled = false;
             button.Background = Regulations.hereColor;
             button.Content = "HERE";
-            north.setUIState(this);
-            south.setUIState(this);
-            east.setUIState(this);
-            west.setUIState(this);
+
+            if (north is Door)
+            {
+                north.ghost(this).button.Click += this.Clicked_North;
+                north.ghost(this).button.IsEnabled = true;
+                north.ghost(this).button.Background = Regulations.validMoveColor;
+            }
+            if (south is Door)
+            {
+                south.ghost(this).button.Click += this.Clicked_South;
+                south.ghost(this).button.IsEnabled = true;
+                south.ghost(this).button.Background = Regulations.validMoveColor;
+            }
+            if (east is Door)
+            {
+                east.ghost(this).button.Click += this.Clicked_East;
+                east.ghost(this).button.IsEnabled = true;
+                east.ghost(this).button.Background = Regulations.validMoveColor;
+            }
+            if (west is Door)
+            {
+                west.ghost(this).button.Click += this.Clicked_West;
+                west.ghost(this).button.IsEnabled = true;
+                west.ghost(this).button.Background = Regulations.validMoveColor;
+            }
         }
 
         internal void Clear()
         {
             button.IsEnabled = false;
             button.Background = Regulations.disabledColor;
-            button.Content = null;
-            north.setUIState(null);
-            south.setUIState(null);
-            east.setUIState(null);
-            west.setUIState(null);
+            button.Content = "Visited";
+
+            if (north is Door)
+            {
+                north.ghost(this).button.Click -= Clicked_North;
+                north.ghost(this).button.IsEnabled = false;
+                north.ghost(this).button.Background = Regulations.disabledColor;
+            }
+            if (south is Door)
+            {
+                south.ghost(this).button.Click -= Clicked_South;
+                south.ghost(this).button.IsEnabled = false;
+                south.ghost(this).button.Background = Regulations.disabledColor;
+            }
+            if (east is Door)
+            {
+                east.ghost(this).button.Click -= Clicked_East;
+                east.ghost(this).button.IsEnabled = false;
+                east.ghost(this).button.Background = Regulations.disabledColor;
+            }
+            if (west is Door)
+            {
+                west.ghost(this).button.Click -= Clicked_West;
+                west.ghost(this).button.IsEnabled = false;
+                west.ghost(this).button.Background = Regulations.disabledColor;
+            }
         }
 
         public override string ToString()
@@ -45,62 +86,45 @@ namespace TriviaMazeGUI
             // just a stupid hash for debug testing to show isntance
             return "Room@"+this.GetHashCode().ToString();
         }
-        internal void Clicked()
-        {
-            //MessageBox.Show("eep! clicked Room is" + this.ToString() + " and we are at " + owner.at.ToString());
-            Room temp = null;
 
-            //janky testing to find which door is being used
-            if (this.north.ghost(this) == owner.at)
-            {
-                temp = owner.at.south.knock(owner.at);
-                if (temp != owner.at)
-                {
-                    owner.at.Clear();
-                    owner.at = this;
-                    this.Here();
-                }
-            }
-            else if (this.south.ghost(this) == owner.at)
-            {
-                temp = owner.at.north.knock(owner.at);
-                if (temp != owner.at)
-                {
-                    owner.at.Clear();
-                    owner.at = this;
-                    this.Here();
-                }
-            }
-            else if (this.east.ghost(this) == owner.at)
-            {
-                temp = owner.at.west.knock(owner.at);
-                if (temp != owner.at)
-                {
-                    owner.at.Clear();
-                    owner.at = this;
-                    this.Here();
-                }
-            }
-            else if (this.west.ghost(this) == owner.at)
-            {
-                temp = owner.at.east.knock(owner.at);
-                if (temp != owner.at)
-                {
-                    owner.at.Clear();
-                    owner.at = this;
-                    this.Here();
-                }
-            }
+        private void Clicked_North(object sender, RoutedEventArgs e)
+        {
+            Room temp = north.knock(this);
+            this.Clear();
+            if (temp != this)
+                temp.Here();
             else
-            {
-                throw new WallHackException("fuck up in just normal room traversal.");
-            }
-            owner.at.Here();
+                this.Here();
         }
 
-        public Room(MazeGridBuilder w)
+        private void Clicked_South(object sender, RoutedEventArgs e)
         {
-            owner = w;
+            Room temp = south.knock(this);
+            this.Clear();
+            if (temp != this)
+                temp.Here();
+            else
+                this.Here();
+        }
+
+        private void Clicked_East(object sender, RoutedEventArgs e)
+        {
+            Room temp = east.knock(this);
+            this.Clear();
+            if (temp != this)
+                temp.Here();
+            else
+                this.Here();
+        }
+
+        private void Clicked_West(object sender, RoutedEventArgs e)
+        {
+            Room temp = west.knock(this);
+            this.Clear();
+            if (temp != this)
+                temp.Here();
+            else
+                this.Here();
         }
 
         public Room()

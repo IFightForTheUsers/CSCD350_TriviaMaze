@@ -65,48 +65,6 @@ namespace TriviaMazeGUI
             return "Door@"+this.GetHashCode().ToString();
         }
 
-        public void setUIState(Room from)
-        {
-            if (from == room1)
-            {// change room2 button
-                if (_locked)
-                {
-                    room2.button.IsEnabled = false;
-                    room2.button.Background = Regulations.disabledColor;
-                    room2.button.Content = null;
-                }
-                else
-                {
-                    room2.button.IsEnabled = true;
-                    room2.button.Background = Regulations.validMoveColor;
-                    room2.button.Content = null;
-                }
-            }
-                
-            else if (from == room2)
-            {// change room1 button
-                if (_locked)
-                {
-                    room1.button.IsEnabled = false;
-                    room1.button.Background = Regulations.disabledColor;
-                    room1.button.Content = null;
-                }
-                else
-                {
-                    room1.button.IsEnabled = true;
-                    room1.button.Background = Regulations.validMoveColor;
-                    room1.button.Content = null;
-                }
-            }
-            else if (from == null)
-            {
-                room1.button.IsEnabled = false;
-                room2.button.IsEnabled = false;
-            }
-            else
-                throw new WallHackException();
-        }
-
         public void rewire(Panel obj)
         {
             if (room1.north == this)

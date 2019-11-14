@@ -22,6 +22,7 @@ namespace TriviaMazeGUI
         private Grid grid;
         private Room[,] rooms;
         private Entrance ingress;
+        internal Entrance Entry { get { return ingress; } }
         private Exit egress;
         internal Room at;
 
@@ -54,9 +55,9 @@ namespace TriviaMazeGUI
                 for (int x = 0; x < n; x++)
                 {
                     Button temp = new Button();
-                    rooms[x, y] = new Room(this);
-                    Room lambda_var = rooms[x, y];
-                    temp.Click += (s, e) => { lambda_var.Clicked(); };
+                    rooms[x, y] = new Room();
+                    //Room lambda_var = rooms[x, y];
+                    //temp.Click += (s, e) => { lambda_var.Clicked(); };
                     rooms[x, y].button = temp;
                     rooms[x, y].button.Name = ButtonName(x, y);
                     rooms[x, y].button.Height = Regulations.roomPixelSize;

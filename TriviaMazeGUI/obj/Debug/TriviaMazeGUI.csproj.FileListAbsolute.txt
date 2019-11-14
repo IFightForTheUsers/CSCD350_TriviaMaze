@@ -178,3 +178,5 @@ C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\o
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.pdb
 C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\AddQuestionToDB.g.cs
 C:\Users\Steven\Desktop\fresh\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\AddQuestionToDB.baml
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\AddQuestionToDB.g.cs
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\AddQuestionToDB.baml

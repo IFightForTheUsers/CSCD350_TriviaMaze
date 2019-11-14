@@ -31,11 +31,6 @@ namespace TriviaMazeGUI
             return null;
         }
 
-        public void setUIState(Room from)
-        {
-            // does nothing
-        }
-
         public override string ToString()
         {
             // just a stupid hash for debug testing to show isntance
