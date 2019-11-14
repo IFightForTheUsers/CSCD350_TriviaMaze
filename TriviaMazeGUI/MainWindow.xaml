@@ -13,6 +13,7 @@
             <MenuItem x:Name ="File" Header="_File" Height="18" Width="52" Click="File_Click">
                 <MenuItem x:Name="mnuFileStart" Header="Start"/>
                 <MenuItem x:Name="mnuStop" Header="S_top" IsEnabled="False" Click="mnuStop_Click"/>
+                <MenuItem x:Name="AddQuestionToDB" Header="Add Question To Database" Click="AddQuestionToDB_Click" />
                 <MenuItem x:Name="mnuOpenDBWindow" Header="_OpenDBWindow"/>
                 <MenuItem x:Name="mnuClose" Header="Exit" Click="mnuClose_Click"/>
             </MenuItem>

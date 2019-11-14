@@ -41,8 +41,8 @@ namespace TriviaMazeGUI
         {
             //MessageBox.Show("Loaded");
 
-            //UserPrompt userPromptWindow = new UserPrompt();
-            //userPromptWindow.Show();
+            UserPrompt userPromptWindow = new UserPrompt();
+            userPromptWindow.Show();
 
             maze = new MazeGridBuilder();
             maze.Build(4, Board);
@@ -317,5 +317,10 @@ namespace TriviaMazeGUI
             StackPanel temp = (StackPanel)Question.Children[0];
         }
 
+        private void AddQuestionToDB_Click(object sender, RoutedEventArgs e)
+        {
+            AddQuestionToDB addQuestion = new AddQuestionToDB();
+            addQuestion.Show();
+        }
     }
 }

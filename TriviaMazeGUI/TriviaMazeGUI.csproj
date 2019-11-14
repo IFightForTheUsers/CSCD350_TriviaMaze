@@ -63,6 +63,9 @@
     <Compile Include="About.xaml.cs">
       <DependentUpon>About.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AddQuestionToDB.xaml.cs">
+      <DependentUpon>AddQuestionToDB.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Door.cs" />
     <Compile Include="Entrance.cs" />
     <Compile Include="Exit.cs" />
@@ -87,6 +90,10 @@
     <Compile Include="Wall.cs" />
     <Compile Include="WallHackException.cs" />
     <Page Include="About.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AddQuestionToDB.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

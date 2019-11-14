@@ -1,0 +1,46 @@
+﻿<Window x:Class="TriviaMazeGUI.AddQuestionToDB"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TriviaMazeGUI"
+        mc:Ignorable="d"
+        Title="Add Question To DB" Height="450" Width="800">
+    <StackPanel>
+        <Border BorderBrush="Aqua" BorderThickness="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="80"/>
+
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Column="0" Text="Question Type: " FontWeight="Bold" Margin="10 12 10 10"/>
+
+                <ComboBox Grid.Column="1" x:Name="QuestionTypeComboBox" Margin="0 10">
+                    <ComboBoxItem Content="True/False"/>
+                    <ComboBoxItem Content="Multiple Choice" />
+                    <ComboBoxItem Content="Short Answer" />
+                </ComboBox>
+
+                <Button Grid.Column="2" x:Name="SubmitQuestionTypeButton" Content="Submit" Margin="20 10 10 10" Click="SubmitQuestionTypeButton_Click"/>
+            </Grid>
+        </Border>
+
+        <Canvas x:Name="QCanvas" Width="700" Height="300" Margin="0 40 0 0 ">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <StackPanel x:Name="SP1" Grid.Column="0"></StackPanel>
+                <StackPanel x:Name="SP2" Grid.Column="1"></StackPanel>
+            </Grid>
+        </Canvas>
+
+    </StackPanel>
+
+
+
+</Window>
