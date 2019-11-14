@@ -25,27 +25,39 @@ namespace TriviaMazeGUI
 
             if (north is Door)
             {
-                north.ghost(this).button.Click += this.Clicked_North;
-                north.ghost(this).button.IsEnabled = true;
-                north.ghost(this).button.Background = Regulations.validMoveColor;
+                if (!north.locked)
+                {
+                    north.ghost(this).button.Click += this.Clicked_North;
+                    north.ghost(this).button.IsEnabled = true;
+                    north.ghost(this).button.Background = Regulations.validMoveColor;
+                }
             }
             if (south is Door)
             {
-                south.ghost(this).button.Click += this.Clicked_South;
-                south.ghost(this).button.IsEnabled = true;
-                south.ghost(this).button.Background = Regulations.validMoveColor;
+                if (!south.locked)
+                {
+                    south.ghost(this).button.Click += this.Clicked_South;
+                    south.ghost(this).button.IsEnabled = true;
+                    south.ghost(this).button.Background = Regulations.validMoveColor;
+                }
             }
             if (east is Door)
             {
-                east.ghost(this).button.Click += this.Clicked_East;
-                east.ghost(this).button.IsEnabled = true;
-                east.ghost(this).button.Background = Regulations.validMoveColor;
+                if (!east.locked)
+                {
+                    east.ghost(this).button.Click += this.Clicked_East;
+                    east.ghost(this).button.IsEnabled = true;
+                    east.ghost(this).button.Background = Regulations.validMoveColor;
+                }
             }
             if (west is Door)
             {
-                west.ghost(this).button.Click += this.Clicked_West;
-                west.ghost(this).button.IsEnabled = true;
-                west.ghost(this).button.Background = Regulations.validMoveColor;
+                if (!west.locked)
+                {
+                    west.ghost(this).button.Click += this.Clicked_West;
+                    west.ghost(this).button.IsEnabled = true;
+                    west.ghost(this).button.Background = Regulations.validMoveColor;
+                }
             }
         }
 
