@@ -27,36 +27,36 @@ namespace TriviaMazeGUI
             {
                 if (!north.locked)
                 {
-                    north.ghost(this).button.Click += this.Clicked_North;
-                    north.ghost(this).button.IsEnabled = true;
-                    north.ghost(this).button.Background = Regulations.validMoveColor;
+                    Button temp = north.ghost(this).button;
+                    temp.Click += this.Clicked_North;
+                    EnableBtn(temp);
                 }
             }
             if (south is Door)
             {
                 if (!south.locked)
                 {
-                    south.ghost(this).button.Click += this.Clicked_South;
-                    south.ghost(this).button.IsEnabled = true;
-                    south.ghost(this).button.Background = Regulations.validMoveColor;
+                    Button temp = south.ghost(this).button;
+                    temp.Click += this.Clicked_South;
+                    EnableBtn(temp);
                 }
             }
             if (east is Door)
             {
                 if (!east.locked)
                 {
-                    east.ghost(this).button.Click += this.Clicked_East;
-                    east.ghost(this).button.IsEnabled = true;
-                    east.ghost(this).button.Background = Regulations.validMoveColor;
+                    Button temp = east.ghost(this).button;
+                    temp.Click += this.Clicked_East;
+                    EnableBtn(temp);
                 }
             }
             if (west is Door)
             {
                 if (!west.locked)
                 {
-                    west.ghost(this).button.Click += this.Clicked_West;
-                    west.ghost(this).button.IsEnabled = true;
-                    west.ghost(this).button.Background = Regulations.validMoveColor;
+                    Button temp = west.ghost(this).button;
+                    temp.Click += this.Clicked_West;
+                    EnableBtn(temp);
                 }
             }
         }
@@ -91,6 +91,15 @@ namespace TriviaMazeGUI
                 west.ghost(this).button.IsEnabled = false;
                 west.ghost(this).button.Background = Regulations.disabledColor;
             }
+        }
+
+        private void EnableBtn(Button b)
+        {
+            b.IsEnabled = true;
+            if (b.Content == "Visited")
+                b.Background = Regulations.visitedMoveColor;
+            else
+                b.Background = Regulations.validMoveColor;
         }
 
         public override string ToString()
