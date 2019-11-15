@@ -96,7 +96,7 @@ namespace TriviaMazeGUI
         private void EnableBtn(Button b)
         {
             b.IsEnabled = true;
-            if (b.Content == "Visited")
+            if ((string)b.Content == "Visited")
                 b.Background = Regulations.visitedMoveColor;
             else
                 b.Background = Regulations.validMoveColor;

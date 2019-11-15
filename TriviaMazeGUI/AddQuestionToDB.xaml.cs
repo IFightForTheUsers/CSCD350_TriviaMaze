@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Data.SQLite;
 
 namespace TriviaMazeGUI
 {
@@ -87,7 +88,17 @@ namespace TriviaMazeGUI
             TextBox b2 = new TextBox { Margin = new Thickness(10), Width = 400 };
             TextBox c2 = new TextBox { Margin = new Thickness(10), Width = 400 };
             TextBox d2 = new TextBox { Margin = new Thickness(10), Width = 400 };
-            TextBox ans2 = new TextBox { Margin = new Thickness(10), Width = 100, HorizontalAlignment = HorizontalAlignment.Left };
+
+            ComboBox correctAnswer = new ComboBox { Margin = new Thickness(10) };
+            ComboBoxItem cbA = new ComboBoxItem { Content = "a" };
+            ComboBoxItem cbB = new ComboBoxItem { Content = "b" };
+            ComboBoxItem cbC = new ComboBoxItem { Content = "c" };
+            ComboBoxItem cbD = new ComboBoxItem { Content = "d" };
+            correctAnswer.Items.Add(cbA);
+            correctAnswer.Items.Add(cbB);
+            correctAnswer.Items.Add(cbC);
+            correctAnswer.Items.Add(cbD);
+            //TextBox ans2 = new TextBox { Margin = new Thickness(10), Width = 100, HorizontalAlignment = HorizontalAlignment.Left };
 
             Button submitButton = new Button
             {
@@ -108,11 +119,57 @@ namespace TriviaMazeGUI
             SP2.Children.Add(b2);
             SP2.Children.Add(c2);
             SP2.Children.Add(d2);
-            SP2.Children.Add(ans2);
+            SP2.Children.Add(correctAnswer);
             SP2.Children.Add(submitButton);
 
+            submitButton.Click += SubmitToDBButton_Click;
 
+            void SubmitToDBButton_Click(object sender, RoutedEventArgs e)
+            {
+
+
+                MessageBox.Show("You entered: \n" +
+                                q.Text + q2.Text + "\n" +
+                                a.Text + a2.Text + "\n" +
+                                b.Text + b2.Text + "\n" +
+                                c.Text + c2.Text + "\n" +
+                                d.Text + d2.Text + "\n" +
+                                ans.Text + correctAnswer.Text //.SelectedItem.ToString()
+                                + "\n\n" + "Added to DB."
+                    );
+
+                SQLiteConnection SQLconn = new SQLiteConnection("Data Source=TriviaMazeQuestions.db");
+                SQLconn.Open();
+
+                SQLiteCommand SQLcommand = SQLconn.CreateCommand();
+                SQLcommand.CommandText = "INSERT INTO MultipleChoice (Question, A, B, C, D, Answer)" +
+                "VALUES (@1, @2, @3, @4, @5, @6);";
+                SQLcommand.Parameters.Add(new SQLiteParameter("@1", q2.Text));
+                SQLcommand.Parameters.Add(new SQLiteParameter("@2", a2.Text));
+                SQLcommand.Parameters.Add(new SQLiteParameter("@3", b2.Text));
+                SQLcommand.Parameters.Add(new SQLiteParameter("@4", c2.Text));
+                SQLcommand.Parameters.Add(new SQLiteParameter("@5", d2.Text));
+                SQLcommand.Parameters.Add(new SQLiteParameter("@6", correctAnswer.Text));
+
+                SQLcommand.ExecuteNonQuery();
+
+                ClearFields();
+
+            }
+
+            void ClearFields()
+            {
+                q2.Clear();
+                a2.Clear();
+                b2.Clear();
+                c2.Clear();
+                d2.Clear();
+                correctAnswer.Text = "";
+            }
         }
+
+
+
         private void LoadCanvasSA()
         {
 
