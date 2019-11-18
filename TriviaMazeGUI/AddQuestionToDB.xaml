@@ -31,7 +31,7 @@
         <Canvas x:Name="QCanvas" Width="700" Height="300" Margin="0 40 0 0 ">
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="120" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
                 <StackPanel x:Name="SP1" Grid.Column="0"></StackPanel>

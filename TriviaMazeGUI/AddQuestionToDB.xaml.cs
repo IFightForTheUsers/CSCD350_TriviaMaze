@@ -41,53 +41,139 @@ namespace TriviaMazeGUI
 
         private void LoadCanvasTF()
         {
+            SP1.Children.Clear();
+            SP2.Children.Clear();
+
+            TextBlock s = new TextBlock
+            {
+                Text = "Statement: ",
+                FontSize = 20,
+                Margin = new Thickness(5)
+            };
+
+            TextBlock ans = new TextBlock
+            {
+                Text = "Correct \nAnswer: ",
+                FontSize = 20,
+                Margin = new Thickness(5)
+            };
+
+            GroupBox group = new GroupBox { Margin = new Thickness(5), BorderThickness = new Thickness(0) };
+            Grid g = new Grid();
+            ColumnDefinition col1 = new ColumnDefinition();
+            ColumnDefinition col2 = new ColumnDefinition();
+            g.ColumnDefinitions.Add(col1);
+            g.ColumnDefinitions.Add(col2);
+            RadioButton t = new RadioButton { Margin = new Thickness(8), Content = "True", Tag = "T" };
+            RadioButton f = new RadioButton { Margin = new Thickness(8), Content = "False", Tag = "F" };
+
+            Grid.SetColumn(t, 0);
+            Grid.SetColumn(f, 1);
+
+            TextBox s2 = new TextBox { Margin = new Thickness(10), Width = 400, Padding = new Thickness(3) };
+
+            g.Children.Add(t);
+            g.Children.Add(f);
+
+            group.Content = g;
+
+            string ans2 = "";
+
+            Button submitButton = new Button
+            {
+                Content = "Submit",
+                Margin = new Thickness(10),
+                Width = 60
+            };
+
+            SP1.Children.Add(s);
+            SP1.Children.Add(ans);
+
+            SP2.Children.Add(s2);
+            SP2.Children.Add(group);
+            SP2.Children.Add(submitButton);
+
+            submitButton.Click += SubmitToDBButton_Click;
+
+            void SubmitToDBButton_Click(object sender, RoutedEventArgs e)
+            {
+                if (t.IsChecked == true)
+                {
+                    ans2 = t.Content.ToString();
+                }
+                else if (f.IsChecked == true)
+                {
+                    ans2 = f.Content.ToString();
+                }
+
+                MessageBox.Show("You entered: \n" +
+                                s.Text + s2.Text + "\n" +
+                                ans.Text + ans2 + "\n"
+                                + "\n\n" + "Added to DB."
+                    );
+
+                SQLiteConnection SQLconn = new SQLiteConnection("Data Source=TriviaMazeQuestions.db");
+                SQLconn.Open();
+
+                SQLiteCommand SQLcommand = SQLconn.CreateCommand();
+                SQLcommand.CommandText = "INSERT INTO TrueFalse (Question, Answer)" + "VALUES (@1, @2);";
+                SQLcommand.Parameters.Add(new SQLiteParameter("@1", s2.Text));
+                SQLcommand.Parameters.Add(new SQLiteParameter("@2", ans2));
+
+                SQLcommand.ExecuteNonQuery();
+
+                s2.Clear();
+            }
 
         }
 
         private void LoadCanvasMC()
         {
+            SP1.Children.Clear();
+            SP2.Children.Clear();
+
             TextBlock q = new TextBlock
             {
                 Text = "Question: ",
                 FontSize = 20,
-                Margin = new Thickness(5)
+                Margin = new Thickness(8,8,8,9)
             };
             TextBlock a = new TextBlock
             {
                 Text = "a: ",
                 FontSize = 20,
-                Margin = new Thickness(5)
+                Margin = new Thickness(8, 8, 8, 9)
             };
             TextBlock b = new TextBlock
             {
                 Text = "b: ",
                 FontSize = 20,
-                Margin = new Thickness(5)
+                Margin = new Thickness(8,8,8,9)
             };
             TextBlock c = new TextBlock
             {
                 Text = "c: ",
                 FontSize = 20,
-                Margin = new Thickness(5)
+                Margin = new Thickness(8,8,8,9)
             };
             TextBlock d = new TextBlock
             {
                 Text = "d: ",
                 FontSize = 20,
-                Margin = new Thickness(5)
+                Margin = new Thickness(8,8,8,9)
             };
             TextBlock ans = new TextBlock
             {
                 Text = "Answer: ",
                 FontSize = 20,
-                Margin = new Thickness(5)
+                Margin = new Thickness(8,8,8,9)
             };
 
-            TextBox q2 = new TextBox { Margin = new Thickness(10), Width = 400 };
-            TextBox a2 = new TextBox { Margin = new Thickness(10), Width = 400 };
-            TextBox b2 = new TextBox { Margin = new Thickness(10), Width = 400 };
-            TextBox c2 = new TextBox { Margin = new Thickness(10), Width = 400 };
-            TextBox d2 = new TextBox { Margin = new Thickness(10), Width = 400 };
+            TextBox q2 = new TextBox { Margin = new Thickness(10), Width = 400, Padding = new Thickness(3) };
+            TextBox b2 = new TextBox { Margin = new Thickness(10), Width = 400, Padding = new Thickness(3) };
+            TextBox c2 = new TextBox { Margin = new Thickness(10), Width = 400, Padding = new Thickness(3) };
+            TextBox d2 = new TextBox { Margin = new Thickness(10), Width = 400, Padding = new Thickness(3) };
+            TextBox a2 = new TextBox { Margin = new Thickness(10), Width = 400, Padding = new Thickness(3) };
 
             ComboBox correctAnswer = new ComboBox { Margin = new Thickness(10) };
             ComboBoxItem cbA = new ComboBoxItem { Content = "a" };
@@ -98,7 +184,6 @@ namespace TriviaMazeGUI
             correctAnswer.Items.Add(cbB);
             correctAnswer.Items.Add(cbC);
             correctAnswer.Items.Add(cbD);
-            //TextBox ans2 = new TextBox { Margin = new Thickness(10), Width = 100, HorizontalAlignment = HorizontalAlignment.Left };
 
             Button submitButton = new Button
             {
@@ -154,7 +239,6 @@ namespace TriviaMazeGUI
                 SQLcommand.ExecuteNonQuery();
 
                 ClearFields();
-
             }
 
             void ClearFields()
@@ -168,10 +252,74 @@ namespace TriviaMazeGUI
             }
         }
 
-
-
         private void LoadCanvasSA()
         {
+            SP1.Children.Clear();
+            SP2.Children.Clear();
+
+            TextBlock qs = new TextBlock
+            {
+                Text = "Question/ \nStatement: ",
+                FontSize = 20,
+                Margin = new Thickness(5)
+            };
+
+            TextBlock ans = new TextBlock
+            {
+                Text = "Correct \nAnswer: ",
+                FontSize = 20,
+                Margin = new Thickness(5)
+            };
+
+            TextBox qs2 = new TextBox { Margin = new Thickness(20), Width = 400, Padding = new Thickness(3) };
+            TextBox ans2 = new TextBox { Margin = new Thickness(20), 
+                Width = 200, 
+                HorizontalAlignment = HorizontalAlignment.Left, 
+                Padding = new Thickness(3) 
+            };
+
+            Button submitButton = new Button
+            {
+                Content = "Submit",
+                Margin = new Thickness(10),
+                Width = 60
+            };
+
+            SP1.Children.Add(qs);
+            SP1.Children.Add(ans);
+
+            SP2.Children.Add(qs2);
+            SP2.Children.Add(ans2);
+            SP2.Children.Add(submitButton);
+
+            submitButton.Click += SubmitToDBButton_Click;
+
+            void SubmitToDBButton_Click(object sender, RoutedEventArgs e)
+            {
+                MessageBox.Show("You entered: \n" +
+                                qs.Text + qs2.Text + "\n" +
+                                ans.Text + ans2.Text + "\n"
+                                + "\n\n" + "Added to DB."
+                    );
+
+                SQLiteConnection SQLconn = new SQLiteConnection("Data Source=TriviaMazeQuestions.db");
+                SQLconn.Open();
+
+                SQLiteCommand SQLcommand = SQLconn.CreateCommand();
+                SQLcommand.CommandText = "INSERT INTO ShortAnswer (Question, Answer)" + "VALUES (@1, @2);";
+                SQLcommand.Parameters.Add(new SQLiteParameter("@1", qs2.Text));
+                SQLcommand.Parameters.Add(new SQLiteParameter("@2", ans2.Text));
+
+                SQLcommand.ExecuteNonQuery();
+
+                ClearFields();
+            }
+
+            void ClearFields()
+            {
+                qs2.Clear();
+                ans2.Clear();
+            }
 
         }
 
