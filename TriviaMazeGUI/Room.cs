@@ -23,7 +23,7 @@ namespace TriviaMazeGUI
             button.Background = Regulations.hereColor;
             button.Content = "HERE";
 
-            if (north is Door)
+            if (north is Door || north is PanelQuestion)
             {
                 if (!north.locked)
                 {
@@ -32,7 +32,7 @@ namespace TriviaMazeGUI
                     EnableBtn(temp);
                 }
             }
-            if (south is Door)
+            if (south is Door || south is PanelQuestion)
             {
                 if (!south.locked)
                 {
@@ -41,7 +41,7 @@ namespace TriviaMazeGUI
                     EnableBtn(temp);
                 }
             }
-            if (east is Door)
+            if (east is Door || east is PanelQuestion)
             {
                 if (!east.locked)
                 {
@@ -50,7 +50,7 @@ namespace TriviaMazeGUI
                     EnableBtn(temp);
                 }
             }
-            if (west is Door)
+            if (west is Door || west is PanelQuestion)
             {
                 if (!west.locked)
                 {
@@ -67,25 +67,25 @@ namespace TriviaMazeGUI
             button.Background = Regulations.disabledColor;
             button.Content = "Visited";
 
-            if (north is Door)
+            if (north is Door || north is PanelQuestion)
             {
                 north.ghost(this).button.Click -= Clicked_North;
                 north.ghost(this).button.IsEnabled = false;
                 north.ghost(this).button.Background = Regulations.disabledColor;
             }
-            if (south is Door)
+            if (south is Door || south is PanelQuestion)
             {
                 south.ghost(this).button.Click -= Clicked_South;
                 south.ghost(this).button.IsEnabled = false;
                 south.ghost(this).button.Background = Regulations.disabledColor;
             }
-            if (east is Door)
+            if (east is Door || east is PanelQuestion)
             {
                 east.ghost(this).button.Click -= Clicked_East;
                 east.ghost(this).button.IsEnabled = false;
                 east.ghost(this).button.Background = Regulations.disabledColor;
             }
-            if (west is Door)
+            if (west is Door || west is PanelQuestion)
             {
                 west.ghost(this).button.Click -= Clicked_West;
                 west.ghost(this).button.IsEnabled = false;

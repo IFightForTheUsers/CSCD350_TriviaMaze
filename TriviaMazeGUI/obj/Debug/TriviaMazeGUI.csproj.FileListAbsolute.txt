@@ -158,7 +158,6 @@ C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\b
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.dll
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.xml
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.dll.config
-C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csprojAssemblyReference.cache
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\About.g.cs
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\Instructions.g.cs
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\MainWindow.g.cs
