@@ -41,22 +41,27 @@ namespace TriviaMazeGUI
         {
             //MessageBox.Show("Loaded");
 
-            UserPrompt userPromptWindow = new UserPrompt();
-            userPromptWindow.Show();
-
-            maze = new MazeGridBuilder();
-            maze.Build(4, Board);
-            maze.Entry.ghost(null).Here();
+            //UserPrompt userPromptWindow = new UserPrompt();
+            //userPromptWindow.Show();
+            StartPrompt prompt = new StartPrompt();
+            Question.Children.Add(prompt);
 
             game = new Game();
             game.OpenSQLConnection();
 
-            MultipleChoiceQuestion();
+            //MultipleChoiceQuestion();
 
             //loadQuestion();
 
             //string name = userPromptWindow.NameEntry.Text;
             //MessageBox.Show(name);
+        }
+
+        public void BuildMaze(int size)
+        {
+            maze = new MazeGridBuilder();
+            maze.Build(4, Board);
+            maze.Entry.ghost(null).Here();
         }
 
         public void loadQuestion(SQLiteDataReader dr)

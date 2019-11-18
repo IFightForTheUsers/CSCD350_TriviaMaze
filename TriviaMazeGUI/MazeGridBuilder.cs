@@ -113,13 +113,17 @@ namespace TriviaMazeGUI
 
             rooms[0, 0].Here();
             at = rooms[0, 0];
-            /*foreach (Room r in rooms)
+        }
+
+        public void WrapTest()
+        {
+            foreach (Room r in rooms)
             { // wrap all the Doors with TestQuestions...
                 if (r.east is Door)
                     new TestQuestion(r.east);
                 if (r.south is Door)
                     new TestQuestion(r.south);
-            }*/
+            }
         }
     }
 }

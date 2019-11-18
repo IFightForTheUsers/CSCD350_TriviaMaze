@@ -82,6 +82,9 @@
     <Compile Include="Regulations.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="ShortAnswerQuestion.cs" />
+    <Compile Include="StartPrompt.xaml.cs">
+      <DependentUpon>StartPrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TestQuestion.cs" />
     <Compile Include="TrueFalseQuestion.cs" />
     <Compile Include="UserPrompt.xaml.cs">
@@ -113,6 +116,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StartPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserPrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
