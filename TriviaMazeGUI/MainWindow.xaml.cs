@@ -63,7 +63,7 @@ namespace TriviaMazeGUI
             maze.Build(4, Board);
             UILock.Instance.Initialize(maze.Entry);
 
-            //maze.WrapTest();
+            maze.WrapTest();
         }
 
         public void loadQuestion(SQLiteDataReader dr)
