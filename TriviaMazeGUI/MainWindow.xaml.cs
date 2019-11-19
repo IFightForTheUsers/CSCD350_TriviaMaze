@@ -61,9 +61,9 @@ namespace TriviaMazeGUI
         {
             maze = new MazeGridBuilder();
             maze.Build(4, Board);
-            maze.Entry.ghost(null).Here();
+            UILock.Instance.Initialize(maze.Entry);
 
-            maze.WrapTest();
+            //maze.WrapTest();
         }
 
         public void loadQuestion(SQLiteDataReader dr)

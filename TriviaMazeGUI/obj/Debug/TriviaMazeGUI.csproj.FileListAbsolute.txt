@@ -207,3 +207,4 @@ C:\Users\Supra\Desktop\GUI\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMaze
 C:\Users\Supra\Desktop\GUI\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.pdb
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\StartPrompt.g.cs
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\StartPrompt.baml
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csprojAssemblyReference.cache

@@ -31,6 +31,7 @@ namespace TriviaMazeGUI
                 }
                 else
                 { }
+                UILock.Instance.Free();
             };
             sp.Children.Add(lockDoor);
             sp.Children.Add(passDoor);
