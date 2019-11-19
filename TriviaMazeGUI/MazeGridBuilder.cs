@@ -111,7 +111,6 @@ namespace TriviaMazeGUI
             egress = new Exit(rooms[n - 1, n - 1]);
             rooms[n - 1, n - 1].east = egress;
 
-            rooms[0, 0].Here();
             at = rooms[0, 0];
         }
 

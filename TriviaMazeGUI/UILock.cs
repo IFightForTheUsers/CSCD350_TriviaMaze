@@ -13,22 +13,21 @@ namespace TriviaMazeGUI
         private static readonly Lazy<UILock> lazy = new Lazy<UILock> (() => new UILock());
         public static UILock Instance { get { return lazy.Value; } }
         private UILock() { }
-        public Room here { get { return _here; } }
+        public Room here { get; private set; } = null;
 
         private int depth = 0;
-        private Room _here = null;
-        private Room _to = null;
+        private Room to = null;
         private Panel _using_door = null;
 
         //---------------------------------------------------------------------------------------------------
         // this is all the public interface for intializing the UILock and requesting movement updates
         public void Initialize(Entrance starting_point)
         {
-            _here = starting_point.ghost(null);
+            here = starting_point.ghost(null);
+            Here();
         }
         private void Aquire()
         {
-            Clear();
             depth = _using_door.depth;
             Free();
         }
@@ -37,7 +36,7 @@ namespace TriviaMazeGUI
         {
             depth--;
             if (depth < 0)
-                throw new InvalidOperationException("UILock state changed to be negative value from free.");
+                throw new InvalidOperationException("UILock state changed to be negative value from Free() call.");
             else if (depth == 0)
                 _free();
         }
@@ -58,16 +57,17 @@ namespace TriviaMazeGUI
 
         private void Here()
         {
-            Move(_here);
+            Move(here);
         }
 
         private void There()
         {
-            Move(_using_door.ghost(_here));
+            Move(_using_door.ghost(here));
         }
 
         private void Move(Room to)
         {
+            this.here = to;
             to.button.IsEnabled = false;
             to.button.Background = Regulations.hereColor;
             to.button.Content = "HERE";
@@ -110,35 +110,35 @@ namespace TriviaMazeGUI
             }
         }
 
-        internal void Clear()
+        private void Clear()
         {
-            _here.button.IsEnabled = false;
-            _here.button.Background = Regulations.disabledColor;
-            _here.button.Content = "Visited";
+            here.button.IsEnabled = false;
+            here.button.Background = Regulations.disabledColor;
+            here.button.Content = "Visited";
 
-            if (_here.north is Door || _here.north is PanelQuestion)
+            if (here.north is Door || here.north is PanelQuestion)
             {
-                _here.north.ghost(_here).button.Click -= Clicked_North;
-                _here.north.ghost(_here).button.IsEnabled = false;
-                _here.north.ghost(_here).button.Background = Regulations.disabledColor;
+                here.north.ghost(here).button.Click -= Clicked_North;
+                here.north.ghost(here).button.IsEnabled = false;
+                here.north.ghost(here).button.Background = Regulations.disabledColor;
             }
-            if (_here.south is Door || _here.south is PanelQuestion)
+            if (here.south is Door || here.south is PanelQuestion)
             {
-                _here.south.ghost(_here).button.Click -= Clicked_South;
-                _here.south.ghost(_here).button.IsEnabled = false;
-                _here.south.ghost(_here).button.Background = Regulations.disabledColor;
+                here.south.ghost(here).button.Click -= Clicked_South;
+                here.south.ghost(here).button.IsEnabled = false;
+                here.south.ghost(here).button.Background = Regulations.disabledColor;
             }
-            if (_here.east is Door || _here.east is PanelQuestion)
+            if (here.east is Door || here.east is PanelQuestion)
             {
-                _here.east.ghost(_here).button.Click -= Clicked_East;
-                _here.east.ghost(_here).button.IsEnabled = false;
-                _here.east.ghost(_here).button.Background = Regulations.disabledColor;
+                here.east.ghost(here).button.Click -= Clicked_East;
+                here.east.ghost(here).button.IsEnabled = false;
+                here.east.ghost(here).button.Background = Regulations.disabledColor;
             }
-            if (_here.west is Door || _here.west is PanelQuestion)
+            if (here.west is Door || here.west is PanelQuestion)
             {
-                _here.west.ghost(_here).button.Click -= Clicked_West;
-                _here.west.ghost(_here).button.IsEnabled = false;
-                _here.west.ghost(_here).button.Background = Regulations.disabledColor;
+                here.west.ghost(here).button.Click -= Clicked_West;
+                here.west.ghost(here).button.IsEnabled = false;
+                here.west.ghost(here).button.Background = Regulations.disabledColor;
             }
         }
 
@@ -153,33 +153,46 @@ namespace TriviaMazeGUI
 
         private void Clicked_North(object sender, RoutedEventArgs e)
         {
-            _using_door = _here.north;
-            _common_clicky();
+            if (depth == 0)
+            {
+                _using_door = here.north;
+                _common_clicky();
+            }
         }
 
         private void Clicked_South(object sender, RoutedEventArgs e)
         {
-            _using_door = _here.south;
-            _common_clicky();
+            if (depth == 0)
+            {
+                _using_door = here.south;
+                _common_clicky();
+            }
         }
 
         private void Clicked_East(object sender, RoutedEventArgs e)
         {
-            _using_door = _here.east;
-            _common_clicky();
+            if (depth == 0)
+            {
+                _using_door = here.east;
+                _common_clicky();
+            }
         }
 
         private void Clicked_West(object sender, RoutedEventArgs e)
         {
-            _using_door = _here.west;
-            _common_clicky();
+            if (depth == 0)
+            {
+                _using_door = here.west;
+                _common_clicky();
+            }
         }
 
         private void _common_clicky()
         {
-            _to = _using_door.knock(_here);
-            if (_to != _here)
+            to = _using_door.knock(here);
+            if (to != here)
             {
+                Clear();
                 Aquire();
             }
             else
