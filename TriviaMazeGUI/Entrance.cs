@@ -16,6 +16,8 @@ namespace TriviaMazeGUI
 
         public bool locked { get { return true; } set { } }
 
+        public int depth { get { return 1; } }
+
         public Room knock(Room from)
         {
             return from;

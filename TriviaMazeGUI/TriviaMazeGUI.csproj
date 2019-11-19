@@ -87,6 +87,7 @@
     </Compile>
     <Compile Include="TestQuestion.cs" />
     <Compile Include="TrueFalseQuestion.cs" />
+    <Compile Include="UILock.cs" />
     <Compile Include="UserPrompt.xaml.cs">
       <DependentUpon>UserPrompt.xaml</DependentUpon>
     </Compile>

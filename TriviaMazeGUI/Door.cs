@@ -20,6 +20,7 @@ namespace TriviaMazeGUI
                     _locked = true;
             }
         }
+        public int depth { get { return 1; } }
         private Room room1;
         private Room room2;
         public bool isLocked() { return locked; }

@@ -14,6 +14,7 @@ namespace TriviaMazeGUI
             get { return wrapped.locked; }
             set { wrapped.locked = value;  }
         }
+        public int depth { get { return wrapped.depth + 1; } }
         public virtual Room knock(Room from)
         {
             return wrapped.knock(from);
