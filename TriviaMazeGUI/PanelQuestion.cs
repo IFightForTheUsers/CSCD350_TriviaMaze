@@ -9,16 +9,30 @@ namespace TriviaMazeGUI
     abstract class PanelQuestion : Panel
     {
         private Panel wrapped;
+        public Boolean asked { get; private set; }
+
         public bool locked
         {
             get { return wrapped.locked; }
             set { wrapped.locked = value;  }
         }
         public int depth { get { return wrapped.depth + 1; } }
-        public virtual Room knock(Room from)
+        public Room knock(Room from)
         {
-            return wrapped.knock(from);
+            if (!asked)
+            {
+                asked = true;
+                ask();
+                return wrapped.knock(from);
+            }
+            else
+            {
+                return wrapped.knock(from);
+            }
         }
+
+        protected abstract void ask();
+
         public Room kick(Room from)
         {
             return wrapped.kick(from);

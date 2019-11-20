@@ -12,10 +12,9 @@ namespace TriviaMazeGUI
         {
         }
 
-        public new Room knock(Room from)
+        protected override void ask()
         {
             // stub to fill in with a question prompt
-            return base.knock(from);
         }
 
     }

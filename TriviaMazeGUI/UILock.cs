@@ -189,11 +189,22 @@ namespace TriviaMazeGUI
 
         private void _common_clicky()
         {
+            Boolean asked = false;
+            if (_using_door is PanelQuestion)
+            {
+                if (((PanelQuestion)_using_door).asked == true)
+                    asked = true;
+            }
             to = _using_door.knock(here);
-            if (to != here)
+            if (to != here && !asked)
             {
                 Clear();
                 Aquire();
+            }
+            else if (to != here && asked)
+            {
+                Clear();
+                There();
             }
             else
             {

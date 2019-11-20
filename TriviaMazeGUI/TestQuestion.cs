@@ -10,7 +10,7 @@ namespace TriviaMazeGUI
 {
     class TestQuestion : PanelQuestion
     {
-        public override Room knock(Room from)
+        protected override void ask()
         {
             // stub to fill in with a question prompt
             StackPanel sp = new StackPanel();
@@ -44,8 +44,6 @@ namespace TriviaMazeGUI
             // need to wait for click here somehow
 
             //MainWindow.Instance.Question.Children.Clear();
-
-            return base.knock(from);
         }
 
         public TestQuestion(Panel wrapping) : base(wrapping)
