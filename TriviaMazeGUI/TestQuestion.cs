@@ -25,13 +25,18 @@ namespace TriviaMazeGUI
             submit.Content = "Submit";
             submit.Click += (s, e) =>
             {
-                if (lockDoor.IsChecked == true)
+                if (lockDoor.IsChecked == true || passDoor.IsChecked == true)
                 {
-                    this.locked = true;
+                    if (lockDoor.IsChecked == true)
+                    {
+                        this.locked = true;
+                    }
+                    else
+                    {
+                    }
+
+                    UILock.Instance.Free();
                 }
-                else
-                { }
-                UILock.Instance.Free();
             };
             sp.Children.Add(lockDoor);
             sp.Children.Add(passDoor);

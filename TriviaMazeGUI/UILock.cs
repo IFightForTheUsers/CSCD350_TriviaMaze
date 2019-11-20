@@ -45,10 +45,12 @@ namespace TriviaMazeGUI
             if (_using_door.locked==false)
             {
                 There();
+                MainWindow.Instance.Question.Children.Clear();
             }
             else
             {
                 Here();
+                MainWindow.Instance.Question.Children.Clear();
             }
         }
 
