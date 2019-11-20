@@ -9,21 +9,19 @@ namespace TriviaMazeGUI
     class Door : Panel
     {
         private bool _locked = false; // flag for decorators to lock the door
-        public bool locked {
-            get
-            {
-                return _locked;
-            }
+        public bool locked
+        {
+            get => _locked;
             set
             {
                 if (value == true)
                     _locked = true;
             }
         }
+
         public int depth { get { return 1; } }
-        private Room room1;
-        private Room room2;
-        public bool isLocked() { return locked; }
+        private readonly Room room1;
+        private readonly Room room2;
 
         public Room knock(Room from)
         {
@@ -63,7 +61,7 @@ namespace TriviaMazeGUI
         public override string ToString()
         {
             // just a stupid hash for debug testing to show isntance
-            return "Door@"+this.GetHashCode().ToString();
+            return "Door@" + this.GetHashCode().ToString();
         }
 
         public void rewire(Panel obj)

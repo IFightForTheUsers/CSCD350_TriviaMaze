@@ -10,3 +10,12 @@
 /.vs/ProjectSettings.json
 /.vs/VSWorkspaceState.json
 /.vs/slnx.sqlite
+/packages/Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3/rulesets
+/packages/Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3/documentation
+/packages/Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3/tools
+/packages/Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3
+/packages/Microsoft.NetFramework.Analyzers.2.9.3
+/packages/Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3
+/packages/Microsoft.CodeQuality.Analyzers.2.9.3
+/packages/Microsoft.NetCore.Analyzers.2.9.3/analyzers/dotnet
+/packages/Microsoft.NetCore.Analyzers.2.9.3

@@ -41,11 +41,7 @@ namespace TriviaMazeGUI
             //
         }
 
-        public override string ToString()
-        {
-            // just a stupid hash for debug testing to show isntance
-            return "Entrance@"+this.GetHashCode().ToString();
-        }
+        public override string ToString() => "Entrance@"+this.GetHashCode().ToString();
 
         public void rewire(Panel obj)
         {

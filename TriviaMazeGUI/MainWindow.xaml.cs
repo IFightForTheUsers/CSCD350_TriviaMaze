@@ -27,7 +27,6 @@ namespace TriviaMazeGUI
         private About about;
         private Instructions instruction;
         private QuestionType questionType;
-        private Game game;
 
         private MainWindow()
         {
@@ -46,9 +45,6 @@ namespace TriviaMazeGUI
             StartPrompt prompt = new StartPrompt();
             Question.Children.Add(prompt);
 
-            game = new Game();
-            game.OpenSQLConnection();
-
             //MultipleChoiceQuestion();
 
             //loadQuestion();
@@ -60,7 +56,7 @@ namespace TriviaMazeGUI
         public void BuildMaze(int size)
         {
             maze = new MazeGridBuilder();
-            maze.Build(4, Board);
+            maze.Build(size, Board);
             UILock.Instance.Initialize(maze.Entry);
 
             maze.WrapTest();
