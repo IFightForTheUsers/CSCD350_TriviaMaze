@@ -8,10 +8,9 @@
              d:DesignHeight="370" d:DesignWidth="624">
     <Grid Background="White">
         <TextBlock x:Name="Q" HorizontalAlignment="Left" Margin="69,96,0,0" TextWrapping="WrapWithOverflow" Text="[ Question ]" FontSize="30" VerticalAlignment="Top" Height="98" Width="471"/>
-        
-        <Button Content="Submit" x:Name="SubmitButton" Click="SubmitButton_Click" FontSize="15" Padding="5" HorizontalAlignment="Left" Margin="465,298,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="71,228,0,0" TextWrapping="Wrap" Text="Type your answer/guess here: " FontSize="15" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="29" Margin="284,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Padding="5" Width="200"/>
+        <TextBox HorizontalAlignment="Left" x:Name="userInput" Height="29" Margin="284,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Padding="5" Width="200"/>
+        <Button Content="Submit" x:Name="SubmitButton" FontSize="15" Padding="5" HorizontalAlignment="Left" Margin="465,298,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 
 </UserControl>

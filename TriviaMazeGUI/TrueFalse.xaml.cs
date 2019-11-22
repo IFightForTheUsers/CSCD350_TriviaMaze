@@ -25,9 +25,5 @@ namespace TriviaMazeGUI
             InitializeComponent();
         }
 
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

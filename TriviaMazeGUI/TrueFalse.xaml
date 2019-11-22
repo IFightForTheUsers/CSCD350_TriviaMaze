@@ -8,8 +8,8 @@
              d:DesignHeight="370" d:DesignWidth="624">
     <Grid Background="White">
         <TextBlock HorizontalAlignment="Left" x:Name="Q" Margin="69,96,0,0" Text="[ Question ]" TextWrapping="WrapWithOverflow" FontSize="30" VerticalAlignment="Top" Height="109" Width="462"/>
-        <RadioButton Content="True" FontSize="20" HorizontalAlignment="Left" Margin="168,210,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.449,2.571" />
-        <RadioButton Content="False" FontSize="20" HorizontalAlignment="Left" Margin="294,210,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" />
-        <Button Content="Submit" x:Name="SubmitButton" Click="SubmitButton_Click" FontSize="15" Padding="5" HorizontalAlignment="Left" Margin="465,298,0,0" VerticalAlignment="Top" Width="75"/>
+        <RadioButton Content="True" x:Name="T" FontSize="20" HorizontalAlignment="Left" Margin="168,210,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" RenderTransformOrigin="0.449,2.571" />
+        <RadioButton Content="False" x:Name="F" FontSize="20" HorizontalAlignment="Left" Margin="294,210,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" />
+        <Button Content="Submit" x:Name="SubmitButton" FontSize="15" Padding="5" HorizontalAlignment="Left" Margin="465,298,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

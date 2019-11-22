@@ -13,7 +13,7 @@
         <RadioButton Content="b" x:Name="b" FontSize="20" HorizontalAlignment="Left" Margin="92,170,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="44" Width="448" />
         <RadioButton Content="c" x:Name="c" FontSize="20" HorizontalAlignment="Left" Margin="92,214,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="41" Width="448" />
         <RadioButton Content="d" x:Name="d" FontSize="20" HorizontalAlignment="Left" Margin="92,255,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="43" Width="427" />
-        <Button Content="Submit" x:Name="SubmitButton" Click="SubmitButton_Click" FontSize="15" Padding="5" HorizontalAlignment="Left" Margin="465,298,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Submit" x:Name="SubmitButton" FontSize="15" Padding="5" HorizontalAlignment="Left" Margin="465,298,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </UserControl>
