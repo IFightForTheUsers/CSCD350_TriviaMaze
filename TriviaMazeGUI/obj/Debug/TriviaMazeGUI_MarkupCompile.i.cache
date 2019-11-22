@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\
+C:\Users\Supra\Desktop\GUI\11-20-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\
 TriviaMazeGUI
 none
 false
 DEBUG;TRACE
-C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\App.xaml
-6-842579701
+C:\Users\Supra\Desktop\GUI\11-20-19\CSCD350_TriviaMaze\TriviaMazeGUI\App.xaml
+9801131393
 
-29-578511277
-141809813757
-About.xaml;AddQuestionToDB.xaml;Instructions.xaml;MainWindow.xaml;StartPrompt.xaml;UserPrompt.xaml;
+321018232991
+14752965716
+About.xaml;AddQuestionToDB.xaml;Instructions.xaml;MainWindow.xaml;MultipleChoice.xaml;ShortAnswer.xaml;StartPrompt.xaml;TrueFalse.xaml;UserPrompt.xaml;
 
 False
 

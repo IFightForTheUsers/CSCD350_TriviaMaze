@@ -23,7 +23,9 @@ namespace TriviaMazeGUI
         private static readonly Lazy<MainWindow> lazy = new Lazy<MainWindow> (()=> new MainWindow());
         public static MainWindow Instance { get { return lazy.Value; } }
 
-        private SQLiteConnection connection { get; set; }
+        private SQLiteConnection connection;
+        public SQLiteConnection getConnection { get { return this.connection; } }
+
         private About about;
         private Instructions instruction;
         private QuestionType questionType;
@@ -63,7 +65,8 @@ namespace TriviaMazeGUI
             maze.Build(4, Board);
             UILock.Instance.Initialize(maze.Entry);
 
-            maze.WrapTest();
+            //maze.WrapTest();
+            maze.WrapDoorsWithQuestions();
         }
 
         public void loadQuestion(SQLiteDataReader dr)

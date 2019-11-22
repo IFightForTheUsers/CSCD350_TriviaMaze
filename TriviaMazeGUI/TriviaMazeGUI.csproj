@@ -75,17 +75,26 @@
     </Compile>
     <Compile Include="Maze.cs" />
     <Compile Include="MazeGridBuilder.cs" />
+    <Compile Include="MultipleChoice.xaml.cs">
+      <DependentUpon>MultipleChoice.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MultipleChoiceQuestion.cs" />
     <Compile Include="Panel.cs" />
     <Compile Include="PanelQuestion.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Regulations.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="ShortAnswer.xaml.cs">
+      <DependentUpon>ShortAnswer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ShortAnswerQuestion.cs" />
     <Compile Include="StartPrompt.xaml.cs">
       <DependentUpon>StartPrompt.xaml</DependentUpon>
     </Compile>
     <Compile Include="TestQuestion.cs" />
+    <Compile Include="TrueFalse.xaml.cs">
+      <DependentUpon>TrueFalse.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TrueFalseQuestion.cs" />
     <Compile Include="UILock.cs" />
     <Compile Include="UserPrompt.xaml.cs">
@@ -117,7 +126,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="MultipleChoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShortAnswer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StartPrompt.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TrueFalse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
