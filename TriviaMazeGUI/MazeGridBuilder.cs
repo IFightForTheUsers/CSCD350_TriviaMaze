@@ -10,12 +10,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using System.Collections;
+using System.Data.SQLite;
 
 namespace TriviaMazeGUI
 {
-    /// <summary>
-    /// Interaction logic for Maze.xaml
-    /// </summary>
 
     public partial class MazeGridBuilder
     {
@@ -25,6 +24,8 @@ namespace TriviaMazeGUI
         internal Entrance Entry { get { return ingress; } }
         private Exit egress;
         internal Room at;
+
+        enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
         public String ButtonName(int x, int y)
         {
@@ -122,6 +123,99 @@ namespace TriviaMazeGUI
                     new TestQuestion(r.east);
                 if (r.south is Door)
                     new TestQuestion(r.south);
+            }
+        }
+
+        public void WrapDoorsWithQuestions()
+        {
+            
+            SQLiteCommand command;
+
+            ArrayList TrueFalseTable = new ArrayList();
+            command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", MainWindow.Instance.getConnection);
+            int TFCount = int.Parse(command.ExecuteScalar().ToString());
+            //MessageBox.Show("TFCount: " + TFCount);
+            //TrueFalseTable.Count;
+
+            ArrayList MultipleChoiceTable = new ArrayList();
+            command = new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", MainWindow.Instance.getConnection);
+            int MCCount = int.Parse(command.ExecuteScalar().ToString());
+
+            ArrayList ShortAnswerTable = new ArrayList();
+            command = new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", MainWindow.Instance.getConnection);
+            int SACount = int.Parse(command.ExecuteScalar().ToString());
+
+            Random rand = new Random();
+            int randomNumberForQuestionNumber;
+            QuestionType questionType; // just to give it a default value to shut the compiler up and since it's not a nullable type;
+            
+            foreach (Room r in rooms)
+            {
+                questionType = GetRandomQuestionType();
+
+                if (r.east is Door)
+                {
+                    if (questionType == QuestionType.TrueFalse)
+                    {
+                        randomNumberForQuestionNumber = rand.Next(0, TFCount);
+                        new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                    }
+                    else if (questionType == QuestionType.MultipleChoice)
+                    {
+                        randomNumberForQuestionNumber = rand.Next(0, MCCount);
+                        new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                    }
+                    else if (questionType == QuestionType.ShortAnswer)
+                    {
+                        randomNumberForQuestionNumber = rand.Next(0, SACount);
+                        new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                    }
+                }
+
+                questionType = GetRandomQuestionType();
+
+
+                if (r.south is Door)
+                {
+                    if (questionType == QuestionType.TrueFalse)
+                    {
+                        randomNumberForQuestionNumber = rand.Next(0, TFCount);
+                        new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                    }
+                    else if (questionType == QuestionType.MultipleChoice)
+                    {
+                        randomNumberForQuestionNumber = rand.Next(0, MCCount);
+                        new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                    }
+                    else if (questionType == QuestionType.ShortAnswer)
+                    {
+                        randomNumberForQuestionNumber = rand.Next(0, SACount);
+                        new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                    }
+                }
+
+            }
+
+            QuestionType GetRandomQuestionType()
+            {
+                int randomNumber = rand.Next(0, 3); // 0 for TF, 1 for MC, 2 for SA
+
+                if (randomNumber == 0)
+                {
+                    return QuestionType.TrueFalse;
+                }
+                else if (randomNumber == 1)
+                {
+                    return QuestionType.MultipleChoice;
+                }
+                else if (randomNumber == 2)
+                {
+                    return QuestionType.ShortAnswer;
+                }
+                else
+                {
+                    return QuestionType.MultipleChoice;
+                }
             }
         }
     }

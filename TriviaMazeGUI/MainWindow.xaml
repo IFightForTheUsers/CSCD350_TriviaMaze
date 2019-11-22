@@ -35,16 +35,17 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
+            <Border BorderBrush="Blue" BorderThickness="5"/>
+            
             <Grid x:Name="Board" Grid.Column="0">
             </Grid>
 
             <Border Grid.Column="1" BorderBrush="Chartreuse" BorderThickness="5"/>
 
-            <Canvas x:Name ="Question" Grid.Column="1" HorizontalAlignment="Left" Height="326" Margin="10,10,0,0" VerticalAlignment="Top" Width="624">
+            <Canvas x:Name ="Question" Grid.Column="1" HorizontalAlignment="Left" Height="370" Margin="10,10,0,0" VerticalAlignment="Top" Width="624">
 
             </Canvas>
-
-            <Button x:Name="btn_Submit" Content="Submit" Canvas.Left="513" Canvas.Top="349" RenderTransformOrigin="1.396,1.203" Height="35" Click="btn_Submit_Click" Grid.Column="1" Margin="493,313,65,42"/>
+            
         </Grid>
 
 
