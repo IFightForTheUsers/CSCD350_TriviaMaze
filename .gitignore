@@ -19,3 +19,5 @@
 /packages/Microsoft.CodeQuality.Analyzers.2.9.3
 /packages/Microsoft.NetCore.Analyzers.2.9.3/analyzers/dotnet
 /packages/Microsoft.NetCore.Analyzers.2.9.3
+/TriviaMazeGUI/obj/Debug/TriviaMazeGUI.csprojAssemblyReference.cache
+/TriviaMazeGUI/obj/Debug/TriviaMazeGUI_MarkupCompile.cache
