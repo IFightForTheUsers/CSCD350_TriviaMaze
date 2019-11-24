@@ -16,6 +16,7 @@ namespace TriviaMazeGUI
         internal Panel south;
         internal Panel east;
         internal Panel west;
+        private bool flag = false;
 
         public override string ToString()
         {
@@ -26,5 +27,7 @@ namespace TriviaMazeGUI
         public Room()
         {
         }
+
+        public bool Flag { get { return flag; } set { flag = value; } }
     }
 }
