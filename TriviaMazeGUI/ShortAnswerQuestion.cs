@@ -27,16 +27,20 @@ namespace TriviaMazeGUI
             string correctAnswer = "";
 
             int paramOne = this.indexToPullFromDBTable + 1;
-            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM ShortAnswer WHERE Q = @1", MainWindow.Instance.getConnection);
-            ins.Parameters.Add(new SQLiteParameter("@1", paramOne));
-            using (SQLiteDataReader read = ins.ExecuteReader())
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM ShortAnswer WHERE Q = @1",
+                MainWindow.Instance.getConnection))
             {
-                if (read.Read())
+                ins.Parameters.Add(new SQLiteParameter("@1", paramOne));
+                using (SQLiteDataReader read = ins.ExecuteReader())
                 {
-                    SA.Q.Text = read["Question"].ToString();
-                    correctAnswer = read["Answer"].ToString();
+                    if (read.Read())
+                    {
+                        SA.Q.Text = read["Question"].ToString();
+                        correctAnswer = read["Answer"].ToString();
+                    }
+
+                    read.Close();
                 }
-                read.Close();
             }
 
             SA.SubmitButton.Click += (sender, routedArgs) =>

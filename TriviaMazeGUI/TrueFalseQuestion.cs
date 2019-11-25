@@ -27,17 +27,21 @@ namespace TriviaMazeGUI
             string correctAnswer = "";
 
             int paramOne = this.indexToPullFromDBTable + 1;
-            SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM TrueFalse WHERE Q = @1", MainWindow.Instance.getConnection);
-            ins.Parameters.Add(new SQLiteParameter("@1", paramOne));
-            using (SQLiteDataReader read = ins.ExecuteReader())
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM TrueFalse WHERE Q = @1",
+                MainWindow.Instance.getConnection))
             {
-                if (read.Read())
+                ins.Parameters.Add(new SQLiteParameter("@1", paramOne));
+                using (SQLiteDataReader read = ins.ExecuteReader())
                 {
-                    TF.Q.Text = read["Question"].ToString();
-                    correctAnswer = read["Answer"].ToString();
+                    if (read.Read())
+                    {
+                        TF.Q.Text = read["Question"].ToString();
+                        correctAnswer = read["Answer"].ToString();
 
+                    }
+
+                    read.Close();
                 }
-                read.Close();
             }
 
             TF.SubmitButton.Click += (sender, routedArgs) =>

@@ -19,3 +19,6 @@
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>", Scope = "member", Target = "~M:TriviaMazeGUI.Room.ToString~System.String")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>", Scope = "member", Target = "~M:TriviaMazeGUI.StartPrompt.BuildClick(System.Object,System.Windows.RoutedEventArgs)")]
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1305:Specify IFormatProvider", Justification = "<Pending>", Scope = "member", Target = "~M:TriviaMazeGUI.Wall.ToString~System.String")]
+
+// CA1304
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1304:Specify CultureInfo", Justification = "<Pending>", Scope = "member", Target = "~M:TriviaMazeGUI.MultipleChoiceQuestion.Ask")]

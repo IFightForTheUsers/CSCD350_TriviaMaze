@@ -18,7 +18,7 @@ namespace TriviaMazeGUI
 
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
-        public String ButtonName(int x, int y)
+        public static string ButtonName(int x, int y)
         {
             return "b_x" + x + "y" + y;
         }
