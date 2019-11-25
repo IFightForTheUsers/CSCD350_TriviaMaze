@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media;
+﻿using System.Windows.Controls;
 
 namespace TriviaMazeGUI
 {
@@ -19,7 +12,7 @@ namespace TriviaMazeGUI
 
         public override string ToString()
         {
-            // just a stupid hash for debug testing to show isntance
+            // just a stupid hash for debug testing to show instance
             return "Room@" + this.GetHashCode().ToString();
         }
 

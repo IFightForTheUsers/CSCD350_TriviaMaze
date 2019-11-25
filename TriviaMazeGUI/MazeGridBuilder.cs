@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Collections;
 using System.Data.SQLite;
@@ -23,7 +15,6 @@ namespace TriviaMazeGUI
         private Entrance ingress;
         internal Entrance Entry { get { return ingress; } }
         private Exit egress;
-        internal Room at;
 
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
@@ -111,8 +102,6 @@ namespace TriviaMazeGUI
             rooms[0, 0].west = ingress;
             egress = new Exit(rooms[n - 1, n - 1]);
             rooms[n - 1, n - 1].east = egress;
-
-            at = rooms[0, 0];
         }
 
         public void WrapTest()

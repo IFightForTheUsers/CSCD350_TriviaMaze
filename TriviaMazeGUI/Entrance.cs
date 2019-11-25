@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/* Enterance class.
+﻿/* Entrance class.
  * all attempts to leave return the class it points to
  */
 
@@ -14,9 +8,9 @@ namespace TriviaMazeGUI
     {
         private Room room;
 
-        public bool locked { get { return true; } set { } }
+        public bool locked { get => true; set { } }
 
-        public int depth { get { return 1; } }
+        public int depth => 1;
 
         public Room knock(Room from)
         {
@@ -34,11 +28,6 @@ namespace TriviaMazeGUI
                 return room;
             else
                 return null;
-        }
-
-        public void setUIState(Room from)
-        {
-            //
         }
 
         public override string ToString() => "Entrance@"+this.GetHashCode().ToString();

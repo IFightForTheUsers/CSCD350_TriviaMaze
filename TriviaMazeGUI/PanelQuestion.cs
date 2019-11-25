@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TriviaMazeGUI
 {
@@ -13,16 +9,17 @@ namespace TriviaMazeGUI
 
         public bool locked
         {
-            get { return wrapped.locked; }
-            set { wrapped.locked = value;  }
+            get => wrapped.locked;
+            set => wrapped.locked = value;
         }
-        public int depth { get { return wrapped.depth + 1; } }
+        public int depth => wrapped.depth + 1;
+
         public Room knock(Room from)
         {
             if (!asked)
             {
                 asked = true;
-                ask();
+                Ask();
                 return wrapped.knock(from);
             }
             else
@@ -31,7 +28,7 @@ namespace TriviaMazeGUI
             }
         }
 
-        protected abstract void ask();
+        protected abstract void Ask();
 
         public Room kick(Room from)
         {

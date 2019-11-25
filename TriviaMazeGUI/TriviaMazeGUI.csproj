@@ -75,6 +75,7 @@
     <Compile Include="Door.cs" />
     <Compile Include="Entrance.cs" />
     <Compile Include="Exit.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Instructions.xaml.cs">
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>

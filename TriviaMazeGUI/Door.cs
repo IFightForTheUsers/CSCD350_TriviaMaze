@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TriviaMazeGUI
 {
@@ -19,7 +15,7 @@ namespace TriviaMazeGUI
             }
         }
 
-        public int depth { get { return 1; } }
+        public int depth => 1;
         private readonly Room room1;
         private readonly Room room2;
 

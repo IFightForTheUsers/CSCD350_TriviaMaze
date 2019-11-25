@@ -17,7 +17,7 @@ namespace TriviaMazeGUI
             this.indexToPullFromDBTable = indexToPullFromDBTable;
         }
 
-        protected override void ask()
+        protected override void Ask()
         {
             // stub to fill in with a question prompt
 

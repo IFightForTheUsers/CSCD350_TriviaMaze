@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TriviaMazeGUI
+﻿namespace TriviaMazeGUI
 {
     class Player
     {
@@ -23,7 +17,7 @@ namespace TriviaMazeGUI
 
         public string Name
         {
-            get { return name; }
+            get => name;
             set
             {
                 if (value != null)
