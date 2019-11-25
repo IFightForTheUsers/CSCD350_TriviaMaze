@@ -207,7 +207,6 @@ C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\o
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.CopyComplete
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.exe
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.pdb
-C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csprojAssemblyReference.cache
 C:\Users\Supra\Desktop\GUI\11-20-19\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\TriviaMazeGUI.exe.config
 C:\Users\Supra\Desktop\GUI\11-20-19\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\TriviaMazeGUI.exe
 C:\Users\Supra\Desktop\GUI\11-20-19\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\TriviaMazeGUI.pdb
@@ -276,3 +275,10 @@ C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debu
 C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.Properties.Resources.resources
 C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.GenerateResource.cache
 C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.CopyComplete
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\MultipleChoice.g.cs
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\ShortAnswer.g.cs
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TrueFalse.g.cs
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\MultipleChoice.baml
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\ShortAnswer.baml
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TrueFalse.baml
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csprojAssemblyReference.cache
