@@ -29,7 +29,7 @@ namespace TriviaMazeGUI
 
         public override string ToString()
         {
-            // just a stupid hash for debug testing to show isntance
+            // just a stupid hash for debug testing to show instance
             return "Exit@" + this.GetHashCode().ToString();
         }
 

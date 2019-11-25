@@ -140,7 +140,7 @@ namespace TriviaMazeGUI
             }
         }
 
-        private void EnableBtn(Button b)
+        private static void EnableBtn(Button b)
         {
             b.IsEnabled = true;
             if ((string)b.Content == "Visited")

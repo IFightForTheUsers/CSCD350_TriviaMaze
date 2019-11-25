@@ -30,7 +30,7 @@ namespace TriviaMazeGUI
                 return null;
         }
 
-        public override string ToString() => "Entrance@"+this.GetHashCode().ToString();
+        public override string ToString() => "Entrance@" + GetHashCode().ToString();
 
         public void rewire(Panel obj)
         {

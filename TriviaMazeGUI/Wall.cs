@@ -2,7 +2,7 @@
 {
     class Wall : Panel
     {
-        private Room room;
+        private readonly Room room;
 
         public bool locked { get => true; set { } }
 
@@ -32,7 +32,7 @@
         public override string ToString()
         {
             // just a stupid hash for debug testing to show instance
-            return "Wall@" + this.GetHashCode().ToString();
+            return "Wall@" + GetHashCode().ToString();
         }
 
         public void rewire(Panel obj)
