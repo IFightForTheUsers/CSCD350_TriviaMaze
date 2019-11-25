@@ -22,7 +22,7 @@ namespace TriviaMazeGUI
             here = starting_point.ghost(null);
             Here();
         }
-        private void Aquire()
+        private void Acquire()
         {
             depth = _using_door.depth;
             Free();
@@ -197,7 +197,7 @@ namespace TriviaMazeGUI
             if (to != here && !asked)
             {
                 Clear();
-                Aquire();
+                Acquire();
             }
             else if (to != here && asked)
             {

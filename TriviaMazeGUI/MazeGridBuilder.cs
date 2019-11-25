@@ -85,7 +85,7 @@ namespace TriviaMazeGUI
             { // now we add doors
                 for (int x = 0; x < n; x++)
                 {
-                    _ = new Door(rooms[x, y], rooms[x, y + 1], 's');
+                    _ = new Door(rooms[x, y], rooms[x, y + 1], 'e');
                 }
             }
             Debug.Assert(rooms[0, 0].south == rooms[0, 1].north);
@@ -94,7 +94,7 @@ namespace TriviaMazeGUI
             { // now we add doors
                 for (int x = 0; x < n - 1; x++)
                 {
-                    _ = new Door(rooms[x, y], rooms[x + 1, y], 'e');
+                    _ = new Door(rooms[x, y], rooms[x + 1, y], 's');
                 }
             }
             // hard add the entry and exit

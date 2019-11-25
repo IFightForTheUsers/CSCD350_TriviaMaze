@@ -281,3 +281,4 @@ C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\o
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\MultipleChoice.baml
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\ShortAnswer.baml
 C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TrueFalse.baml
+C:\Users\chron\Source\Repos\IFightForTheUsers\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csprojAssemblyReference.cache

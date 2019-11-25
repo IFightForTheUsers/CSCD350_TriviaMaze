@@ -39,6 +39,7 @@ namespace TriviaMazeGUI
             UILock.Instance.Initialize(maze.Entry);
 
             maze.WrapDoorsWithQuestions();
+            //maze.WrapTest();
         }
 
         private void File_Click(object sender, RoutedEventArgs e)
