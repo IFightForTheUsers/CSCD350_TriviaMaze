@@ -1,14 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Diagnostics;
 using System.Collections;
 using System.Data.SQLite;
@@ -23,7 +15,6 @@ namespace TriviaMazeGUI
         private Entrance ingress;
         internal Entrance Entry { get { return ingress; } }
         private Exit egress;
-        internal Room at;
        // public Exit Egress { get { return egress; } }
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
@@ -110,7 +101,7 @@ namespace TriviaMazeGUI
             { // now we add doors
                 for (int x = 0; x < n; x++)
                 {
-                    new Door(rooms[x, y], rooms[x, y + 1], 's');
+                    _ = new Door(rooms[x, y], rooms[x, y + 1], 'e');
                 }
             }
             Debug.Assert(rooms[0, 0].south == rooms[0, 1].north);
@@ -119,7 +110,7 @@ namespace TriviaMazeGUI
             { // now we add doors
                 for (int x = 0; x < n - 1; x++)
                 {
-                    new Door(rooms[x, y], rooms[x + 1, y], 'e');
+                    _ = new Door(rooms[x, y], rooms[x + 1, y], 's');
                 }
             }
             // hard add the entry and exit
@@ -127,8 +118,6 @@ namespace TriviaMazeGUI
             rooms[0, 0].west = ingress;
             egress = new Exit(rooms[n - 1, n - 1]);
             rooms[n - 1, n - 1].east = egress;
-
-            at = rooms[0, 0];
         }
 
         public void WrapTest()
@@ -136,9 +125,9 @@ namespace TriviaMazeGUI
             foreach (Room r in rooms)
             { // wrap all the Doors with TestQuestions...
                 if (r.east is Door)
-                    new TestQuestion(r.east);
+                    _ = new TestQuestion(r.east);
                 if (r.south is Door)
-                    new TestQuestion(r.south);
+                    _ = new TestQuestion(r.south);
             }
         }
 
@@ -174,17 +163,17 @@ namespace TriviaMazeGUI
                     if (questionType == QuestionType.TrueFalse)
                     {
                         randomNumberForQuestionNumber = rand.Next(0, TFCount);
-                        new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                        _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
                     }
                     else if (questionType == QuestionType.MultipleChoice)
                     {
                         randomNumberForQuestionNumber = rand.Next(0, MCCount);
-                        new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                        _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
                     }
                     else if (questionType == QuestionType.ShortAnswer)
                     {
                         randomNumberForQuestionNumber = rand.Next(0, SACount);
-                        new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                        _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
                     }
                 }
 
@@ -196,17 +185,17 @@ namespace TriviaMazeGUI
                     if (questionType == QuestionType.TrueFalse)
                     {
                         randomNumberForQuestionNumber = rand.Next(0, TFCount);
-                        new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                        _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
                     }
                     else if (questionType == QuestionType.MultipleChoice)
                     {
                         randomNumberForQuestionNumber = rand.Next(0, MCCount);
-                        new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                        _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
                     }
                     else if (questionType == QuestionType.ShortAnswer)
                     {
                         randomNumberForQuestionNumber = rand.Next(0, SACount);
-                        new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                        _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
                     }
                 }
 

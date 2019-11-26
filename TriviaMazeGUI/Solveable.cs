@@ -36,21 +36,21 @@ namespace TriviaMazeGUI
                 maze[0, 0].Flag = true;
                 inside = true;
             }
-            else if(!solved)
+            else if (!solved)
             {
                 Room temp = order.Dequeue();
-                if(temp.east is Exit)
+                if (temp.east is Exit)
                 {
                     solved = true;
                     inside = false;
                     return true;
                 }
-                for(int i = 0; i < maze.GetLength(0); i++)
+                for (int i = 0; i < maze.GetLength(0); i++)
                 {
                     bool check = false;
                     for (int j = 0; j < maze.GetLength(1); j++)
                     {
-                        if(maze[i,j].CompareTo(temp) == 0)
+                        if (maze[i, j].CompareTo(temp) == 0)
                         {
                             tempRow = i;
                             tempColumn = j;
@@ -64,22 +64,22 @@ namespace TriviaMazeGUI
                     }
                 }
             }
-            if (!maze[tempRow,tempColumn].north.locked && !maze[tempRow - 1,tempColumn].Flag && !solved)
+            if (maze[tempRow, tempColumn].north != null && !maze[tempRow, tempColumn].north.locked && !maze[tempRow - 1, tempColumn].Flag && !solved)
             {
                 order.Enqueue(maze[tempRow - 1, tempColumn]);
                 maze[tempRow - 1, tempColumn].Flag = true;
             }
-            if (!maze[tempRow, tempColumn].east.locked && !maze[tempRow, tempColumn + 1].Flag && !solved)
+            if (maze[tempRow, tempColumn].east != null && !maze[tempRow, tempColumn].east.locked && !maze[tempRow, tempColumn + 1].Flag && !solved)
             {
                 order.Enqueue(maze[tempRow, tempColumn + 1]);
                 maze[tempRow, tempColumn + 1].Flag = true;
             }
-            if (!maze[tempRow, tempColumn].west.locked && !maze[tempRow, tempColumn - 1].Flag && !solved)
+            if (maze[tempRow, tempColumn].west != null && !maze[tempRow, tempColumn].west.locked && !maze[tempRow, tempColumn - 1].Flag && !solved)
             {
                 order.Enqueue(maze[tempRow, tempColumn - 1]);
                 maze[tempRow, tempColumn - 1].Flag = true;
             }
-            if (!maze[tempRow, tempColumn].south.locked && !maze[tempRow + 1, tempColumn].Flag && !solved)
+            if (maze[tempRow, tempColumn].south != null && !maze[tempRow, tempColumn].south.locked && !maze[tempRow + 1, tempColumn].Flag && !solved)
             {
                 order.Enqueue(maze[tempRow + 1, tempColumn]);
                 maze[tempRow + 1, tempColumn].Flag = true;
