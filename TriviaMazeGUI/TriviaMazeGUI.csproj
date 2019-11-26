@@ -93,6 +93,7 @@
       <DependentUpon>ShortAnswer.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShortAnswerQuestion.cs" />
+    <Compile Include="Solveable.cs" />
     <Compile Include="StartPrompt.xaml.cs">
       <DependentUpon>StartPrompt.xaml</DependentUpon>
     </Compile>
