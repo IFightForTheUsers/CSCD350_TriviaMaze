@@ -52,6 +52,17 @@ namespace TriviaMazeGUI
                 Here();
                 MainWindow.Instance.Question.Children.Clear();
             }
+            bool temp = MazeGridBuilder.check();
+            if (!temp)
+            {
+                MessageBox.Show("Not Solvable");
+                Solveable.Reset();
+            }
+            else
+            {
+                MessageBox.Show("Solvable");
+                Solveable.Reset();
+            }
         }
 
         //---------------------------------------------------------------------------------------------------

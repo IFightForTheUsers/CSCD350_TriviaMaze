@@ -29,5 +29,35 @@ namespace TriviaMazeGUI
         }
 
         public bool Flag { get { return flag; } set { flag = value; } }
+
+        public int CompareTo(object obj)
+        {
+            if(obj == null)
+            {
+                return 1;
+            }
+            Room otherRoom = obj as Room;
+            if(otherRoom != null)
+            {
+                
+                if(!(otherRoom.east == this.east))
+                {
+                    return 1;
+                }
+                if (!(otherRoom.west == this.west))
+                {
+                    return 1;
+                }
+                if (!(otherRoom.south == this.south))
+                {
+                    return 1;
+                }
+                if (!(otherRoom.north == this.north))
+                {
+                    return 1;
+                }
+            }
+            return 0;
+        }
     }
 }

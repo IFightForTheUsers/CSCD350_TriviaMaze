@@ -276,3 +276,17 @@ C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debu
 C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.Properties.Resources.resources
 C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.GenerateResource.cache
 C:\Users\Steven\Desktop\fresh\11-21-19\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.CopyComplete
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\AddQuestionToDB.g.cs
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\MultipleChoice.g.cs
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\ShortAnswer.g.cs
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\StartPrompt.g.cs
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TrueFalse.g.cs
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.xml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\AddQuestionToDB.baml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\MultipleChoice.baml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\ShortAnswer.baml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\StartPrompt.baml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TrueFalse.baml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FinalProject\CSCD350_TriviaMaze\TriviaMazeGUI\obj\Debug\TriviaMazeGUI.csproj.CopyComplete
