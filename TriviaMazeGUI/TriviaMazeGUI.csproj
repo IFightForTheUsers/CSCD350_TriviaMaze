@@ -108,6 +108,9 @@
     </Compile>
     <Compile Include="TrueFalseQuestion.cs" />
     <Compile Include="UILock.cs" />
+    <Compile Include="VictoryPrompt.xaml.cs">
+      <DependentUpon>VictoryPrompt.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserPrompt.xaml.cs">
       <DependentUpon>UserPrompt.xaml</DependentUpon>
     </Compile>
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="TrueFalse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="VictoryPrompt.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

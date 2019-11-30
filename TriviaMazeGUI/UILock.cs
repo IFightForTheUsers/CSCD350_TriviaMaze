@@ -1,7 +1,8 @@
 ﻿using System;
 using System.CodeDom;
 using System.Windows;
-using System.Windows.Controls;
+using System.Windows.Forms;
+using Button = System.Windows.Controls.Button;
 
 namespace TriviaMazeGUI
 {
@@ -56,26 +57,36 @@ namespace TriviaMazeGUI
             // add the solvable shit here
             bool canSolve = MazeGridBuilder.check();
             Solveable.Reset();
-            QuestionResults r = new QuestionResults();
-            
-            if (_AnswersCorrect > 0 && _AnwersIncorrect == 0)
-                r.Questions.Text = "All Questions correct!";
+            if (_using_door.locked==false && IsExit(_using_door.ghost(here)))
+            {
+                VictoryPrompt p = new VictoryPrompt();
+                MainWindow.Instance.Question.Children.Add(p);
+            }
             else
             {
-                if (_AnswersCorrect > 0)
-                    r.Questions.Text = "You got " + _AnswersCorrect.ToString() + " questions right of " +
-                                       (_AnswersCorrect + _AnwersIncorrect).ToString() + " asked.";
-                else
-                    r.Questions.Text = "All answers were incorrect.";
-            }
 
-            if (canSolve)
-                r.canSolve.Text = "Maze is still solvable!";
-            else
-            {
-                r.canSolve.Text = "It's Game over man! Game over!";
+                QuestionResults r = new QuestionResults();
+
+                if (_AnswersCorrect > 0 && _AnwersIncorrect == 0)
+                    r.Questions.Text = "All Questions correct!";
+                else
+                {
+                    if (_AnswersCorrect > 0)
+                        r.Questions.Text = "You got " + _AnswersCorrect.ToString() + " questions right of " +
+                                           (_AnswersCorrect + _AnwersIncorrect).ToString() + " asked.";
+                    else
+                        r.Questions.Text = "All answers were incorrect.";
+                }
+
+                if (canSolve)
+                    r.canSolve.Text = "Maze is still solvable!";
+                else
+                {
+                    r.canSolve.Text = "It's Game over man! Game over!";
+                }
+
+                MainWindow.Instance.Question.Children.Add(r);
             }
-            MainWindow.Instance.Question.Children.Add(r);
         }
 
         public void Correct()
@@ -90,6 +101,14 @@ namespace TriviaMazeGUI
 
         //---------------------------------------------------------------------------------------------------
         // this shit is all the movement traversal
+
+        private bool IsExit(Room r)
+        {
+            if (r.north is Exit || r.south is Exit || r.east is Exit || r.west is Exit)
+                return true;
+            else
+                return false;
+        }
 
         private void Here()
         {
