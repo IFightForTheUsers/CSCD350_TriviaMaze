@@ -138,7 +138,7 @@ namespace TriviaMazeGUI
 
             ArrayList TrueFalseTable = new ArrayList();
             command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", MainWindow.Instance.getConnection);
-            int TFCount = int.Parse(command.ExecuteScalar().ToString());
+            int TFCount = int.Parse(command.ExecuteScalar().ToString()); 
             //MessageBox.Show("TFCount: " + TFCount);
             //TrueFalseTable.Count;
 

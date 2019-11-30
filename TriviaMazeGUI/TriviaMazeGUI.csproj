@@ -48,6 +48,8 @@
     <Reference Include="System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Data.SQLite.Core.1.0.112.0\lib\net46\System.Data.SQLite.dll</HintPath>
     </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -87,6 +89,9 @@
     <Compile Include="Panel.cs" />
     <Compile Include="PanelQuestion.cs" />
     <Compile Include="Player.cs" />
+    <Compile Include="QuestionResults.xaml.cs">
+      <DependentUpon>QuestionResults.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Regulations.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="ShortAnswer.xaml.cs">
@@ -133,6 +138,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="MultipleChoice.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="QuestionResults.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

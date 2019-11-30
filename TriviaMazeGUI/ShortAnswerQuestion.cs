@@ -47,14 +47,14 @@ namespace TriviaMazeGUI
             {
                 if (SA.userInput.Text.Equals(correctAnswer, StringComparison.OrdinalIgnoreCase))
                 {
-                    MessageBox.Show("Correct");
+                    UILock.Instance.Correct();
                     MainWindow.Instance.Question.Children.Clear();
                     UILock.Instance.Free();
                 }
 
                 else
                 {
-                    MessageBox.Show("Incorrect");
+                    UILock.Instance.Wrong();
                     MainWindow.Instance.Question.Children.Clear();
                     this.locked = true;
                     UILock.Instance.Free();

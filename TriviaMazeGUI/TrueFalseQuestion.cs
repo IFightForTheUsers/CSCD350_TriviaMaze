@@ -48,14 +48,14 @@ namespace TriviaMazeGUI
             {
                 if (TF.T.IsChecked == true && correctAnswer == "True")
                 {
-                    MessageBox.Show("Correct");
+                    UILock.Instance.Correct();
                     MainWindow.Instance.Question.Children.Clear();
                     UILock.Instance.Free();
                 }
 
                 else if (TF.F.IsChecked == true && correctAnswer == "False")
                 {
-                    MessageBox.Show("Correct");
+                    UILock.Instance.Correct();
                     MainWindow.Instance.Question.Children.Clear();
                     UILock.Instance.Free();
                 }
@@ -67,7 +67,7 @@ namespace TriviaMazeGUI
 
                 else
                 {
-                    MessageBox.Show("Incorrect");
+                    UILock.Instance.Wrong();
                     MainWindow.Instance.Question.Children.Clear();
                     this.locked = true;
                     UILock.Instance.Free();

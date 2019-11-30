@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -14,6 +15,8 @@ namespace TriviaMazeGUI
         private int depth = 0;
         private Room to = null;
         private Panel _using_door = null;
+        private int _AnswersCorrect = 0;
+        private int _AnwersIncorrect = 0;
 
         //---------------------------------------------------------------------------------------------------
         // this is all the public interface for intializing the UILock and requesting movement updates
@@ -24,6 +27,8 @@ namespace TriviaMazeGUI
         }
         private void Acquire()
         {
+            _AnswersCorrect = 0;
+            _AnwersIncorrect = 0;
             depth = _using_door.depth;
             Free();
         }
@@ -48,17 +53,39 @@ namespace TriviaMazeGUI
                 Here();
                 MainWindow.Instance.Question.Children.Clear();
             }
-            bool temp = MazeGridBuilder.check();
-            if (!temp)
-            {
-                MessageBox.Show("Not Solvable");
-                Solveable.Reset();
-            }
+            // add the solvable shit here
+            bool canSolve = MazeGridBuilder.check();
+            Solveable.Reset();
+            QuestionResults r = new QuestionResults();
+            
+            if (_AnswersCorrect > 0 && _AnwersIncorrect == 0)
+                r.Questions.Text = "All Questions correct!";
             else
             {
-                MessageBox.Show("Solvable");
-                Solveable.Reset();
+                if (_AnswersCorrect > 0)
+                    r.Questions.Text = "You got " + _AnswersCorrect.ToString() + " questions right of " +
+                                       (_AnswersCorrect + _AnwersIncorrect).ToString() + " asked.";
+                else
+                    r.Questions.Text = "All answers were incorrect.";
             }
+
+            if (canSolve)
+                r.canSolve.Text = "Maze is still solvable!";
+            else
+            {
+                r.canSolve.Text = "It's Game over man! Game over!";
+            }
+            MainWindow.Instance.Question.Children.Add(r);
+        }
+
+        public void Correct()
+        {
+            this._AnswersCorrect++;
+        }
+
+        public void Wrong()
+        {
+            this._AnwersIncorrect++;
         }
 
         //---------------------------------------------------------------------------------------------------
