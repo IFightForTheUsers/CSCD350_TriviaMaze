@@ -10,11 +10,12 @@ namespace TriviaMazeGUI
     class Solveable
     {
         private static Queue<Room> order = new Queue<Room>();
-        private static bool solved = false;
+        private static bool solvable = false;
         private static bool inside = false;
+        private static bool solved = false;
         public static void Reset()
         {
-            solved = false;
+            solvable = false;
             inside = false;
             order = null;
             order = new Queue<Room>();
@@ -32,16 +33,17 @@ namespace TriviaMazeGUI
             }
             if (order.Count == 0)
             {
+
                 order.Enqueue(maze[0, 0]);
                 maze[0, 0].Flag = true;
                 inside = true;
             }
-            else if (!solved)
+            else if (!solvable)
             {
                 Room temp = order.Dequeue();
                 if (temp.east is Exit)
                 {
-                    solved = true;
+                    solvable = true;
                     inside = false;
                     return true;
                 }
@@ -86,6 +88,15 @@ namespace TriviaMazeGUI
             }
             solv = CheckIfSolveable(maze);
             return solv;
+        }
+
+        public bool checkIfSolved(Room room)
+        {
+            if (room.east is Exit)
+            {
+                return true;
+            }
+            return false;
         }
 
     }

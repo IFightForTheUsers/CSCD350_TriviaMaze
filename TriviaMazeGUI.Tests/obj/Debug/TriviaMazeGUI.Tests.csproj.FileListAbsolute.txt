@@ -1,0 +1,17 @@
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\TriviaMazeGUI.Tests.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\TriviaMazeGUI.Tests.pdb
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\Microsoft.Pex.Framework.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\TriviaMazeGUI.exe
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\System.Data.SQLite.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\Microsoft.ExtendedReflection.Reasoning.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\Microsoft.ExtendedReflection.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\TriviaMazeGUI.pdb
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\TriviaMazeGUI.exe.config
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\Microsoft.Pex.Framework.xml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\System.Data.SQLite.xml
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\bin\Debug\System.Data.SQLite.dll.config
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\obj\Debug\TriviaMazeGUI.Tests.csprojAssemblyReference.cache
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\obj\Debug\TriviaMazeGUI.Tests.csproj.CopyComplete
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\obj\Debug\TriviaMazeGUI.Tests.dll
+C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\TriviaMazeGUI.Tests\obj\Debug\TriviaMazeGUI.Tests.pdb
