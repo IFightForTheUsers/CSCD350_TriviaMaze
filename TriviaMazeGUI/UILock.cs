@@ -55,8 +55,18 @@ namespace TriviaMazeGUI
                 MainWindow.Instance.Question.Children.Clear();
             }
             // add the solvable shit here
-            bool canSolve = MazeGridBuilder.check();
-            Solveable.Reset();
+            bool canSolve = false;
+            bool solved = false;
+            if (here.east is Exit)
+            {
+                MainWindow.Instance.Question.Children.Add(new VictoryPrompt());
+                solved = true;
+            }
+            else
+            {
+                canSolve = MazeGridBuilder.check();
+                Solveable.Reset();
+            }
             if (_using_door.locked==false && IsExit(_using_door.ghost(here)))
             {
                 VictoryPrompt p = new VictoryPrompt();
@@ -78,7 +88,7 @@ namespace TriviaMazeGUI
                         r.Questions.Text = "All answers were incorrect.";
                 }
 
-                if (canSolve)
+                if (canSolve && !solved)
                     r.canSolve.Text = "Maze is still solvable!";
                 else
                 {

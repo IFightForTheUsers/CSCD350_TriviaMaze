@@ -118,6 +118,7 @@ namespace TriviaMazeGUI
             rooms[0, 0].west = ingress;
             egress = new Exit(rooms[n - 1, n - 1]);
             rooms[n - 1, n - 1].east = egress;
+            rooms[3, 3].button.Content = "Exit";
         }
 
         public void WrapTest()
