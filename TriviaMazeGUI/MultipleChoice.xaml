@@ -8,7 +8,7 @@
              d:DesignHeight="370" d:DesignWidth="624">
     <Grid Background="White">
 
-        <TextBlock x:Name="Q" HorizontalAlignment="Left" Margin="69,43,0,0" TextWrapping="WrapWithOverflow" Text="[ Question ]" FontSize="30" VerticalAlignment="Top" Height="81" Width="494"/>
+        <TextBlock x:Name="Q" HorizontalAlignment="Left" Margin="69,38,0,0" TextWrapping="WrapWithOverflow" Text="[ Question ]" FontSize="30" VerticalAlignment="Top" Height="91" Width="494"/>
         <RadioButton Content="a" x:Name="a" FontSize="20" HorizontalAlignment="Left" Margin="92,129,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="41" Width="448" />
         <RadioButton Content="b" x:Name="b" FontSize="20" HorizontalAlignment="Left" Margin="92,170,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="44" Width="448" />
         <RadioButton Content="c" x:Name="c" FontSize="20" HorizontalAlignment="Left" Margin="92,214,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="41" Width="448" />
