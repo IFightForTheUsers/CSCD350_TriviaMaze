@@ -63,22 +63,13 @@ namespace TriviaMazeGUI
             bool solved = false;
             if (here.east is Exit)
             {
-                MainWindow.Instance.Question.Children.Add(new VictoryPrompt());
-                solved = true;
-            }
-            else
-            {
-                canSolve = MainWindow.Instance.maze.check();
-                Solveable.Reset();
-            }
-            if (_using_door.locked==false && IsExit(_using_door.ghost(here)))
-            {
                 VictoryPrompt p = new VictoryPrompt();
                 MainWindow.Instance.Question.Children.Add(p);
             }
             else
             {
-
+                canSolve = MainWindow.Instance.maze.check();
+                Solveable.Reset();
                 QuestionResults r = new QuestionResults();
 
                 if (_AnswersCorrect > 0 && _AnwersIncorrect == 0)
