@@ -7,11 +7,11 @@ using System.Data.SQLite;
 
 namespace TriviaMazeGUI
 {
-
+    [Serializable]
     public class MazeGridBuilder
     {
-        private Grid grid;
         private Room[,] rooms;
+        private int size;
         private Entrance ingress;
         internal Entrance Entry { get { return ingress; } }
         private Exit egress;
@@ -38,9 +38,9 @@ namespace TriviaMazeGUI
         {
             return "b_x" + x + "y" + y;
         }
-        public void Build(int n, Grid plop)
+        public void Build(int n, Grid grid)
         {
-            grid = plop;
+            this.size = n;
             rooms = new Room[n, n];
 
             grid.Width = n * Regulations.roomPixelSize;
@@ -129,6 +129,22 @@ namespace TriviaMazeGUI
                     _ = new TestQuestion(r.east);
                 if (r.south is Door)
                     _ = new TestQuestion(r.south);
+            }
+        }
+
+        internal void Rebuild(Grid grid)
+        {
+            // this will rebuild the maze in a window after being DeSerialized
+            // remake the grid!
+            for (int i = 0; i < size; i++)
+            {
+                grid.RowDefinitions.Add(new RowDefinition());
+                grid.ColumnDefinitions.Add(new ColumnDefinition());
+            }
+
+            foreach (Room r in rooms)
+            {
+                r.button = new Button();
             }
         }
 

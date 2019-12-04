@@ -15,6 +15,7 @@
                 <MenuItem x:Name="mnuStop" Header="S_top" IsEnabled="False" Click="mnuStop_Click"/>
                 <MenuItem x:Name="AddQuestionToDB" Header="Add Question To Database" Click="AddQuestionToDB_Click" />
                 <MenuItem x:Name="mnuOpenDBWindow" Header="_OpenDBWindow"/>
+                <MenuItem x:Name="SaveMaze" Header="Save Maze"/>
                 <MenuItem x:Name="mnuClose" Header="Exit" Click="mnuClose_Click"/>
             </MenuItem>
             <MenuItem x:Name="menuInf" Header="Help" Height="21" Width="51">

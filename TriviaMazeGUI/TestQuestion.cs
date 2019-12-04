@@ -1,7 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 
 namespace TriviaMazeGUI
 {
+    [Serializable]
     class TestQuestion : PanelQuestion
     {
         protected override void Ask()

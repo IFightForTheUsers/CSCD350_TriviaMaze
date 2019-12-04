@@ -2,6 +2,7 @@
 
 namespace TriviaMazeGUI
 {
+    [Serializable]
     abstract class PanelQuestion : Panel
     {
         private Panel wrapped;

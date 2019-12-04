@@ -30,6 +30,7 @@ namespace TriviaMazeGUI
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
+            SaveMaze.Click += SaveLoad.SaveClick;
             StartPrompt prompt = new StartPrompt();
             Question.Children.Add(prompt);
         }
@@ -45,12 +46,18 @@ namespace TriviaMazeGUI
             //maze.WrapTest();
         }
 
-        public void NewOnClick(object sender, RoutedEventArgs e)
+
+        public void ResetWindow()
         {
             Board.Children.Clear();
             Board.RowDefinitions.Clear();
             Board.ColumnDefinitions.Clear();
             Question.Children.Clear();
+        }
+
+        public void NewOnClick(object sender, RoutedEventArgs e)
+        {
+            ResetWindow();
             BuildMaze(MazeSize);
         }
 

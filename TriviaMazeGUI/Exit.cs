@@ -2,8 +2,11 @@
  * all attempts to leave return null
  */
 
+using System;
+
 namespace TriviaMazeGUI
 {
+    [Serializable]
     class Exit : Panel
     {
         private Room room;

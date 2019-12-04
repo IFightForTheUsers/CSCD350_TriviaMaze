@@ -2,6 +2,7 @@
 
 namespace TriviaMazeGUI
 {
+    [Serializable]
     class Door : Panel
     {
         private bool _locked = false; // flag for decorators to lock the door

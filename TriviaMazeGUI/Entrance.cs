@@ -2,8 +2,11 @@
  * all attempts to leave return the class it points to
  */
 
+using System;
+
 namespace TriviaMazeGUI
 {
+    [Serializable]
     class Entrance : Panel
     {
         private Room room;

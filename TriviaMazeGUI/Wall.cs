@@ -1,5 +1,8 @@
-﻿namespace TriviaMazeGUI
+﻿using System;
+
+namespace TriviaMazeGUI
 {
+    [Serializable]
     class Wall : Panel
     {
         private readonly Room room;

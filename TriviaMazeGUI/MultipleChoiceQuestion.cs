@@ -9,6 +9,7 @@ using System.Windows.Controls;
 
 namespace TriviaMazeGUI
 {
+    [Serializable]
     class MultipleChoiceQuestion : PanelQuestion
     {
         private int indexToPullFromDBTable;

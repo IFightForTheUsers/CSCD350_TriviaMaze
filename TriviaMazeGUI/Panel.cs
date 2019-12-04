@@ -1,4 +1,6 @@
-﻿namespace TriviaMazeGUI
+﻿using System;
+
+namespace TriviaMazeGUI
 {
     interface Panel
     {

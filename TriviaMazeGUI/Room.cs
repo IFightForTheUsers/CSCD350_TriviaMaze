@@ -1,10 +1,13 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Runtime.Serialization;
+using System.Windows.Controls;
 
 namespace TriviaMazeGUI
 {
+    [Serializable]
     class Room
     {
-        internal Button button;
+        [NonSerialized]internal Button button;
         internal Panel north;
         internal Panel south;
         internal Panel east;
