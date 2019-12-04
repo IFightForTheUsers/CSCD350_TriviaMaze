@@ -15,6 +15,7 @@ namespace TriviaMazeGUI
         private readonly SQLiteConnection connection;
         public SQLiteConnection getConnection { get { return this.connection; } }
 
+        private DataBaseView dataBaseView;
         private About about;
         private Instructions instruction;
 
@@ -74,6 +75,12 @@ namespace TriviaMazeGUI
         {
             AddQuestionToDB addQuestion = new AddQuestionToDB();
             addQuestion.Show();
+        }
+
+        private void mnuOpenDBWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.dataBaseView = new DataBaseView();
+            this.dataBaseView.Show();
         }
     }
 }

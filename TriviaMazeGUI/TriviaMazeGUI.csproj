@@ -74,6 +74,9 @@
     <Compile Include="AddQuestionToDB.xaml.cs">
       <DependentUpon>AddQuestionToDB.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DataBaseView.xaml.cs">
+      <DependentUpon>DataBaseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Door.cs" />
     <Compile Include="Entrance.cs" />
     <Compile Include="Exit.cs" />
@@ -121,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddQuestionToDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataBaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
