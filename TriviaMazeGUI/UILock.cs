@@ -136,6 +136,7 @@ namespace TriviaMazeGUI
 
         private void Move(Room to)
         {
+            to.Visited = true;
             this.here = to;
             to.button.IsEnabled = false;
             to.button.Background = Regulations.hereColor;

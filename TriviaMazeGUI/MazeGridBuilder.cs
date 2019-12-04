@@ -160,6 +160,12 @@ namespace TriviaMazeGUI
                     Grid.SetColumn(rooms[x, y].button, y);
                 }
             }
+
+            foreach (Room r in rooms)
+            {
+                if (r.Visited)
+                    r.button.Content = "Visited";
+            }
         }
 
         public void WrapDoorsWithQuestions()

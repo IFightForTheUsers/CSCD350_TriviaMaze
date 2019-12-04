@@ -13,6 +13,16 @@ namespace TriviaMazeGUI
         internal Panel east;
         internal Panel west;
         private bool flag = false;
+        private bool _visted = false;
+        public bool Visited
+        {
+            get { return _visted;}
+            set
+            {
+                if (value == true) _visted = true;
+            }
+
+        }
 
         public override string ToString()
         {
