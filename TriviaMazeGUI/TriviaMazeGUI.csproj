@@ -90,7 +90,6 @@
     <Compile Include="Panels\PanelQuestions\MultipleChoiceQuestion.cs" />
     <Compile Include="Panels\Panel.cs" />
     <Compile Include="Panels\PanelQuestions\PanelQuestion.cs" />
-    <Compile Include="Player.cs" />
     <Compile Include="QuestionResults.xaml.cs">
       <DependentUpon>QuestionResults.xaml</DependentUpon>
     </Compile>
