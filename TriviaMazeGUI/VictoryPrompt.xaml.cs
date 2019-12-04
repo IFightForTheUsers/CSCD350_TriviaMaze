@@ -24,6 +24,7 @@ namespace TriviaMazeGUI
         {
             InitializeComponent();
             this.NewMaze.Click += MainWindow.Instance.NewOnClick;
+            this.LoadMaze.Click += MainWindow.Instance.SaveLoad.LoadClick;
         }
     }
 }

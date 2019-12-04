@@ -30,7 +30,7 @@ namespace TriviaMazeGUI
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            SaveMaze.Click += SaveLoad.SaveClick;
+            Menu_SaveMaze.Click += SaveLoad.SaveClick;
             StartPrompt prompt = new StartPrompt();
             Question.Children.Add(prompt);
         }

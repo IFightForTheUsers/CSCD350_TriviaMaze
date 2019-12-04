@@ -74,7 +74,7 @@
     <Compile Include="AddQuestionToDB.xaml.cs">
       <DependentUpon>AddQuestionToDB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DataBaseReadException.cs" />
+    <Compile Include="DatabaseReadException.cs" />
     <Compile Include="Door.cs" />
     <Compile Include="Entrance.cs" />
     <Compile Include="Exit.cs" />

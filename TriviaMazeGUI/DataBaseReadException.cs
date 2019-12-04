@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace TriviaMazeGUI
 {
-    class DataBaseReadException : InvalidOperationException
+    class DatabaseReadException : InvalidOperationException
     { // Exception to indicate that somehow a Database read has fucked up
-        public DataBaseReadException()
+        public DatabaseReadException()
         {
             // stubs
         }
-        public DataBaseReadException(string message)
+        public DatabaseReadException(string message)
             : base(message)
         {
         }
 
-        public DataBaseReadException(string message, Exception inner)
+        public DatabaseReadException(string message, Exception inner)
             : base(message, inner)
         {
         }

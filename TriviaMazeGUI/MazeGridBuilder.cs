@@ -175,7 +175,7 @@ namespace TriviaMazeGUI
             }
 
             if (TFCount==0)
-                throw new DataBaseReadException("TFCount returned 0");
+                throw new DatabaseReadException("TFCount returned 0");
 
             for (int a = 1; a <= TFCount; a++)
             {
@@ -194,7 +194,7 @@ namespace TriviaMazeGUI
             }
 
             if (MCCount==0)
-                throw new DataBaseReadException("MCCount returned 0");
+                throw new DatabaseReadException("MCCount returned 0");
 
             for (int a = 1; a <= MCCount; a++)
             {
@@ -209,7 +209,7 @@ namespace TriviaMazeGUI
             }
 
             if (SACount==0)
-                throw new DataBaseReadException("SACount returned 0");
+                throw new DatabaseReadException("SACount returned 0");
 
             for (int a = 1; a <= SACount; a++)
             {
