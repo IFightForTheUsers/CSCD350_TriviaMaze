@@ -23,6 +23,7 @@ namespace TriviaMazeGUI
         public VictoryPrompt()
         {
             InitializeComponent();
+            this.NewMaze.Click += MainWindow.Instance.NewOnClick;
         }
     }
 }

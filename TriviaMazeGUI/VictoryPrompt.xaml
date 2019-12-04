@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="370" d:DesignWidth="624">
     <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="131,273,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="380,273,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="NewMaze"  Content="New Maze" HorizontalAlignment="Left" Margin="131,273,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="LoadMaze" Content="Load Maze" HorizontalAlignment="Left" Margin="380,273,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="206,133,0,0" TextWrapping="Wrap" Text="Congratulations! You found the Exit!" VerticalAlignment="Top"/>
 
     </Grid>

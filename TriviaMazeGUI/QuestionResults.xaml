@@ -9,8 +9,8 @@
     <Grid>
         <TextBlock HorizontalAlignment="Left" Margin="103,119,0,0" TextWrapping="Wrap" x:Name="Questions" Text="You got x questions right of y asked." VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="122,173,0,0" TextWrapping="Wrap" x:Name="canSolve" Text="canSolve" VerticalAlignment="Top"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="82,236,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="281,227,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="NewMaze" Content="New Maze" HorizontalAlignment="Left" Margin="82,236,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="LoadMaze" Content="Load Maze" HorizontalAlignment="Left" Margin="281,227,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </UserControl>

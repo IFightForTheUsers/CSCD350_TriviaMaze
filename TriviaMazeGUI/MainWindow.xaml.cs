@@ -8,6 +8,7 @@ namespace TriviaMazeGUI
     {
         
         internal MazeGridBuilder maze;
+        internal readonly SaveLoadManager SaveLoad = new SaveLoadManager();
 
         private static readonly Lazy<MainWindow> Lazy = new Lazy<MainWindow> (()=> new MainWindow());
         public static MainWindow Instance => Lazy.Value;
@@ -17,6 +18,7 @@ namespace TriviaMazeGUI
 
         private About about;
         private Instructions instruction;
+        private int MazeSize;
 
         private MainWindow()
         {
@@ -34,12 +36,22 @@ namespace TriviaMazeGUI
 
         public void BuildMaze(int size)
         {
+            MazeSize = size;
             maze = new MazeGridBuilder();
             maze.Build(size, Board);
             UILock.Instance.Initialize(maze.Entry);
 
             maze.WrapDoorsWithQuestions();
             //maze.WrapTest();
+        }
+
+        public void NewOnClick(object sender, RoutedEventArgs e)
+        {
+            Board.Children.Clear();
+            Board.RowDefinitions.Clear();
+            Board.ColumnDefinitions.Clear();
+            Question.Children.Clear();
+            BuildMaze(MazeSize);
         }
 
         private void File_Click(object sender, RoutedEventArgs e)

@@ -24,6 +24,10 @@ namespace TriviaMazeGUI
         public void Initialize(Entrance starting_point)
         {
             here = starting_point.ghost(null);
+            to = null;
+            _using_door = null;
+            _AnswersCorrect = 0;
+            _AnwersIncorrect = 0;
             Here();
         }
         private void Acquire()
