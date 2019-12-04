@@ -94,6 +94,7 @@
     </Compile>
     <Compile Include="Regulations.cs" />
     <Compile Include="Room.cs" />
+    <Compile Include="SaveLoadManager.cs" />
     <Compile Include="ShortAnswer.xaml.cs">
       <DependentUpon>ShortAnswer.xaml</DependentUpon>
     </Compile>
