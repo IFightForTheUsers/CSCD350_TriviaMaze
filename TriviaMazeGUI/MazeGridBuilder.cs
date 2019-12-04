@@ -186,8 +186,16 @@ namespace TriviaMazeGUI
                         }
                         else
                         {
-                            randomNumberForQuestionNumber = GetRandomMCQuestion();
-                            _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                            if (MultipleChoiceQNum.Count != 0)
+                            {
+                                randomNumberForQuestionNumber = GetRandomMCQuestion();
+                                _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                            }
+                            else
+                            {
+                                randomNumberForQuestionNumber = GetRandomSAQuestion();
+                                _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                            }
                         }
 
                     }
@@ -200,8 +208,16 @@ namespace TriviaMazeGUI
                         }
                         else
                         {
-                            randomNumberForQuestionNumber = GetRandomSAQuestion();
-                            _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                            if (ShortAnswerQNum.Count != 0)
+                            {
+                                randomNumberForQuestionNumber = GetRandomSAQuestion();
+                                _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                            }
+                            else
+                            {
+                                randomNumberForQuestionNumber = GetRandomTFQuestion();
+                                _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                            }
                         }
 
                     }
@@ -214,8 +230,16 @@ namespace TriviaMazeGUI
                         }
                         else
                         {
-                            randomNumberForQuestionNumber = GetRandomTFQuestion();
-                            _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                            if (TrueFalseQNum.Count != 0)
+                            {
+                                randomNumberForQuestionNumber = GetRandomTFQuestion();
+                                _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                            }
+                            else
+                            {
+                                randomNumberForQuestionNumber = GetRandomMCQuestion();
+                                _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                            }
                         }
                     }
 
@@ -235,8 +259,16 @@ namespace TriviaMazeGUI
                         }
                         else
                         {
-                            randomNumberForQuestionNumber = GetRandomMCQuestion();
-                            _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                            if (MultipleChoiceQNum.Count != 0)
+                            {
+                                randomNumberForQuestionNumber = GetRandomMCQuestion();
+                                _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                            }
+                            else
+                            {
+                                randomNumberForQuestionNumber = GetRandomSAQuestion();
+                                _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                            }
                         }
 
                     }
@@ -249,8 +281,16 @@ namespace TriviaMazeGUI
                         }
                         else
                         {
-                            randomNumberForQuestionNumber = GetRandomSAQuestion();
-                            _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                            if (ShortAnswerQNum.Count != 0)
+                            {
+                                randomNumberForQuestionNumber = GetRandomSAQuestion();
+                                _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                            }
+                            else
+                            {
+                                randomNumberForQuestionNumber = GetRandomTFQuestion();
+                                _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                            }
                         }
 
                     }
@@ -263,8 +303,16 @@ namespace TriviaMazeGUI
                         }
                         else
                         {
-                            randomNumberForQuestionNumber = GetRandomTFQuestion();
-                            _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                            if (TrueFalseQNum.Count != 0)
+                            {
+                                randomNumberForQuestionNumber = GetRandomTFQuestion();
+                                _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                            }
+                            else
+                            {
+                                randomNumberForQuestionNumber = GetRandomMCQuestion();
+                                _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                            }
                         }
                     }
                 }
