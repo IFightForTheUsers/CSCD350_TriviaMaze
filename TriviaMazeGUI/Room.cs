@@ -4,10 +4,10 @@ using System.Windows.Controls;
 
 namespace TriviaMazeGUI
 {
-    [Serializable]
+    [Serializable()]
     class Room
     {
-        [NonSerialized]internal Button button;
+        [NonSerialized()]internal Button button;
         internal Panel north;
         internal Panel south;
         internal Panel east;

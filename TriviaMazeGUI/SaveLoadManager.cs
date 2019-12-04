@@ -1,13 +1,14 @@
 ﻿using System.IO;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Xml.Serialization;
 using System.Windows;
 
 namespace TriviaMazeGUI
 {
     class SaveLoadManager
     {
-        public static readonly string saveFile = "save.dat";
+        public const string saveFile = "save.dat";
 
         public void SaveClick(object sender, RoutedEventArgs e)
         {
@@ -38,9 +39,13 @@ namespace TriviaMazeGUI
                 m = (MazeGridBuilder) b.Deserialize(f);
             }
 
+            // maze should be reloaded... now to rewrite it to the windows
             MainWindow.Instance.ResetWindow();
             MainWindow.Instance.maze = m;
             m.Rebuild(MainWindow.Instance.Board);
+
+            // starts you back at the entrance for now... will look into saving position data too
+            UILock.Instance.Initialize(MainWindow.Instance.maze.Entry);
         }
     }
 }

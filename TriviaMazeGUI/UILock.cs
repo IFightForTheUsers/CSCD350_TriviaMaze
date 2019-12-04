@@ -116,7 +116,7 @@ namespace TriviaMazeGUI
         //---------------------------------------------------------------------------------------------------
         // this shit is all the movement traversal
 
-        private bool IsExit(Room r)
+        private static bool IsExit(Room r)
         {
             if (r.north is Exit || r.south is Exit || r.east is Exit || r.west is Exit)
                 return true;

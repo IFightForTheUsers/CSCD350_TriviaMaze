@@ -34,12 +34,15 @@ namespace TriviaMazeGUI
                 }
             }
         }
-        public String ButtonName(int x, int y)
+        public static String ButtonName(int x, int y)
         {
             return "b_x" + x + "y" + y;
         }
         public void Build(int n, Grid grid)
         {
+            if (grid==null)
+                throw new ArgumentNullException(nameof(grid), "MazeGridBuilder.Build does not accept nulls.");
+
             this.size = n;
             rooms = new Room[n, n];
 
@@ -141,10 +144,21 @@ namespace TriviaMazeGUI
                 grid.RowDefinitions.Add(new RowDefinition());
                 grid.ColumnDefinitions.Add(new ColumnDefinition());
             }
-
-            foreach (Room r in rooms)
+            for (int y = 0; y < size; y++)
             {
-                r.button = new Button();
+                for (int x = 0; x < size; x++)
+                {
+                    Button temp = new Button();
+                    rooms[x, y].button = temp;
+                    rooms[x, y].button.Name = ButtonName(x, y);
+                    rooms[x, y].button.Height = Regulations.roomPixelSize;
+                    rooms[x, y].button.Width = Regulations.roomPixelSize;
+                    rooms[x, y].button.Background = Regulations.disabledColor;
+                    rooms[x, y].button.IsEnabled = false; // no clicky button! not yet!
+                    grid.Children.Add(rooms[x, y].button);
+                    Grid.SetRow(rooms[x, y].button, x);
+                    Grid.SetColumn(rooms[x, y].button, y);
+                }
             }
         }
 
@@ -154,8 +168,14 @@ namespace TriviaMazeGUI
             SQLiteCommand command;
 
             ArrayList TrueFalseQNum = new ArrayList();
-            command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", MainWindow.Instance.getConnection);
-            int TFCount = int.Parse(command.ExecuteScalar().ToString()); 
+            int TFCount = 0;
+            using (command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", MainWindow.Instance.getConnection))
+            {
+                TFCount = int.Parse(command.ExecuteScalar().ToString());
+            }
+
+            if (TFCount==0)
+                throw new DataBaseReadException("TFCount returned 0");
 
             for (int a = 1; a <= TFCount; a++)
             {
@@ -166,8 +186,15 @@ namespace TriviaMazeGUI
             //TrueFalseTable.Count;
 
             ArrayList MultipleChoiceQNum = new ArrayList();
-            command = new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", MainWindow.Instance.getConnection);
-            int MCCount = int.Parse(command.ExecuteScalar().ToString());
+            int MCCount = 0;
+            using (command =
+                new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", MainWindow.Instance.getConnection))
+            {
+                MCCount = int.Parse(command.ExecuteScalar().ToString());
+            }
+
+            if (MCCount==0)
+                throw new DataBaseReadException("MCCount returned 0");
 
             for (int a = 1; a <= MCCount; a++)
             {
@@ -175,8 +202,14 @@ namespace TriviaMazeGUI
             }
 
             ArrayList ShortAnswerQNum = new ArrayList();
-            command = new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", MainWindow.Instance.getConnection);
-            int SACount = int.Parse(command.ExecuteScalar().ToString());
+            int SACount = 0;
+            using (command = new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", MainWindow.Instance.getConnection))
+            {
+                SACount = int.Parse(command.ExecuteScalar().ToString());
+            }
+
+            if (SACount==0)
+                throw new DataBaseReadException("SACount returned 0");
 
             for (int a = 1; a <= SACount; a++)
             {
@@ -262,7 +295,6 @@ namespace TriviaMazeGUI
                 }
 
                 questionType = GetRandomQuestionType();
-
 
                 if (r.south is Door)
                 {
