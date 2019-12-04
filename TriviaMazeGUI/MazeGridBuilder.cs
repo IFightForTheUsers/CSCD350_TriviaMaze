@@ -345,54 +345,34 @@ namespace TriviaMazeGUI
             {
                 //Console.WriteLine("Number of unassigned TrueFalse questions: " + TrueFalseQNum.Count);
 
-                int x = rand.Next(1, TFCount+1);
+                int index = rand.Next(0, TrueFalseQNum.Count);
 
-                if (TrueFalseQNum.Contains(x))
-                {
-                    TrueFalseQNum.Remove(x);
-                    return x;
-                }
-                else
-                {
-                    x = GetRandomTFQuestion();
-                }
-                return x;
+                int valueAtIndex = (int)TrueFalseQNum[index];
+                TrueFalseQNum.RemoveAt(index);
+                return valueAtIndex;
             }
 
             int GetRandomMCQuestion()
             {
                 //Console.WriteLine("Number of unassigned MultipleChoice questions: " + MultipleChoiceQNum.Count);
 
-                int x = rand.Next(1, MCCount + 1);
+                int index = rand.Next(0, MultipleChoiceQNum.Count);
 
-                if (MultipleChoiceQNum.Contains(x))
-                {
-                    MultipleChoiceQNum.Remove(x);
-                    return x;
-                }
-                else
-                {
-                    x = GetRandomMCQuestion();
-                }
-                return x;
+                int valueAtIndex = (int)MultipleChoiceQNum[index];
+                MultipleChoiceQNum.RemoveAt(index);
+                return valueAtIndex;
+
             }
 
             int GetRandomSAQuestion()
             {
                 //Console.WriteLine("Number of unassigned ShortAnswer questions: " + ShortAnswerQNum.Count);
 
-                int x = rand.Next(1, SACount + 1);
+                int index = rand.Next(0, ShortAnswerQNum.Count);
 
-                if (ShortAnswerQNum.Contains(x))
-                {
-                    ShortAnswerQNum.Remove(x);
-                    return x;
-                }
-                else
-                {
-                    x = GetRandomSAQuestion();
-                }
-                return x;
+                int valueAtIndex = (int)ShortAnswerQNum[index];
+                ShortAnswerQNum.RemoveAt(index);
+                return valueAtIndex;
             }
         }
     }
