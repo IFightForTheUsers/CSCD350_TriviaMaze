@@ -8,7 +8,7 @@ using System.Data.SQLite;
 namespace TriviaMazeGUI
 {
 
-    public partial class MazeGridBuilder
+    public class MazeGridBuilder
     {
         private Grid grid;
         private Room[,] rooms;
