@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom;
 using System.Runtime.Serialization;
 using System.Windows.Controls;
 
@@ -12,11 +13,11 @@ namespace TriviaMazeGUI
         internal Panel south;
         internal Panel east;
         internal Panel west;
-        private bool flag = false;
+        public bool Flag { get; set; }
         private bool _visted = false;
         public bool Visited
         {
-            get { return _visted;}
+            get => _visted;
             set
             {
                 if (value == true) _visted = true;
@@ -34,34 +35,35 @@ namespace TriviaMazeGUI
         {
         }
 
-        public bool Flag { get { return flag; } set { flag = value; } }
-
         public int CompareTo(object obj)
         {
             if(obj == null)
             {
                 return 1;
             }
-            Room otherRoom = obj as Room;
-            if(otherRoom != null)
+            if(obj is Room otherRoom)
             {
                 
-                if(!(otherRoom.east == this.east))
+                if(otherRoom.east != this.east)
                 {
                     return 1;
                 }
-                if (!(otherRoom.west == this.west))
+                if (otherRoom.west != this.west)
                 {
                     return 1;
                 }
-                if (!(otherRoom.south == this.south))
+                if (otherRoom.south != this.south)
                 {
                     return 1;
                 }
-                if (!(otherRoom.north == this.north))
+                if (otherRoom.north != this.north)
                 {
                     return 1;
                 }
+            }
+            else
+            {
+                throw new NotImplementedException("Room.CompareTo only compares Rooms with Rooms");
             }
             return 0;
         }

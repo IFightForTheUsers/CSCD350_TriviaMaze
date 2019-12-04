@@ -1,22 +1,20 @@
 ﻿using System.IO;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Xml.Serialization;
 using System.Windows;
 
 namespace TriviaMazeGUI
 {
     class SaveLoadManager
     {
-        public const string saveFile = "save.dat";
+        public const string SaveFile = "save.dat";
 
         public void SaveClick(object sender, RoutedEventArgs e)
         {
             // this will save the maze
-            if (File.Exists(saveFile))
-                File.Delete(saveFile);
+            if (File.Exists(SaveFile))
+                File.Delete(SaveFile);
 
-            using (FileStream f = File.Create(saveFile))
+            using (FileStream f = File.Create(SaveFile))
             {
                 BinaryFormatter b = new BinaryFormatter();
                 b.Serialize(f, MainWindow.Instance.maze);
@@ -27,14 +25,14 @@ namespace TriviaMazeGUI
         public void LoadClick(object sender, RoutedEventArgs e)
         {
             // if saveFile doesn't exist just exit
-            if (!File.Exists(saveFile))
+            if (!File.Exists(SaveFile))
                 return;
 
             // this will load the maze
             MazeGridBuilder m;
             BinaryFormatter b = new BinaryFormatter();
 
-            using (FileStream f = File.OpenRead(saveFile))
+            using (FileStream f = File.OpenRead(SaveFile))
             {
                 m = (MazeGridBuilder) b.Deserialize(f);
             }

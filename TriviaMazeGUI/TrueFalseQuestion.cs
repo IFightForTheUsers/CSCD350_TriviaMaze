@@ -24,7 +24,7 @@ namespace TriviaMazeGUI
             string correctAnswer = "";
 
             int paramOne = this.indexToPullFromDBTable + 1;
-            using (SQLiteConnection connection = new SQLiteConnection(@"Data Source=TriviaMazeQuestions.db;Version=3;"))
+            using (SQLiteConnection connection = new SQLiteConnection(@MainWindow.ConnectionInfo))
             {
                 connection.Open();
                 using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM TrueFalse WHERE Q = @1",

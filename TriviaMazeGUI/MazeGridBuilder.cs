@@ -13,7 +13,7 @@ namespace TriviaMazeGUI
         private Room[,] rooms;
         private int size;
         private Entrance ingress;
-        internal Entrance Entry { get { return ingress; } }
+        internal Entrance Entry => ingress;
         private Exit egress;
        // public Exit Egress { get { return egress; } }
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
@@ -67,8 +67,6 @@ namespace TriviaMazeGUI
                 {
                     Button temp = new Button();
                     rooms[x, y] = new Room();
-                    //Room lambda_var = rooms[x, y];
-                    //temp.Click += (s, e) => { lambda_var.Clicked(); };
                     rooms[x, y].button = temp;
                     rooms[x, y].button.Name = ButtonName(x, y);
                     rooms[x, y].button.Height = Regulations.roomPixelSize;
@@ -172,54 +170,60 @@ namespace TriviaMazeGUI
         {
             
             SQLiteCommand command;
-
-            ArrayList TrueFalseQNum = new ArrayList();
             int TFCount = 0;
-            using (command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", MainWindow.Instance.getConnection))
-            {
-                TFCount = int.Parse(command.ExecuteScalar().ToString());
-            }
-
-            if (TFCount==0)
-                throw new DatabaseReadException("TFCount returned 0");
-
-            for (int a = 1; a <= TFCount; a++)
-            {
-                TrueFalseQNum.Add(a);
-            }
-
-            //MessageBox.Show("TFCount: " + TFCount);
-            //TrueFalseTable.Count;
-
-            ArrayList MultipleChoiceQNum = new ArrayList();
+            ArrayList trueFalseQNum = new ArrayList();
             int MCCount = 0;
-            using (command =
-                new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", MainWindow.Instance.getConnection))
-            {
-                MCCount = int.Parse(command.ExecuteScalar().ToString());
-            }
-
-            if (MCCount==0)
-                throw new DatabaseReadException("MCCount returned 0");
-
-            for (int a = 1; a <= MCCount; a++)
-            {
-                MultipleChoiceQNum.Add(a);
-            }
-
-            ArrayList ShortAnswerQNum = new ArrayList();
+            ArrayList multipleChoiceQNum = new ArrayList();
             int SACount = 0;
-            using (command = new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", MainWindow.Instance.getConnection))
-            {
-                SACount = int.Parse(command.ExecuteScalar().ToString());
-            }
+            ArrayList shortAnswerQNum = new ArrayList();
 
-            if (SACount==0)
-                throw new DatabaseReadException("SACount returned 0");
-
-            for (int a = 1; a <= SACount; a++)
+            using (SQLiteConnection connection = new SQLiteConnection(@MainWindow.ConnectionInfo))
             {
-                ShortAnswerQNum.Add(a);
+                connection.Open();
+                using (command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", connection))
+                {
+                    TFCount = int.Parse(command.ExecuteScalar().ToString());
+                }
+
+                if (TFCount == 0)
+                    throw new DatabaseReadException("TFCount returned 0");
+
+                for (int a = 1; a <= TFCount; a++)
+                {
+                    trueFalseQNum.Add(a);
+                }
+
+                //MessageBox.Show("TFCount: " + TFCount);
+                //TrueFalseTable.Count;
+
+                using (command =
+                    new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", connection))
+                {
+                    MCCount = int.Parse(command.ExecuteScalar().ToString());
+                }
+
+                if (MCCount == 0)
+                    throw new DatabaseReadException("MCCount returned 0");
+
+                for (int a = 1; a <= MCCount; a++)
+                {
+                    multipleChoiceQNum.Add(a);
+                }
+
+                using (command =
+                    new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", connection))
+                {
+                    SACount = int.Parse(command.ExecuteScalar().ToString());
+                }
+
+                if (SACount == 0)
+                    throw new DatabaseReadException("SACount returned 0");
+
+                for (int a = 1; a <= SACount; a++)
+                {
+                    shortAnswerQNum.Add(a);
+                }
+                connection.Close();
             }
 
             Random rand = new Random();
@@ -234,14 +238,14 @@ namespace TriviaMazeGUI
                 {
                     if (questionType == QuestionType.TrueFalse)
                     {
-                        if (TrueFalseQNum.Count != 0)
+                        if (trueFalseQNum.Count != 0)
                         {
                             randomNumberForQuestionNumber = GetRandomTFQuestion();
                             _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
                         }
                         else
                         {
-                            if (MultipleChoiceQNum.Count != 0)
+                            if (multipleChoiceQNum.Count != 0)
                             {
                                 randomNumberForQuestionNumber = GetRandomMCQuestion();
                                 _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
@@ -256,14 +260,14 @@ namespace TriviaMazeGUI
                     }
                     else if (questionType == QuestionType.MultipleChoice)
                     {
-                        if (MultipleChoiceQNum.Count != 0)
+                        if (multipleChoiceQNum.Count != 0)
                         {
                             randomNumberForQuestionNumber = GetRandomMCQuestion();
                             _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
                         }
                         else
                         {
-                            if (ShortAnswerQNum.Count != 0)
+                            if (shortAnswerQNum.Count != 0)
                             {
                                 randomNumberForQuestionNumber = GetRandomSAQuestion();
                                 _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
@@ -278,14 +282,14 @@ namespace TriviaMazeGUI
                     }
                     else if (questionType == QuestionType.ShortAnswer)
                     {
-                        if (ShortAnswerQNum.Count != 0)
+                        if (shortAnswerQNum.Count != 0)
                         {
                             randomNumberForQuestionNumber = GetRandomSAQuestion();
                             _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
                         }
                         else
                         {
-                            if (TrueFalseQNum.Count != 0)
+                            if (trueFalseQNum.Count != 0)
                             {
                                 randomNumberForQuestionNumber = GetRandomTFQuestion();
                                 _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
@@ -306,14 +310,14 @@ namespace TriviaMazeGUI
                 {
                     if (questionType == QuestionType.TrueFalse)
                     {
-                        if (TrueFalseQNum.Count != 0)
+                        if (trueFalseQNum.Count != 0)
                         {
                             randomNumberForQuestionNumber = GetRandomTFQuestion();
                             _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
                         }
                         else
                         {
-                            if (MultipleChoiceQNum.Count != 0)
+                            if (multipleChoiceQNum.Count != 0)
                             {
                                 randomNumberForQuestionNumber = GetRandomMCQuestion();
                                 _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
@@ -328,14 +332,14 @@ namespace TriviaMazeGUI
                     }
                     else if (questionType == QuestionType.MultipleChoice)
                     {
-                        if (MultipleChoiceQNum.Count != 0)
+                        if (multipleChoiceQNum.Count != 0)
                         {
                             randomNumberForQuestionNumber = GetRandomMCQuestion();
                             _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
                         }
                         else
                         {
-                            if (ShortAnswerQNum.Count != 0)
+                            if (shortAnswerQNum.Count != 0)
                             {
                                 randomNumberForQuestionNumber = GetRandomSAQuestion();
                                 _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
@@ -350,14 +354,14 @@ namespace TriviaMazeGUI
                     }
                     else if (questionType == QuestionType.ShortAnswer)
                     {
-                        if (ShortAnswerQNum.Count != 0)
+                        if (shortAnswerQNum.Count != 0)
                         {
                             randomNumberForQuestionNumber = GetRandomSAQuestion();
                             _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
                         }
                         else
                         {
-                            if (TrueFalseQNum.Count != 0)
+                            if (trueFalseQNum.Count != 0)
                             {
                                 randomNumberForQuestionNumber = GetRandomTFQuestion();
                                 _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
@@ -399,10 +403,10 @@ namespace TriviaMazeGUI
             {
                 //Console.WriteLine("Number of unassigned TrueFalse questions: " + TrueFalseQNum.Count);
 
-                int index = rand.Next(0, TrueFalseQNum.Count);
+                int index = rand.Next(0, trueFalseQNum.Count);
 
-                int valueAtIndex = (int)TrueFalseQNum[index];
-                TrueFalseQNum.RemoveAt(index);
+                int valueAtIndex = (int)trueFalseQNum[index];
+                trueFalseQNum.RemoveAt(index);
                 return valueAtIndex;
             }
 
@@ -410,10 +414,10 @@ namespace TriviaMazeGUI
             {
                 //Console.WriteLine("Number of unassigned MultipleChoice questions: " + MultipleChoiceQNum.Count);
 
-                int index = rand.Next(0, MultipleChoiceQNum.Count);
+                int index = rand.Next(0, multipleChoiceQNum.Count);
 
-                int valueAtIndex = (int)MultipleChoiceQNum[index];
-                MultipleChoiceQNum.RemoveAt(index);
+                int valueAtIndex = (int)multipleChoiceQNum[index];
+                multipleChoiceQNum.RemoveAt(index);
                 return valueAtIndex;
 
             }
@@ -422,10 +426,10 @@ namespace TriviaMazeGUI
             {
                 //Console.WriteLine("Number of unassigned ShortAnswer questions: " + ShortAnswerQNum.Count);
 
-                int index = rand.Next(0, ShortAnswerQNum.Count);
+                int index = rand.Next(0, shortAnswerQNum.Count);
 
-                int valueAtIndex = (int)ShortAnswerQNum[index];
-                ShortAnswerQNum.RemoveAt(index);
+                int valueAtIndex = (int)shortAnswerQNum[index];
+                shortAnswerQNum.RemoveAt(index);
                 return valueAtIndex;
             }
         }

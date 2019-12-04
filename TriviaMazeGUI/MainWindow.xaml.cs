@@ -9,12 +9,10 @@ namespace TriviaMazeGUI
         
         internal MazeGridBuilder maze;
         internal readonly SaveLoadManager SaveLoad = new SaveLoadManager();
+        internal const string ConnectionInfo = "Data Source=TriviaMazeQuestions.db;Version=3;";
 
         private static readonly Lazy<MainWindow> Lazy = new Lazy<MainWindow> (()=> new MainWindow());
         public static MainWindow Instance => Lazy.Value;
-
-        private readonly SQLiteConnection connection;
-        public SQLiteConnection getConnection { get { return this.connection; } }
 
         private About about;
         private Instructions instruction;
@@ -24,8 +22,6 @@ namespace TriviaMazeGUI
         {
             InitializeComponent();
             this.Loaded += MainWindow_Loaded;
-            connection = new SQLiteConnection(@"Data Source=TriviaMazeQuestions.db;Version=3;");
-            connection.Open();
         }
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
