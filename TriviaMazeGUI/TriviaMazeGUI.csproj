@@ -64,7 +64,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
+    <ApplicationDefinition Include="Application Stuff\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
@@ -74,22 +74,22 @@
     <Compile Include="AddQuestionToDB.xaml.cs">
       <DependentUpon>AddQuestionToDB.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AssemblyInfo.cs" />
+    <Compile Include="Application Stuff\AssemblyInfo.cs" />
     <Compile Include="DatabaseReadException.cs" />
-    <Compile Include="Door.cs" />
-    <Compile Include="Entrance.cs" />
-    <Compile Include="Exit.cs" />
-    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Panels\Door.cs" />
+    <Compile Include="Panels\Entrance.cs" />
+    <Compile Include="Panels\Exit.cs" />
+    <Compile Include="Application Stuff\GlobalSuppressions.cs" />
     <Compile Include="Instructions.xaml.cs">
       <DependentUpon>Instructions.xaml</DependentUpon>
     </Compile>
     <Compile Include="MazeGridBuilder.cs" />
-    <Compile Include="MultipleChoice.xaml.cs">
+    <Compile Include="Panels\PanelQuestions\MultipleChoice.xaml.cs">
       <DependentUpon>MultipleChoice.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MultipleChoiceQuestion.cs" />
-    <Compile Include="Panel.cs" />
-    <Compile Include="PanelQuestion.cs" />
+    <Compile Include="Panels\PanelQuestions\MultipleChoiceQuestion.cs" />
+    <Compile Include="Panels\Panel.cs" />
+    <Compile Include="Panels\PanelQuestions\PanelQuestion.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="QuestionResults.xaml.cs">
       <DependentUpon>QuestionResults.xaml</DependentUpon>
@@ -97,19 +97,19 @@
     <Compile Include="Regulations.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="SaveLoadManager.cs" />
-    <Compile Include="ShortAnswer.xaml.cs">
+    <Compile Include="Panels\PanelQuestions\ShortAnswer.xaml.cs">
       <DependentUpon>ShortAnswer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ShortAnswerQuestion.cs" />
+    <Compile Include="Panels\PanelQuestions\ShortAnswerQuestion.cs" />
     <Compile Include="Solveable.cs" />
     <Compile Include="StartPrompt.xaml.cs">
       <DependentUpon>StartPrompt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TestQuestion.cs" />
-    <Compile Include="TrueFalse.xaml.cs">
+    <Compile Include="Panels\PanelQuestions\TestQuestion.cs" />
+    <Compile Include="Panels\PanelQuestions\TrueFalse.xaml.cs">
       <DependentUpon>TrueFalse.xaml</DependentUpon>
     </Compile>
-    <Compile Include="TrueFalseQuestion.cs" />
+    <Compile Include="Panels\PanelQuestions\TrueFalseQuestion.cs" />
     <Compile Include="UILock.cs" />
     <Compile Include="VictoryPrompt.xaml.cs">
       <DependentUpon>VictoryPrompt.xaml</DependentUpon>
@@ -117,7 +117,7 @@
     <Compile Include="UserPrompt.xaml.cs">
       <DependentUpon>UserPrompt.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Wall.cs" />
+    <Compile Include="Panels\Wall.cs" />
     <Compile Include="WallHackException.cs" />
     <Page Include="About.xaml">
       <SubType>Designer</SubType>
@@ -135,7 +135,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="Application Stuff\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -143,7 +143,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="MultipleChoice.xaml">
+    <Page Include="Panels\PanelQuestions\MultipleChoice.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -151,7 +151,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ShortAnswer.xaml">
+    <Page Include="Panels\PanelQuestions\ShortAnswer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -159,7 +159,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="TrueFalse.xaml">
+    <Page Include="Panels\PanelQuestions\TrueFalse.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -197,7 +197,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Application Stuff\App.config" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
@@ -209,6 +209,7 @@
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
     <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.112.0\build\net46\System.Data.SQLite.Core.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

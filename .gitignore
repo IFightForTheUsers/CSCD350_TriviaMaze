@@ -91,3 +91,14 @@
 /TriviaMazeGUI.Tests/bin/Debug/TriviaMazeGUI.exe.config
 /TriviaMazeGUI.Tests/bin/Debug/TriviaMazeGUI.Tests.pdb
 /TriviaMazeGUI/bin/Debug/save.dat
+/TriviaMazeGUI/obj/Debug/Application Stuff/App.g.cs
+/TriviaMazeGUI/obj/Debug/Application Stuff/App.g.i.cs
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/TrueFalse.g.i.cs
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/TrueFalse.g.cs
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/TrueFalse.baml
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/ShortAnswer.g.i.cs
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/ShortAnswer.g.cs
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/ShortAnswer.baml
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/MultipleChoice.g.i.cs
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/MultipleChoice.g.cs
+/TriviaMazeGUI/obj/Debug/Panels/PanelQuestions/MultipleChoice.baml
