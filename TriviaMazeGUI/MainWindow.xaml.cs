@@ -9,7 +9,7 @@ namespace TriviaMazeGUI
         
         internal MazeGridBuilder maze;
         internal readonly SaveLoadManager SaveLoad = new SaveLoadManager();
-        internal const string ConnectionInfo = "Data Source=TriviaMazeQuestions.db;Version=3;";
+        internal const string ConnectionInfo = @"Data Source=TriviaMazeQuestions.db;Version=3;";
 
         private static readonly Lazy<MainWindow> Lazy = new Lazy<MainWindow> (()=> new MainWindow());
         public static MainWindow Instance => Lazy.Value;

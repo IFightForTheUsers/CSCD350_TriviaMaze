@@ -41,7 +41,7 @@ namespace TriviaMazeGUI
         public void Build(int n, Grid grid)
         {
             if (grid==null)
-                throw new ArgumentNullException(nameof(grid), "MazeGridBuilder.Build does not accept nulls.");
+                throw new ArgumentNullException(nameof(grid), @"MazeGridBuilder.Build does not accept nulls.");
 
             this.size = n;
             rooms = new Room[n, n];
@@ -177,7 +177,7 @@ namespace TriviaMazeGUI
             int SACount = 0;
             ArrayList shortAnswerQNum = new ArrayList();
 
-            using (SQLiteConnection connection = new SQLiteConnection(@MainWindow.ConnectionInfo))
+            using (SQLiteConnection connection = new SQLiteConnection(MainWindow.ConnectionInfo))
             {
                 connection.Open();
                 using (command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", connection))

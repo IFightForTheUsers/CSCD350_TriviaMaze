@@ -29,7 +29,7 @@ namespace TriviaMazeGUI
             string correctAnswer = "";
 
             int paramOne = this.indexToPullFromDBTable + 1;
-            using (SQLiteConnection connection = new SQLiteConnection(@MainWindow.ConnectionInfo))
+            using (SQLiteConnection connection = new SQLiteConnection(MainWindow.ConnectionInfo))
             {
                 connection.Open();
                 using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice WHERE Q = @1",
