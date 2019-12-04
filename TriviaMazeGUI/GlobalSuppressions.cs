@@ -22,3 +22,5 @@
 
 // CA1304
 [assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1304:Specify CultureInfo", Justification = "<Pending>", Scope = "member", Target = "~M:TriviaMazeGUI.MultipleChoiceQuestion.Ask")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Reliability", "CA2000:Dispose objects before losing scope", Justification = "<Pending>", Scope = "member", Target = "~M:TriviaMazeGUI.MazeGridBuilder.WrapDoorsWithQuestions")]
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1814:Prefer jagged arrays over multidimensional", Justification = "<Pending>", Scope = "member", Target = "~M:TriviaMazeGUI.MazeGridBuilder.Build(System.Int32,System.Windows.Controls.Grid)")]
