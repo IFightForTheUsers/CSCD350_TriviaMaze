@@ -64,7 +64,7 @@ namespace TriviaMazeGUI
             }
             else
             {
-                canSolve = MazeGridBuilder.check();
+                canSolve = MainWindow.Instance.maze.check();
                 Solveable.Reset();
             }
             if (_using_door.locked==false && IsExit(_using_door.ghost(here)))

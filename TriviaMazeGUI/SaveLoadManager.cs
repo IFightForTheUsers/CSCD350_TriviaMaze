@@ -8,6 +8,8 @@ namespace TriviaMazeGUI
 {
     class SaveLoadManager
     {
+        public static readonly string saveFile = "save.dat";
+
         public void SaveClick()
         {
             // this will save the maze

@@ -11,20 +11,20 @@ namespace TriviaMazeGUI
     public partial class MazeGridBuilder
     {
         private Grid grid;
-        private static Room[,] rooms;
+        private Room[,] rooms;
         private Entrance ingress;
         internal Entrance Entry { get { return ingress; } }
         private Exit egress;
        // public Exit Egress { get { return egress; } }
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
-        public static bool check()
+        public bool check()
         {
-            bool temp = Solveable.CheckIfSolveable(rooms);
+            bool temp = Solveable.CheckIfSolveable(ref this.rooms);
             ResetFlags();
             return temp;
         }
-        public static void ResetFlags()
+        public void ResetFlags()
         {
             for(int i = 0; i < rooms.GetLength(0); i++)
             {

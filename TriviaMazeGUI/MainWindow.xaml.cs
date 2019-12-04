@@ -7,7 +7,7 @@ namespace TriviaMazeGUI
     public partial class MainWindow : Window
     {
         
-        MazeGridBuilder maze;
+        internal MazeGridBuilder maze;
 
         private static readonly Lazy<MainWindow> Lazy = new Lazy<MainWindow> (()=> new MainWindow());
         public static MainWindow Instance => Lazy.Value;

@@ -21,7 +21,7 @@ namespace TriviaMazeGUI
             order = new Queue<Room>();
         }
 
-        public static bool CheckIfSolveable(Room[,] maze)
+        public static bool CheckIfSolveable(ref Room[,] maze)
         {
             bool solv = false;
             int tempRow = 0;
@@ -86,7 +86,7 @@ namespace TriviaMazeGUI
                 order.Enqueue(maze[tempRow + 1, tempColumn]);
                 maze[tempRow + 1, tempColumn].Flag = true;
             }
-            solv = CheckIfSolveable(maze);
+            solv = CheckIfSolveable(ref maze);
             return solv;
         }
 
