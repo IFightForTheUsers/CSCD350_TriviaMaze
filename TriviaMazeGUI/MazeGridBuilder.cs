@@ -137,19 +137,35 @@ namespace TriviaMazeGUI
             
             SQLiteCommand command;
 
-            ArrayList TrueFalseTable = new ArrayList();
+            ArrayList TrueFalseQNum = new ArrayList();
             command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", MainWindow.Instance.getConnection);
             int TFCount = int.Parse(command.ExecuteScalar().ToString()); 
+
+            for (int a = 1; a <= TFCount; a++)
+            {
+                TrueFalseQNum.Add(a);
+            }
+
             //MessageBox.Show("TFCount: " + TFCount);
             //TrueFalseTable.Count;
 
-            ArrayList MultipleChoiceTable = new ArrayList();
+            ArrayList MultipleChoiceQNum = new ArrayList();
             command = new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", MainWindow.Instance.getConnection);
             int MCCount = int.Parse(command.ExecuteScalar().ToString());
 
-            ArrayList ShortAnswerTable = new ArrayList();
+            for (int a = 1; a <= MCCount; a++)
+            {
+                MultipleChoiceQNum.Add(a);
+            }
+
+            ArrayList ShortAnswerQNum = new ArrayList();
             command = new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", MainWindow.Instance.getConnection);
             int SACount = int.Parse(command.ExecuteScalar().ToString());
+
+            for (int a = 1; a <= SACount; a++)
+            {
+                ShortAnswerQNum.Add(a);
+            }
 
             Random rand = new Random();
             int randomNumberForQuestionNumber;
@@ -163,19 +179,46 @@ namespace TriviaMazeGUI
                 {
                     if (questionType == QuestionType.TrueFalse)
                     {
-                        randomNumberForQuestionNumber = rand.Next(0, TFCount);
-                        _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                        if (TrueFalseQNum.Count != 0)
+                        {
+                            randomNumberForQuestionNumber = GetRandomTFQuestion();
+                            _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                        }
+                        else
+                        {
+                            randomNumberForQuestionNumber = GetRandomMCQuestion();
+                            _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                        }
+
                     }
                     else if (questionType == QuestionType.MultipleChoice)
                     {
-                        randomNumberForQuestionNumber = rand.Next(0, MCCount);
-                        _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                        if (MultipleChoiceQNum.Count != 0)
+                        {
+                            randomNumberForQuestionNumber = GetRandomMCQuestion();
+                            _ = new MultipleChoiceQuestion(r.east, randomNumberForQuestionNumber);
+                        }
+                        else
+                        {
+                            randomNumberForQuestionNumber = GetRandomSAQuestion();
+                            _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                        }
+
                     }
                     else if (questionType == QuestionType.ShortAnswer)
                     {
-                        randomNumberForQuestionNumber = rand.Next(0, SACount);
-                        _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                        if (ShortAnswerQNum.Count != 0)
+                        {
+                            randomNumberForQuestionNumber = GetRandomSAQuestion();
+                            _ = new ShortAnswerQuestion(r.east, randomNumberForQuestionNumber);
+                        }
+                        else
+                        {
+                            randomNumberForQuestionNumber = GetRandomTFQuestion();
+                            _ = new TrueFalseQuestion(r.east, randomNumberForQuestionNumber);
+                        }
                     }
+
                 }
 
                 questionType = GetRandomQuestionType();
@@ -185,18 +228,44 @@ namespace TriviaMazeGUI
                 {
                     if (questionType == QuestionType.TrueFalse)
                     {
-                        randomNumberForQuestionNumber = rand.Next(0, TFCount);
-                        _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                        if (TrueFalseQNum.Count != 0)
+                        {
+                            randomNumberForQuestionNumber = GetRandomTFQuestion();
+                            _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                        }
+                        else
+                        {
+                            randomNumberForQuestionNumber = GetRandomMCQuestion();
+                            _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                        }
+
                     }
                     else if (questionType == QuestionType.MultipleChoice)
                     {
-                        randomNumberForQuestionNumber = rand.Next(0, MCCount);
-                        _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                        if (MultipleChoiceQNum.Count != 0)
+                        {
+                            randomNumberForQuestionNumber = GetRandomMCQuestion();
+                            _ = new MultipleChoiceQuestion(r.south, randomNumberForQuestionNumber);
+                        }
+                        else
+                        {
+                            randomNumberForQuestionNumber = GetRandomSAQuestion();
+                            _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                        }
+
                     }
                     else if (questionType == QuestionType.ShortAnswer)
                     {
-                        randomNumberForQuestionNumber = rand.Next(0, SACount);
-                        _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                        if (ShortAnswerQNum.Count != 0)
+                        {
+                            randomNumberForQuestionNumber = GetRandomSAQuestion();
+                            _ = new ShortAnswerQuestion(r.south, randomNumberForQuestionNumber);
+                        }
+                        else
+                        {
+                            randomNumberForQuestionNumber = GetRandomTFQuestion();
+                            _ = new TrueFalseQuestion(r.south, randomNumberForQuestionNumber);
+                        }
                     }
                 }
 
@@ -222,6 +291,60 @@ namespace TriviaMazeGUI
                 {
                     return QuestionType.MultipleChoice;
                 }
+            }
+
+            int GetRandomTFQuestion()
+            {
+                //Console.WriteLine("Number of unassigned TrueFalse questions: " + TrueFalseQNum.Count);
+
+                int x = rand.Next(1, TFCount+1);
+
+                if (TrueFalseQNum.Contains(x))
+                {
+                    TrueFalseQNum.Remove(x);
+                    return x;
+                }
+                else
+                {
+                    x = GetRandomTFQuestion();
+                }
+                return x;
+            }
+
+            int GetRandomMCQuestion()
+            {
+                //Console.WriteLine("Number of unassigned MultipleChoice questions: " + MultipleChoiceQNum.Count);
+
+                int x = rand.Next(1, MCCount + 1);
+
+                if (MultipleChoiceQNum.Contains(x))
+                {
+                    MultipleChoiceQNum.Remove(x);
+                    return x;
+                }
+                else
+                {
+                    x = GetRandomMCQuestion();
+                }
+                return x;
+            }
+
+            int GetRandomSAQuestion()
+            {
+                //Console.WriteLine("Number of unassigned ShortAnswer questions: " + ShortAnswerQNum.Count);
+
+                int x = rand.Next(1, SACount + 1);
+
+                if (ShortAnswerQNum.Contains(x))
+                {
+                    ShortAnswerQNum.Remove(x);
+                    return x;
+                }
+                else
+                {
+                    x = GetRandomSAQuestion();
+                }
+                return x;
             }
         }
     }

@@ -8,10 +8,10 @@
              d:DesignHeight="370" d:DesignWidth="624">
     <Grid Background="White">
 
-        <TextBlock x:Name="Q" HorizontalAlignment="Left" Margin="69,38,0,0" TextWrapping="WrapWithOverflow" Text="[ Question ]" FontSize="30" VerticalAlignment="Top" Height="91" Width="494"/>
-        <RadioButton Content="a" x:Name="a" FontSize="20" HorizontalAlignment="Left" Margin="92,129,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="41" Width="448" />
-        <RadioButton Content="b" x:Name="b" FontSize="20" HorizontalAlignment="Left" Margin="92,170,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="44" Width="448" />
-        <RadioButton Content="c" x:Name="c" FontSize="20" HorizontalAlignment="Left" Margin="92,214,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="41" Width="448" />
+        <TextBlock x:Name="Q" HorizontalAlignment="Left" Margin="69,38,0,0" TextWrapping="WrapWithOverflow" Text="[ Question ]" FontSize="28" VerticalAlignment="Top" Height="118" Width="494"/>
+        <RadioButton Content="a" x:Name="a" FontSize="20" HorizontalAlignment="Left" Margin="92,156,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="41" Width="448" />
+        <RadioButton Content="b" x:Name="b" FontSize="20" HorizontalAlignment="Left" Margin="92,189,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="44" Width="448" />
+        <RadioButton Content="c" x:Name="c" FontSize="20" HorizontalAlignment="Left" Margin="92,224,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="41" Width="448" />
         <RadioButton Content="d" x:Name="d" FontSize="20" HorizontalAlignment="Left" Margin="92,255,0,0" VerticalAlignment="Top" VerticalContentAlignment="Center" Height="43" Width="427" />
         <Button Content="Submit" x:Name="SubmitButton" FontSize="15" Padding="5" HorizontalAlignment="Left" Margin="465,298,0,0" VerticalAlignment="Top" Width="75"/>
 
