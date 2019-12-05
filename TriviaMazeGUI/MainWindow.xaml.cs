@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Windows;
-using System.Data.SQLite;
 using System.Windows.Input;
 
 namespace TriviaMazeGUI
@@ -17,7 +16,7 @@ namespace TriviaMazeGUI
 
         private About about;
         private Instructions instruction;
-        private int MazeSize;
+        private int MazeSize = 4;
 
         private MainWindow()
         {
@@ -94,6 +93,12 @@ namespace TriviaMazeGUI
         private void Load_OnExecuted(object sender, ExecutedRoutedEventArgs e)
         {
             SaveLoad.LoadClick(sender, e);
+        }
+
+        private void New_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            ResetWindow();
+            BuildMaze(MazeSize);
         }
     }
 }
