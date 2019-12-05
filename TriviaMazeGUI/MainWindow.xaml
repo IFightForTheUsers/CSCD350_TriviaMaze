@@ -6,18 +6,24 @@
         xmlns:local="clr-namespace:TriviaMazeGUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.CommandBindings>
+        <CommandBinding Command="New" Executed="New_OnExecuted"/>
+        <CommandBinding Command="Save" Executed="Save_OnExecuted"/>
+        <CommandBinding Command="Open" Executed="Load_OnExecuted"/>
+    </Window.CommandBindings>
 
     <StackPanel>
 
         <Menu IsMainMenu="True">
             <MenuItem x:Name ="File" Header="_File" Height="18" Width="52" Click="File_Click">
-                <MenuItem x:Name="mnuFileStart" Header="Start"/>
-                <MenuItem x:Name="mnuStop" Header="S_top" IsEnabled="False" Click="mnuStop_Click"/>
                 <MenuItem x:Name="AddQuestionToDB" Header="Add Question To Database" Click="AddQuestionToDB_Click" />
                 <MenuItem x:Name="mnuOpenDBWindow" Header="_OpenDBWindow"/>
-                <MenuItem x:Name="Menu_SaveMaze" Header="Save Maze"/>
+                <MenuItem Command="New" Header ="New Maze"/>
+                <MenuItem Command="Save" Header="Save Maze"/>
+                <MenuItem Command="Open" Header="Load Maze"/>
                 <MenuItem x:Name="mnuClose" Header="Exit" Click="mnuClose_Click"/>
             </MenuItem>
+
             <MenuItem x:Name="menuInf" Header="Help" Height="21" Width="51">
                 <MenuItem x:Name="mnuHelpAbout" Header="About" Click="mnuHelpAbout_Click"/>
                 <MenuItem x:Name="mnuInstructions" Header="Instructions" Click="mnuInstructions_Click"/>

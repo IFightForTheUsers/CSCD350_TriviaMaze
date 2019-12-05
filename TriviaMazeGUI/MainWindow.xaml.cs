@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using System.Data.SQLite;
+using System.Windows.Input;
 
 namespace TriviaMazeGUI
 {
@@ -16,7 +16,7 @@ namespace TriviaMazeGUI
 
         private About about;
         private Instructions instruction;
-        private int MazeSize;
+        private int MazeSize = 4;
 
         private MainWindow()
         {
@@ -26,7 +26,6 @@ namespace TriviaMazeGUI
 
         void MainWindow_Loaded(object sender, RoutedEventArgs e)
         {
-            Menu_SaveMaze.Click += SaveLoad.SaveClick;
             StartPrompt prompt = new StartPrompt();
             Question.Children.Add(prompt);
         }
@@ -62,11 +61,6 @@ namespace TriviaMazeGUI
 
         }
 
-        private void mnuStop_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void mnuClose_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
@@ -89,6 +83,22 @@ namespace TriviaMazeGUI
         {
             AddQuestionToDB addQuestion = new AddQuestionToDB();
             addQuestion.Show();
+        }
+
+        private void Save_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveLoad.SaveClick(sender, e);
+        }
+
+        private void Load_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            SaveLoad.LoadClick(sender, e);
+        }
+
+        private void New_OnExecuted(object sender, ExecutedRoutedEventArgs e)
+        {
+            ResetWindow();
+            BuildMaze(MazeSize);
         }
     }
 }
