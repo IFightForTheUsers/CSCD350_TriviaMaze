@@ -192,9 +192,6 @@ namespace TriviaMazeGUI
                     trueFalseQNum.Add(a);
                 }
 
-                //MessageBox.Show("TFCount: " + TFCount);
-                //TrueFalseTable.Count;
-
                 var MCCount = 0;
                 using (command = new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", connection))
                 {

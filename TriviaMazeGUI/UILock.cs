@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Windows;
 using System.Windows.Forms;
+using System.Windows.Media;
 using Button = System.Windows.Controls.Button;
 
 namespace TriviaMazeGUI
@@ -73,14 +74,27 @@ namespace TriviaMazeGUI
                 QuestionResults r = new QuestionResults();
 
                 if (_AnswersCorrect > 0 && _AnwersIncorrect == 0)
-                    r.Questions.Text = "All Questions correct!";
+                {
+                    r.Questions.Text = "Correct!";
+                    r.Questions.FontSize = 30;
+                    r.Questions.Background = Brushes.Black;
+                    r.Questions.FontWeight = FontWeights.Bold;
+                    r.Questions.Foreground = Brushes.Chartreuse;
+                }
                 else
                 {
                     if (_AnswersCorrect > 0)
                         r.Questions.Text = "You got " + _AnswersCorrect.ToString() + " questions right of " +
                                            (_AnswersCorrect + _AnwersIncorrect).ToString() + " asked.";
                     else
-                        r.Questions.Text = "All answers were incorrect.";
+                    {
+                        r.Questions.Text = "Incorrect";
+                        r.Questions.FontSize = 30;
+                        r.Questions.Background = Brushes.Black;
+                        r.Questions.FontWeight = FontWeights.Bold;
+                        r.Questions.Foreground = Brushes.Red;
+
+                    }
                 }
 
                 if (canSolve && !solved)
