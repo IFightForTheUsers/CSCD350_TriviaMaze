@@ -12,6 +12,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="79,111,0,0" TextWrapping="Wrap" Text="Maze Size:" VerticalAlignment="Top"/>
         <TextBox x:Name="MazeSize" HorizontalAlignment="Left" Height="23" Margin="199,111,0,0" TextWrapping="Wrap" Text="4" VerticalAlignment="Top" Width="120"/>
         <Button Content="Build Maze" IsDefault="True" Click="BuildClick" HorizontalAlignment="Left" Margin="225,201,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Load Maze" HorizontalAlignment="Left" Margin="363,201,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="LoadMaze" Content="Load Maze" HorizontalAlignment="Left" Margin="363,201,0,0" VerticalAlignment="Top" Width="75"/>
     </Grid>
 </UserControl>

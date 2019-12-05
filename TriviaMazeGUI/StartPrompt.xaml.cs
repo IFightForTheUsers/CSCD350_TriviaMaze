@@ -12,6 +12,7 @@ namespace TriviaMazeGUI
         public StartPrompt()
         {
             InitializeComponent();
+            LoadMaze.Click += MainWindow.Instance.SaveLoad.LoadClick;
         }
 
         private void BuildClick(object sender, RoutedEventArgs e)

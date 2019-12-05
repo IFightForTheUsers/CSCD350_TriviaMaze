@@ -163,6 +163,8 @@ namespace TriviaMazeGUI
             {
                 if (r.Visited)
                     r.button.Content = "Visited";
+                if (r.east is Exit)
+                    r.button.Content = "Exit";
             }
         }
 
@@ -194,8 +196,7 @@ namespace TriviaMazeGUI
                 //TrueFalseTable.Count;
 
                 var MCCount = 0;
-                using (command =
-                    new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", connection))
+                using (command = new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", connection))
                 {
                     MCCount = int.Parse(command.ExecuteScalar().ToString());
                 }
@@ -209,8 +210,7 @@ namespace TriviaMazeGUI
                 }
 
                 var SACount = 0;
-                using (command =
-                    new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", connection))
+                using (command = new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", connection))
                 {
                     SACount = int.Parse(command.ExecuteScalar().ToString());
                 }
