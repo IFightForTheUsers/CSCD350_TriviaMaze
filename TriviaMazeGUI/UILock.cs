@@ -75,7 +75,9 @@ namespace TriviaMazeGUI
             if (here.east is Exit)
             {
                 VictoryPrompt p = new VictoryPrompt();
+                p.Background = Brushes.Chartreuse;
                 MainWindow.Instance.Question.Children.Add(p);
+
             }
             else
             {
@@ -86,7 +88,7 @@ namespace TriviaMazeGUI
                 if (_AnswersCorrect > 0 && _AnwersIncorrect == 0)
                 {
                     r.Questions.Text = "Correct!";
-                    r.Questions.FontSize = 40;
+                    r.Questions.FontSize = 50;
                     r.Background = Brushes.Chartreuse;
                     r.Questions.FontWeight = FontWeights.Bold;
                     //r.Questions.Foreground = Brushes.Black;
@@ -99,7 +101,7 @@ namespace TriviaMazeGUI
                     else
                     {
                         r.Questions.Text = "Incorrect";
-                        r.Questions.FontSize = 40;
+                        r.Questions.FontSize = 50;
                         r.Background = Brushes.Red;
                         r.Questions.FontWeight = FontWeights.Bold;
                         //r.Questions.Foreground = Brushes.Red;
@@ -112,6 +114,7 @@ namespace TriviaMazeGUI
                 else
                 {
                     r.canSolve.Text = "It's Game over man! Game over!";
+                    r.canSolve.Foreground = Brushes.White;
                     r.Questions.FontSize = 30;
                     r.Background = Brushes.Black;
                     r.Questions.FontWeight = FontWeights.Bold;
