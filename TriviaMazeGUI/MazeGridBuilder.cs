@@ -187,7 +187,7 @@ namespace TriviaMazeGUI
                 if (TFCount == 0)
                     throw new DatabaseReadException("TFCount returned 0");
 
-                for (int a = 1; a <= TFCount; a++)
+                for (int a = 0; a < TFCount; a++)
                 {
                     trueFalseQNum.Add(a);
                 }
@@ -204,7 +204,7 @@ namespace TriviaMazeGUI
                 if (MCCount == 0)
                     throw new DatabaseReadException("MCCount returned 0");
 
-                for (int a = 1; a <= MCCount; a++)
+                for (int a = 0; a < MCCount; a++)
                 {
                     multipleChoiceQNum.Add(a);
                 }
@@ -218,7 +218,7 @@ namespace TriviaMazeGUI
                 if (SACount == 0)
                     throw new DatabaseReadException("SACount returned 0");
 
-                for (int a = 1; a <= SACount; a++)
+                for (int a = 0; a < SACount; a++)
                 {
                     shortAnswerQNum.Add(a);
                 }
