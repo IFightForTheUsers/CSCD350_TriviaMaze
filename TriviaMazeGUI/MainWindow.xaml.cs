@@ -18,6 +18,9 @@ namespace TriviaMazeGUI
         private Instructions instruction;
         private int MazeSize = 4;
 
+        internal bool AllowNewLoad = false;
+        internal bool AllowSave = false;
+
         private MainWindow()
         {
             InitializeComponent();
@@ -28,6 +31,7 @@ namespace TriviaMazeGUI
         {
             StartPrompt prompt = new StartPrompt();
             Question.Children.Add(prompt);
+            AllowNewLoad = true;
         }
 
         public void BuildMaze(int size)
@@ -38,6 +42,7 @@ namespace TriviaMazeGUI
             UILock.Instance.Initialize(maze.Entry);
 
             maze.WrapDoorsWithQuestions();
+            AllowSave = true;
             //maze.WrapTest();
         }
 
@@ -99,6 +104,16 @@ namespace TriviaMazeGUI
         {
             ResetWindow();
             BuildMaze(MazeSize);
+        }
+
+        private void AllowNewLoad_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = AllowNewLoad;
+        }
+
+        private void AllowSave_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            e.CanExecute = AllowSave;
         }
     }
 }

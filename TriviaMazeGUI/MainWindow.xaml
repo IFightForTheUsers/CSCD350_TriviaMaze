@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="600" Width="1050" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Window.CommandBindings>
-        <CommandBinding Command="New" Executed="New_OnExecuted"/>
-        <CommandBinding Command="Save" Executed="Save_OnExecuted"/>
-        <CommandBinding Command="Open" Executed="Load_OnExecuted"/>
+        <CommandBinding Command="New" Executed="New_OnExecuted" CanExecute="AllowNewLoad_OnCanExecute"/>
+        <CommandBinding Command="Save" Executed="Save_OnExecuted" CanExecute="AllowSave_OnCanExecute"/>
+        <CommandBinding Command="Open" Executed="Load_OnExecuted" CanExecute="AllowNewLoad_OnCanExecute"/>
     </Window.CommandBindings>
 
     <StackPanel>

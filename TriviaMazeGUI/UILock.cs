@@ -32,6 +32,8 @@ namespace TriviaMazeGUI
         }
         private void Acquire()
         {
+            MainWindow.Instance.AllowNewLoad = false;
+            MainWindow.Instance.AllowSave = false;
             _AnswersCorrect = 0;
             _AnwersIncorrect = 0;
             depth = _using_door.depth;
@@ -48,6 +50,8 @@ namespace TriviaMazeGUI
         }
         private void _free()
         {
+            MainWindow.Instance.AllowNewLoad = true;
+            MainWindow.Instance.AllowSave = true;
             if (_using_door.locked==false)
             {
                 There();
