@@ -137,6 +137,14 @@ namespace TriviaMazeGUI
         {
             // this will rebuild the maze in a window after being DeSerialized
             // remake the grid!
+
+            grid.Width = size * Regulations.roomPixelSize;
+            grid.Height = size * Regulations.roomPixelSize;
+            grid.Margin = new Thickness(30);
+            grid.HorizontalAlignment = HorizontalAlignment.Left;
+            grid.VerticalAlignment = VerticalAlignment.Top;
+            grid.ShowGridLines = true;
+
             for (int i = 0; i < size; i++)
             {
                 grid.RowDefinitions.Add(new RowDefinition());
