@@ -2,6 +2,10 @@
 
 namespace TriviaMazeGUI
 {
+    /// <summary>
+    /// Common interface for things connecting rooms or blocking access from rooms.
+    /// they all must be serializable
+    /// </summary>
     interface Panel
     {
         bool locked { get; set; } // passable objects start unlocked. impassable objects starts locked.

@@ -168,18 +168,15 @@ namespace TriviaMazeGUI
 
         public void WrapDoorsWithQuestions()
         {
-            
-            SQLiteCommand command;
-            int TFCount = 0;
             ArrayList trueFalseQNum = new ArrayList();
-            int MCCount = 0;
             ArrayList multipleChoiceQNum = new ArrayList();
-            int SACount = 0;
             ArrayList shortAnswerQNum = new ArrayList();
 
             using (SQLiteConnection connection = new SQLiteConnection(MainWindow.ConnectionInfo))
             {
                 connection.Open();
+                var TFCount = 0;
+                SQLiteCommand command;
                 using (command = new SQLiteCommand("SELECT COUNT(*) FROM TrueFalse", connection))
                 {
                     TFCount = int.Parse(command.ExecuteScalar().ToString());
@@ -196,6 +193,7 @@ namespace TriviaMazeGUI
                 //MessageBox.Show("TFCount: " + TFCount);
                 //TrueFalseTable.Count;
 
+                var MCCount = 0;
                 using (command =
                     new SQLiteCommand("SELECT COUNT(*) FROM MultipleChoice", connection))
                 {
@@ -210,6 +208,7 @@ namespace TriviaMazeGUI
                     multipleChoiceQNum.Add(a);
                 }
 
+                var SACount = 0;
                 using (command =
                     new SQLiteCommand("SELECT COUNT(*) FROM ShortAnswer", connection))
                 {
@@ -227,13 +226,12 @@ namespace TriviaMazeGUI
             }
 
             Random rand = new Random();
-            int randomNumberForQuestionNumber;
-            QuestionType questionType; // just to give it a default value to shut the compiler up and since it's not a nullable type;
-            
+
             foreach (Room r in rooms)
             {
-                questionType = GetRandomQuestionType();
+                var questionType = GetRandomQuestionType(); // just to give it a default value to shut the compiler up and since it's not a nullable type;
 
+                int randomNumberForQuestionNumber;
                 if (r.east is Door)
                 {
                     if (questionType == QuestionType.TrueFalse)
