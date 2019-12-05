@@ -106,6 +106,10 @@ namespace TriviaMazeGUI
                 else
                 {
                     r.canSolve.Text = "It's Game over man! Game over!";
+                    r.Questions.FontSize = 20;
+                    r.Questions.Background = Brushes.Black;
+                    r.Questions.FontWeight = FontWeights.Bold;
+                    r.Questions.Foreground = Brushes.Red;
                 }
 
                 MainWindow.Instance.Question.Children.Add(r);
