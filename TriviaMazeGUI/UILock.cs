@@ -108,9 +108,7 @@ namespace TriviaMazeGUI
                     }
                 }
 
-                if (canSolve && !solved)
-                    r.canSolve.Text = "Maze is still solvable!";
-                else
+                if (!canSolve)
                 {
                     MainWindow.Instance.AllowSave = false;
                     r.canSolve.Text = "It's Game over man! Game over!";
@@ -119,6 +117,11 @@ namespace TriviaMazeGUI
                     r.Background = Brushes.Black;
                     r.Questions.FontWeight = FontWeights.Bold;
                     r.Questions.Foreground = Brushes.White;
+                }
+                else
+                {
+                    //r.canSolve.Text = "Maze is still solvable!";
+                    r.canSolve.Text = "";
                 }
 
                 MainWindow.Instance.Question.Children.Add(r);
