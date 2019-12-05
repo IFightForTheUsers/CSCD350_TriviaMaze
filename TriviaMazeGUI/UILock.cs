@@ -80,10 +80,10 @@ namespace TriviaMazeGUI
                 if (_AnswersCorrect > 0 && _AnwersIncorrect == 0)
                 {
                     r.Questions.Text = "Correct!";
-                    r.Questions.FontSize = 30;
-                    r.Questions.Background = Brushes.Black;
+                    r.Questions.FontSize = 40;
+                    r.Background = Brushes.Chartreuse;
                     r.Questions.FontWeight = FontWeights.Bold;
-                    r.Questions.Foreground = Brushes.Chartreuse;
+                    //r.Questions.Foreground = Brushes.Black;
                 }
                 else
                 {
@@ -93,10 +93,10 @@ namespace TriviaMazeGUI
                     else
                     {
                         r.Questions.Text = "Incorrect";
-                        r.Questions.FontSize = 30;
-                        r.Questions.Background = Brushes.Black;
+                        r.Questions.FontSize = 40;
+                        r.Background = Brushes.Red;
                         r.Questions.FontWeight = FontWeights.Bold;
-                        r.Questions.Foreground = Brushes.Red;
+                        //r.Questions.Foreground = Brushes.Red;
 
                     }
                 }
@@ -106,10 +106,10 @@ namespace TriviaMazeGUI
                 else
                 {
                     r.canSolve.Text = "It's Game over man! Game over!";
-                    r.Questions.FontSize = 20;
-                    r.Questions.Background = Brushes.Black;
+                    r.Questions.FontSize = 30;
+                    r.Background = Brushes.Black;
                     r.Questions.FontWeight = FontWeights.Bold;
-                    r.Questions.Foreground = Brushes.Red;
+                    r.Questions.Foreground = Brushes.White;
                 }
 
                 MainWindow.Instance.Question.Children.Add(r);
@@ -195,6 +195,7 @@ namespace TriviaMazeGUI
 
         private void Clear()
         {
+
             here.button.IsEnabled = false;
             here.button.Background = Regulations.disabledColor;
             here.button.Content = "Visited";
@@ -272,6 +273,8 @@ namespace TriviaMazeGUI
 
         private void _common_clicky()
         {
+            MainWindow.Instance.Question.Children.Clear();
+
             Boolean asked = false;
             if (_using_door is PanelQuestion)
             {

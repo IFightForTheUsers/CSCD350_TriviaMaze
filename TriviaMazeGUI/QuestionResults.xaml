@@ -6,11 +6,11 @@
              xmlns:local="clr-namespace:TriviaMazeGUI"
              mc:Ignorable="d" 
              d:DesignHeight="370" d:DesignWidth="624">
-    <Grid>
+    <Grid Height="370" Width="616">
         <TextBlock HorizontalAlignment="Left" Margin="103,119,0,0" TextWrapping="Wrap" x:Name="Questions" Text="You got x questions right of y asked." VerticalAlignment="Top"/>
         <TextBlock HorizontalAlignment="Left" Margin="122,173,0,0" TextWrapping="Wrap" x:Name="canSolve" Text="canSolve" VerticalAlignment="Top"/>
-        <Button x:Name="NewMaze" Content="New Maze" HorizontalAlignment="Left" Margin="82,236,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="LoadMaze" Content="Load Maze" HorizontalAlignment="Left" Margin="281,227,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="NewMaze" Content="New Maze" HorizontalAlignment="Left" Margin="313,279,0,0" VerticalAlignment="Top" Width="84" Height="33"/>
+        <Button x:Name="LoadMaze" Content="Load Maze" HorizontalAlignment="Left" Margin="434,279,0,0" VerticalAlignment="Top" Width="84" Height="33"/>
 
     </Grid>
 </UserControl>
