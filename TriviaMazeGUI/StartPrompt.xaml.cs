@@ -17,7 +17,7 @@ namespace TriviaMazeGUI
 
         private void BuildClick(object sender, RoutedEventArgs e)
         {
-            MainWindow.Instance.BuildMaze(Int32.Parse(MazeSize.Text));
+            MainWindow.Instance.BuildMaze(4);
             MainWindow.Instance.Question.Children.Clear();
         }
     }
