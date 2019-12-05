@@ -9,7 +9,7 @@
     <Window.CommandBindings>
         <CommandBinding Command="New" Executed="New_OnExecuted"/>
         <CommandBinding Command="Save" Executed="Save_OnExecuted" CanExecute="AllowSave_OnCanExecute"/>
-        <CommandBinding Command="Open" Executed="Load_OnExecuted"/>
+        <CommandBinding Command="Open" Executed="Load_OnExecuted" CanExecute="AllowLoad_OnCanExecute"/>
     </Window.CommandBindings>
 
     <StackPanel>

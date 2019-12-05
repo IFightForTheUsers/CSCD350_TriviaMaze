@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
+using File = System.IO.File;
 
 namespace TriviaMazeGUI
 {
@@ -107,6 +108,14 @@ namespace TriviaMazeGUI
         private void AllowSave_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = AllowSave;
+        }
+
+        private void AllowLoad_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
+        {
+            if (System.IO.File.Exists(SaveLoadManager.SaveFile))
+                e.CanExecute = true;
+            else
+                e.CanExecute = false;
         }
     }
 }
