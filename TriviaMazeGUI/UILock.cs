@@ -24,11 +24,13 @@ namespace TriviaMazeGUI
         // this is all the public interface for intializing the UILock and requesting movement updates
         public void Initialize(Entrance starting_point)
         {
+            depth = 0;
             LoadAt(starting_point.ghost(null));
         }
 
         public void LoadAt(Room mew)
         {
+            depth = 0;
             here = mew;
             to = null;
             _using_door = null;
@@ -39,8 +41,6 @@ namespace TriviaMazeGUI
 
         private void Acquire()
         {
-            MainWindow.Instance.AllowNewLoad = false;
-            MainWindow.Instance.AllowSave = false;
             _AnswersCorrect = 0;
             _AnwersIncorrect = 0;
             depth = _using_door.depth;
@@ -57,8 +57,6 @@ namespace TriviaMazeGUI
         }
         private void _free()
         {
-            MainWindow.Instance.AllowNewLoad = true;
-            MainWindow.Instance.AllowSave = true;
             if (_using_door.locked==false)
             {
                 There();
@@ -74,6 +72,7 @@ namespace TriviaMazeGUI
             bool solved = false;
             if (here.east is Exit)
             {
+                MainWindow.Instance.AllowSave = false;
                 VictoryPrompt p = new VictoryPrompt();
                 MainWindow.Instance.Question.Children.Add(p);
             }
@@ -111,6 +110,7 @@ namespace TriviaMazeGUI
                     r.canSolve.Text = "Maze is still solvable!";
                 else
                 {
+                    MainWindow.Instance.AllowSave = false;
                     r.canSolve.Text = "It's Game over man! Game over!";
                     r.Questions.FontSize = 30;
                     r.Background = Brushes.Black;
