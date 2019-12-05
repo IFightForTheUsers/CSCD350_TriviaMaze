@@ -8,7 +8,7 @@ using System.Data.SQLite;
 namespace TriviaMazeGUI
 {
     [Serializable]
-    public class MazeGridBuilder
+    internal class MazeGridBuilder
     {
         private Room[,] rooms;
         private int size;
@@ -16,6 +16,7 @@ namespace TriviaMazeGUI
         internal Entrance Entry => ingress;
         private Exit egress;
        // public Exit Egress { get { return egress; } }
+       internal Room At;
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
         public bool check()

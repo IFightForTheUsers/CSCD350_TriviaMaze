@@ -43,7 +43,7 @@ namespace TriviaMazeGUI
             m.Rebuild(MainWindow.Instance.Board);
 
             // starts you back at the entrance for now... will look into saving position data too
-            UILock.Instance.Initialize(MainWindow.Instance.maze.Entry);
+            UILock.Instance.LoadAt(m.At);
         }
     }
 }

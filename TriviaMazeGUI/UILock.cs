@@ -160,6 +160,7 @@ namespace TriviaMazeGUI
             to.button.IsEnabled = false;
             to.button.Background = Regulations.hereColor;
             to.button.Content = "HERE";
+            MainWindow.Instance.maze.At = to;
 
             if (to.north is Door || to.north is PanelQuestion)
             {
