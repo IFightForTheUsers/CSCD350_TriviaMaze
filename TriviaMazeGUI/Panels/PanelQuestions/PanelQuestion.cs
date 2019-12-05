@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TriviaMazeGUI
+namespace TriviaMazeGUI.Panels.PanelQuestions
 {
     [Serializable]
     abstract class PanelQuestion : Panel

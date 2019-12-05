@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.SQLite;
 
-namespace TriviaMazeGUI
+namespace TriviaMazeGUI.Panels.PanelQuestions
 {
     [Serializable]
     class ShortAnswerQuestion : PanelQuestion

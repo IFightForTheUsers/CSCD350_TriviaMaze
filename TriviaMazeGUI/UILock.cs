@@ -1,8 +1,8 @@
 ﻿using System;
-using System.CodeDom;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Media;
+using TriviaMazeGUI.Panels;
+using TriviaMazeGUI.Panels.PanelQuestions;
 using Button = System.Windows.Controls.Button;
 
 namespace TriviaMazeGUI

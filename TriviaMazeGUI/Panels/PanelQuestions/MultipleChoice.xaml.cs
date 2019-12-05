@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace TriviaMazeGUI
+namespace TriviaMazeGUI.Panels.PanelQuestions
 {
     public partial class MultipleChoice : UserControl
     {

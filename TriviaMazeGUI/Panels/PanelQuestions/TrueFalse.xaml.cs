@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace TriviaMazeGUI
+namespace TriviaMazeGUI.Panels.PanelQuestions
 {
     /// <summary>
     /// Interaction logic for TrueFalse.xaml

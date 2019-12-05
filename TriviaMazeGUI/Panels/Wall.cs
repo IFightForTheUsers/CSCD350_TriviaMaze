@@ -1,4 +1,5 @@
 ﻿using System;
+using TriviaMazeGUI.Panels;
 
 namespace TriviaMazeGUI
 {

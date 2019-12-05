@@ -2,7 +2,7 @@
 using System.Data.SQLite;
 using System.Windows;
 
-namespace TriviaMazeGUI
+namespace TriviaMazeGUI.Panels.PanelQuestions
 {
     [Serializable]
     class TrueFalseQuestion : PanelQuestion

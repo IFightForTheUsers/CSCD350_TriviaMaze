@@ -4,6 +4,8 @@ using System.Windows.Controls;
 using System.Diagnostics;
 using System.Collections;
 using System.Data.SQLite;
+using TriviaMazeGUI.Panels;
+using TriviaMazeGUI.Panels.PanelQuestions;
 
 namespace TriviaMazeGUI
 {

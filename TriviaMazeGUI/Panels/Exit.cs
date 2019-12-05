@@ -4,7 +4,7 @@
 
 using System;
 
-namespace TriviaMazeGUI
+namespace TriviaMazeGUI.Panels
 {
     [Serializable]
     class Exit : Panel

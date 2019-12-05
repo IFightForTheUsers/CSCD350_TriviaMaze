@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TriviaMazeGUI
+﻿namespace TriviaMazeGUI.Panels
 {
     /// <summary>
     /// Common interface for things connecting rooms or blocking access from rooms.

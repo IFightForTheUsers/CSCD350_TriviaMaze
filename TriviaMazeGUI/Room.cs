@@ -2,6 +2,7 @@
 using System.CodeDom;
 using System.Runtime.Serialization;
 using System.Windows.Controls;
+using Panel = TriviaMazeGUI.Panels.Panel;
 
 namespace TriviaMazeGUI
 {
