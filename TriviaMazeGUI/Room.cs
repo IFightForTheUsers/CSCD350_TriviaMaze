@@ -38,7 +38,7 @@ namespace TriviaMazeGUI
 
         public int CompareTo(object obj)
         {
-            if(obj == null)
+            if(obj == null || this == null)
             {
                 return 1;
             }
