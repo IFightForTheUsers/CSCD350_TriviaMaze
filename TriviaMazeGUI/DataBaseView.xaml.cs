@@ -37,42 +37,42 @@ namespace TriviaMazeGUI
             InitializeComponent();
         }
 
-       /* private void NumInput_Click(object sender, RoutedEventArgs e)
-        {
-            string temp = "";
-            string password = "";
-            string l = "";
+        /* private void NumInput_Click(object sender, RoutedEventArgs e)
+         {
+             string temp = "";
+             string password = "";
+             string l = "";
 
-            MessageBox.Show(temp);
-            check = new Regex(@"^(?!.*([a-z])\1{3})(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*?])[\w!@#$%^&*?]{10,}$");
-            if (_in.Text != null)
-            {
-                if (check.IsMatch(_in.Text))
-                {
-                    rng = new RNGCryptoServiceProvider();
-                    rng.GetBytes(salt = new byte[16]);
-                    sallt = Convert.ToBase64String(salt); 
+             MessageBox.Show(temp);
+             check = new Regex(@"^(?!.*([a-z])\1{3})(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*?])[\w!@#$%^&*?]{10,}$");
+             if (_in.Text != null)
+             {
+                 if (check.IsMatch(_in.Text))
+                 {
+                     rng = new RNGCryptoServiceProvider();
+                     rng.GetBytes(salt = new byte[16]);
+                     sallt = Convert.ToBase64String(salt); 
 
-                    for (int i = 0; i < 16; i++)
-                    {
-                        temp += salt[i].ToString() + "-";
-                    }
+                     for (int i = 0; i < 16; i++)
+                     {
+                         temp += salt[i].ToString() + "-";
+                     }
 
-                    var pbkdf2 = new Rfc2898DeriveBytes(_in.Text, salt, 10000);
-                    password = Convert.ToBase64String(pbkdf2.GetBytes(30));
-                   //byte[] hash = pbkdf2.GetBytes(20);
-                   // byte[] hashBytes = new byte[36];
-                    //l = Convert.ToBase64String(hash);
-                    //MessageBox.Show(password);
-                }
-                else
-                {
-                    MessageBox.Show("Incorrect");
-                }
-                System.IO.File.WriteAllText(@"C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\Salt.txt", temp);
-                System.IO.File.WriteAllText(@"C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\Password.txt", password);
-            }
-        }*/
+                     var pbkdf2 = new Rfc2898DeriveBytes(_in.Text, salt, 10000);
+                     password = Convert.ToBase64String(pbkdf2.GetBytes(30));
+                    //byte[] hash = pbkdf2.GetBytes(20);
+                    // byte[] hashBytes = new byte[36];
+                     //l = Convert.ToBase64String(hash);
+                     //MessageBox.Show(password);
+                 }
+                 else
+                 {
+                     MessageBox.Show("Incorrect");
+                 }
+                 System.IO.File.WriteAllText(@"C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\Salt.txt", temp);
+                 System.IO.File.WriteAllText(@"C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\Password.txt", password);
+             }
+         }*/
         private void NumInput_Click(object sender, RoutedEventArgs e)
         {
             string passwordHash = "";
@@ -83,7 +83,7 @@ namespace TriviaMazeGUI
             {
                 if (check.IsMatch(_in.Password))
                 {
-                    using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM Password", MainWindow.Instance.getConnection))
+                    using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM Password", new SQLiteConnection(MainWindow.ConnectionInfo)))
                     {
                         using (SQLiteDataReader read = ins.ExecuteReader())
                         {
@@ -105,7 +105,7 @@ namespace TriviaMazeGUI
                         byte k = Convert.ToByte(theSalt[i]);
                         salt[i] = k;
                     }
-                    
+
                     var en = new Rfc2898DeriveBytes(_in.Password, salt, 1000);
                     temp = Convert.ToBase64String(en.GetBytes(30));
                     if (temp.Equals(passwordHash))
@@ -131,7 +131,7 @@ namespace TriviaMazeGUI
             DataTable tf = new DataTable();
             tf.Columns.Add(new DataColumn("Question"));
             tf.Columns.Add(new DataColumn("Answer"));
-            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM TrueFalse", MainWindow.Instance.getConnection))
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM TrueFalse", new SQLiteConnection(MainWindow.ConnectionInfo)))
             {
                 using (SQLiteDataReader read = ins.ExecuteReader())
                 {
@@ -155,7 +155,7 @@ namespace TriviaMazeGUI
             DataTable mc = new DataTable();
             mc.Columns.Add(new DataColumn("Question"));
             mc.Columns.Add(new DataColumn("Answer"));
-            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice", MainWindow.Instance.getConnection))
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice", new SQLiteConnection(MainWindow.ConnectionInfo)))
             {
                 using (SQLiteDataReader read = ins.ExecuteReader())
                 {
@@ -178,7 +178,7 @@ namespace TriviaMazeGUI
             DataTable sc = new DataTable();
             sc.Columns.Add(new DataColumn("Question"));
             sc.Columns.Add(new DataColumn("Answer"));
-            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM ShortAnswer", MainWindow.Instance.getConnection))
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM ShortAnswer", new SQLiteConnection(MainWindow.ConnectionInfo)))
             {
                 using (SQLiteDataReader read = ins.ExecuteReader())
                 {

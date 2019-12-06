@@ -76,6 +76,9 @@
     </Compile>
     <Compile Include="Application Stuff\AssemblyInfo.cs" />
     <Compile Include="DatabaseReadException.cs" />
+    <Compile Include="DataBaseView.xaml.cs">
+      <DependentUpon>DataBaseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Panels\Door.cs" />
     <Compile Include="Panels\Entrance.cs" />
     <Compile Include="Panels\Exit.cs" />
@@ -86,9 +89,6 @@
     <Compile Include="MazeGridBuilder.cs" />
     <Compile Include="Panels\PanelQuestions\MultipleChoice.xaml.cs">
       <DependentUpon>MultipleChoice.xaml</DependentUpon>
-    </Compile>
-	<Compile Include="DataBaseView.xaml.cs">
-      <DependentUpon>DataBaseView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Panels\PanelQuestions\MultipleChoiceQuestion.cs" />
     <Compile Include="Panels\Panel.cs" />
@@ -126,6 +126,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AddQuestionToDB.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DataBaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
