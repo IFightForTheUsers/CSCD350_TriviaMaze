@@ -79,9 +79,9 @@ namespace TriviaMazeGUI
             string pw = "";
             string temp = "";
             check = new Regex(@"^(?!.*([a-z])\1{3})(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*?])[\w!@#$%^&*?]{10,}$");
-            if (_in.Text != null)
+            if (_in.Password != null)
             {
-                if (check.IsMatch(_in.Text))
+                if (check.IsMatch(_in.Password))
                 {
                     using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM Password", MainWindow.Instance.getConnection))
                     {
@@ -106,18 +106,20 @@ namespace TriviaMazeGUI
                         salt[i] = k;
                     }
                     
-                    var en = new Rfc2898DeriveBytes(_in.Text, salt, 1000);
+                    var en = new Rfc2898DeriveBytes(_in.Password, salt, 1000);
                     temp = Convert.ToBase64String(en.GetBytes(30));
                     if (temp.Equals(passwordHash))
                     {
                         AddTrueFalseToTable();
                         AddMultipleChoiceToTable();
                         AddShortAnswerToTable();
+
+                        answers.Visibility = Visibility.Visible;
                     }
-                    else
-                    {
-                        MessageBox.Show("You Entered the wrong password");
-                    }
+                }
+                else
+                {
+                    MessageBox.Show("You Entered the wrong password");
                 }
 
             }

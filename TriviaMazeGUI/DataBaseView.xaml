@@ -7,10 +7,12 @@
         mc:Ignorable="d"
         Title="DataBaseView" Height="450" Width="1091.244">
     <Grid>
-        <TextBox x:Name="_in" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="155"/>
-        <Button x:Name="numInput" Content="Enter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="10,38,0,0" Click="NumInput_Click"/>
-        <DataGrid IsReadOnly="True" x:Name="TrueFalse" Margin="10,166,722,29" />
-        <DataGrid IsReadOnly="True" x:Name="MultipleChoice" Margin="754,166,10,29" />
-        <DataGrid IsReadOnly="True" x:Name="ShortAnswer" Margin="366,166,334,29" />
+        <TextBlock Text="Password:" Margin="27,29,974.8,361" FontWeight="bold" FontSize="16"/>
+        <PasswordBox x:Name="_in" Password="" HorizontalAlignment="Left" Height="29" Margin="115,26,0,0" VerticalAlignment="Top" Width="129" Padding="3"/>
+        <Button x:Name="numInput" Content="Enter" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="259,30,0,0" Click="NumInput_Click" Height="21"/>
+        <DataGrid IsReadOnly="True" x:Name="TrueFalse" Margin="10,124,721.8,29" />
+        <DataGrid IsReadOnly="True" x:Name="MultipleChoice" Margin="754,124,9.8,29" />
+        <DataGrid IsReadOnly="True" x:Name="ShortAnswer" Margin="366,124,333.8,29" />
+        <TextBlock x:Name="answers" HorizontalAlignment="Left" Margin="27,81,0,0" TextWrapping="Wrap" Text="** Scroll right to see answers **" VerticalAlignment="Top" Width="276" Visibility="Hidden"/>
     </Grid>
 </Window>
