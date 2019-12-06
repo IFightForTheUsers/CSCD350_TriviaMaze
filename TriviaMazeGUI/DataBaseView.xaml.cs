@@ -25,47 +25,103 @@ namespace TriviaMazeGUI
     public partial class DataBaseView : Window
     {
         //Information on how to do this was taken from this source:
-        //https://medium.com/@mehanix/lets-talk-security-salted-password-hashing-in-c-5460be5c3aae
+        //https://medium.com/@mehanix/lets-talk-security-salted-password-hashing-in-c-5460be5c3aae and:
+        //https://stackoverflow.com/questions/52146528/how-to-validate-salted-and-hashed-password-in-c-sharp
+
         private byte[] salt;
+        private string sallt;
         private RNGCryptoServiceProvider rng;
-        private int attempts;
         private Regex check;
         public DataBaseView()
         {
             InitializeComponent();
-            GenerateSalt();
-            //SetUpTrueFalse();
-            AddTrueFalseToTable();
-            AddMultipleChoiceToTable();
-            AddShortAnswerToTable();
-            attempts = 0;
         }
 
-        private void GenerateSalt()
+       /* private void NumInput_Click(object sender, RoutedEventArgs e)
         {
-            rng = new RNGCryptoServiceProvider();
-            rng.GetBytes(salt = new byte[16]);  
-        }
-        private void NumInput_Click(object sender, RoutedEventArgs e)
-        {
+            string temp = "";
+            string password = "";
+            string l = "";
+
+            MessageBox.Show(temp);
             check = new Regex(@"^(?!.*([a-z])\1{3})(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*?])[\w!@#$%^&*?]{10,}$");
             if (_in.Text != null)
             {
                 if (check.IsMatch(_in.Text))
                 {
+                    rng = new RNGCryptoServiceProvider();
+                    rng.GetBytes(salt = new byte[16]);
+                    sallt = Convert.ToBase64String(salt); 
+
+                    for (int i = 0; i < 16; i++)
+                    {
+                        temp += salt[i].ToString() + "-";
+                    }
+
                     var pbkdf2 = new Rfc2898DeriveBytes(_in.Text, salt, 10000);
-                    byte[] hash = pbkdf2.GetBytes(20);
-                    byte[] hashBytes = new byte[36];
-                    Array.Copy(salt, 0, hashBytes, 0, 16);
-                    Array.Copy(hash, 0, hashBytes, 16, 20);
-                    string password = Convert.ToBase64String(hashBytes);
-                    MessageBox.Show(password);
+                    password = Convert.ToBase64String(pbkdf2.GetBytes(30));
+                   //byte[] hash = pbkdf2.GetBytes(20);
+                   // byte[] hashBytes = new byte[36];
+                    //l = Convert.ToBase64String(hash);
+                    //MessageBox.Show(password);
                 }
                 else
                 {
                     MessageBox.Show("Incorrect");
                 }
+                System.IO.File.WriteAllText(@"C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\Salt.txt", temp);
+                System.IO.File.WriteAllText(@"C:\Users\Matthew\Desktop\CSCD\CSCD350\FN2\CSCD350_TriviaMaze\Password.txt", password);
             }
+        }*/
+        private void NumInput_Click(object sender, RoutedEventArgs e)
+        {
+            string passwordHash = "";
+            string pw = "";
+            string temp = "";
+            check = new Regex(@"^(?!.*([a-z])\1{3})(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$%^&*?])[\w!@#$%^&*?]{10,}$");
+            if (_in.Text != null)
+            {
+                if (check.IsMatch(_in.Text))
+                {
+                    using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM Password", MainWindow.Instance.getConnection))
+                    {
+                        using (SQLiteDataReader read = ins.ExecuteReader())
+                        {
+                            if (read.Read())
+                            {
+                                pw = @read["Salt"].ToString();
+                                passwordHash = @read["Encrypted"].ToString();
+                            }
+                            read.Close();
+
+                        }
+
+                    }
+                    string[] theSalt = pw.Split('-');
+                    salt = new byte[16];
+
+                    for (int i = 0; i < 16; i++)
+                    {
+                        byte k = Convert.ToByte(theSalt[i]);
+                        salt[i] = k;
+                    }
+                    
+                    var en = new Rfc2898DeriveBytes(_in.Text, salt, 1000);
+                    temp = Convert.ToBase64String(en.GetBytes(30));
+                    if (temp.Equals(passwordHash))
+                    {
+                        AddTrueFalseToTable();
+                        AddMultipleChoiceToTable();
+                        AddShortAnswerToTable();
+                    }
+                    else
+                    {
+                        MessageBox.Show("You Entered the wrong password");
+                    }
+                }
+
+            }
+
         }
 
         private void AddTrueFalseToTable()
