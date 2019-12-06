@@ -87,6 +87,9 @@
     <Compile Include="Panels\PanelQuestions\MultipleChoice.xaml.cs">
       <DependentUpon>MultipleChoice.xaml</DependentUpon>
     </Compile>
+	<Compile Include="DataBaseView.xaml.cs">
+      <DependentUpon>DataBaseView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Panels\PanelQuestions\MultipleChoiceQuestion.cs" />
     <Compile Include="Panels\Panel.cs" />
     <Compile Include="Panels\PanelQuestions\PanelQuestion.cs" />
