@@ -17,7 +17,7 @@
         <Menu IsMainMenu="True">
             <MenuItem x:Name ="File" Header="_File" Height="18" Width="52" Click="File_Click">
                 <MenuItem x:Name="AddQuestionToDB" Header="Add Question To Database" Click="AddQuestionToDB_Click" />
-                <MenuItem x:Name="mnuOpenDBWindow" Header="_OpenDBWindow"/>
+                <MenuItem x:Name="mnuOpenDBWindow" Header="_OpenDBWindow" Click="mnuOpenDBWindow_Click"/>
                 <MenuItem Command="New" Header ="New Maze"/>
                 <MenuItem Command="Save" Header="Save Maze"/>
                 <MenuItem Command="Open" Header="Load Maze"/>

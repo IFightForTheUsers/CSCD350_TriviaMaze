@@ -15,6 +15,7 @@ namespace TriviaMazeGUI
         private static readonly Lazy<MainWindow> Lazy = new Lazy<MainWindow> (()=> new MainWindow());
         public static MainWindow Instance => Lazy.Value;
 
+        private DataBaseView dataBaseView;
         private About about;
         private Instructions instruction;
         private int MazeSize = 4;
@@ -108,6 +109,12 @@ namespace TriviaMazeGUI
         private void AllowSave_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
         {
             e.CanExecute = AllowSave;
+        }
+
+        private void mnuOpenDBWindow_Click(object sender, RoutedEventArgs e)
+        {
+            this.dataBaseView = new DataBaseView();
+            this.dataBaseView.Show();
         }
 
         private void AllowLoad_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)

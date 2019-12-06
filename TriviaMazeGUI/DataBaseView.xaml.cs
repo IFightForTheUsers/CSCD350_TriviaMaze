@@ -32,6 +32,8 @@ namespace TriviaMazeGUI
         private string sallt;
         private RNGCryptoServiceProvider rng;
         private Regex check;
+        private SQLiteConnection SQLconnection;
+
         public DataBaseView()
         {
             InitializeComponent();
@@ -83,7 +85,9 @@ namespace TriviaMazeGUI
             {
                 if (check.IsMatch(_in.Password))
                 {
-                    using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM Password", new SQLiteConnection(MainWindow.ConnectionInfo)))
+                    SQLconnection = new SQLiteConnection(MainWindow.ConnectionInfo);
+                    SQLconnection.Open();
+                    using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM Password", SQLconnection))
                     {
                         using (SQLiteDataReader read = ins.ExecuteReader())
                         {
@@ -131,7 +135,8 @@ namespace TriviaMazeGUI
             DataTable tf = new DataTable();
             tf.Columns.Add(new DataColumn("Question"));
             tf.Columns.Add(new DataColumn("Answer"));
-            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM TrueFalse", new SQLiteConnection(MainWindow.ConnectionInfo)))
+
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM TrueFalse", SQLconnection))
             {
                 using (SQLiteDataReader read = ins.ExecuteReader())
                 {
@@ -155,7 +160,7 @@ namespace TriviaMazeGUI
             DataTable mc = new DataTable();
             mc.Columns.Add(new DataColumn("Question"));
             mc.Columns.Add(new DataColumn("Answer"));
-            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice", new SQLiteConnection(MainWindow.ConnectionInfo)))
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM MultipleChoice", SQLconnection))
             {
                 using (SQLiteDataReader read = ins.ExecuteReader())
                 {
@@ -178,7 +183,7 @@ namespace TriviaMazeGUI
             DataTable sc = new DataTable();
             sc.Columns.Add(new DataColumn("Question"));
             sc.Columns.Add(new DataColumn("Answer"));
-            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM ShortAnswer", new SQLiteConnection(MainWindow.ConnectionInfo)))
+            using (SQLiteCommand ins = new SQLiteCommand(@"SELECT * FROM ShortAnswer", SQLconnection))
             {
                 using (SQLiteDataReader read = ins.ExecuteReader())
                 {
