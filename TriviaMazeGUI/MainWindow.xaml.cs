@@ -10,8 +10,8 @@ namespace TriviaMazeGUI
         
         internal MazeGridBuilder maze;
         internal readonly SaveLoadManager SaveLoad = new SaveLoadManager();
-        internal const string ConnectionInfo = @"Data Source=TriviaMazeQuestions.db;Version=3;";
-
+        internal static string ConnectionInfo = "";
+        private bool topicChoosen = false;
         private static readonly Lazy<MainWindow> Lazy = new Lazy<MainWindow> (()=> new MainWindow());
         public static MainWindow Instance => Lazy.Value;
 
@@ -19,6 +19,7 @@ namespace TriviaMazeGUI
         private About about;
         private Instructions instruction;
         private int MazeSize = 4;
+        private string selection;
 
         internal bool AllowSave = false;
 
@@ -113,8 +114,12 @@ namespace TriviaMazeGUI
 
         private void mnuOpenDBWindow_Click(object sender, RoutedEventArgs e)
         {
-            this.dataBaseView = new DataBaseView();
-            this.dataBaseView.Show();
+            if (topicChoosen)
+            {
+                this.dataBaseView = new DataBaseView();
+                this.dataBaseView.Show();
+            }
+
         }
 
         private void AllowLoad_OnCanExecute(object sender, CanExecuteRoutedEventArgs e)
@@ -123,6 +128,31 @@ namespace TriviaMazeGUI
                 e.CanExecute = true;
             else
                 e.CanExecute = false;
+        }
+        private void _enter_DatabaseChoice(object sender, RoutedEventArgs e)
+        {
+            if (extComboBox.Text != null)
+            {
+                selection = extComboBox.Text;
+                extComboBox.Text = null;
+                topicChoosen = true;
+                DataBaseChoice(selection);
+            }
+
+        }
+        private static void DataBaseChoice(string s)
+        {
+            switch (s) 
+            {
+                case "CSQuestions":
+                    ConnectionInfo = @"Data Source=TriviaMazeQuestions.db;Version=3;";
+                    break;
+                case "RandomShh":
+                    ConnectionInfo = @"Data Source=MetalQuestions.db;Version=3;";
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }
