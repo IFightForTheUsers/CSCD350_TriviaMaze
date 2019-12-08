@@ -9,7 +9,7 @@ namespace TriviaMazeGUI
 {
     sealed class UILock
     {
-        private static readonly Lazy<UILock> lazy = new Lazy<UILock> (() => new UILock());
+        private static readonly Lazy<UILock> lazy = new Lazy<UILock>(() => new UILock());
         public static UILock Instance { get { return lazy.Value; } }
         private UILock() { }
         public Room here { get; private set; } = null;
@@ -57,7 +57,7 @@ namespace TriviaMazeGUI
         }
         private void _free()
         {
-            if (_using_door.locked==false)
+            if (_using_door.locked == false)
             {
                 There();
                 MainWindow.Instance.Question.Children.Clear();

@@ -19,7 +19,6 @@ namespace TriviaMazeGUI
                 BinaryFormatter b = new BinaryFormatter();
                 b.Serialize(f, MainWindow.Instance.maze);
             }
-
         }
 
         public void LoadClick(object sender, RoutedEventArgs e)
@@ -34,7 +33,7 @@ namespace TriviaMazeGUI
 
             using (FileStream f = File.OpenRead(SaveFile))
             {
-                m = (MazeGridBuilder) b.Deserialize(f);
+                m = (MazeGridBuilder)b.Deserialize(f);
             }
 
             // maze should be reloaded... now to rewrite it to the windows

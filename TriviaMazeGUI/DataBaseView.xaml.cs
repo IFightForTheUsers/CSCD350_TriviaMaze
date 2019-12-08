@@ -19,9 +19,6 @@ using System.Data.SQLite;
 
 namespace TriviaMazeGUI
 {
-    /// <summary>
-    /// Interaction logic for DataBaseView.xaml
-    /// </summary>
     public partial class DataBaseView : Window
     {
         //Information on how to do this was taken from this source:

@@ -10,7 +10,7 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
         {
             // stub to fill in with a question prompt
             StackPanel sp = new StackPanel();
-            RadioButton lockDoor = new RadioButton {Name = "lockDoor", Content = "Lock Door"};
+            RadioButton lockDoor = new RadioButton { Name = "lockDoor", Content = "Lock Door" };
             RadioButton passDoor = new RadioButton
             {
                 Name = "passDoor",

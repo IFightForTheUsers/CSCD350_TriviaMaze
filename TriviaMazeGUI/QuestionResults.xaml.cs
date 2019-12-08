@@ -15,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace TriviaMazeGUI
 {
-    /// <summary>
-    /// Interaction logic for QuestionResults.xaml
-    /// </summary>
     public partial class QuestionResults : UserControl
     {
         public QuestionResults()

@@ -35,7 +35,7 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
                     {
                         if (read.Read())
                         {
-                            MC.Q.Text = (string) read["Question"];
+                            MC.Q.Text = (string)read["Question"];
                             MC.a.Content = read["A"];
                             MC.b.Content = read["B"];
                             MC.c.Content = read["C"];

@@ -9,7 +9,7 @@ namespace TriviaMazeGUI
     [Serializable()]
     class Room
     {
-        [NonSerialized()]internal Button button;
+        [NonSerialized()] internal Button button;
         internal Panel north;
         internal Panel south;
         internal Panel east;
@@ -38,14 +38,14 @@ namespace TriviaMazeGUI
 
         public int CompareTo(object obj)
         {
-            if(obj == null || this == null)
+            if (obj == null || this == null)
             {
                 return 1;
             }
-            if(obj is Room otherRoom)
+            if (obj is Room otherRoom)
             {
-                
-                if(otherRoom.east != this.east)
+
+                if (otherRoom.east != this.east)
                 {
                     return 1;
                 }

@@ -17,8 +17,8 @@ namespace TriviaMazeGUI
         private Entrance ingress;
         internal Entrance Entry => ingress;
         private Exit egress;
-       // public Exit Egress { get { return egress; } }
-       internal Room At;
+        // public Exit Egress { get { return egress; } }
+        internal Room At;
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
         public bool check()
@@ -29,9 +29,9 @@ namespace TriviaMazeGUI
         }
         public void ResetFlags()
         {
-            for(int i = 0; i < rooms.GetLength(0); i++)
+            for (int i = 0; i < rooms.GetLength(0); i++)
             {
-                for(int j = 0; j < rooms.GetLength(1); j++)
+                for (int j = 0; j < rooms.GetLength(1); j++)
                 {
                     rooms[i, j].Flag = false;
                 }
@@ -43,7 +43,7 @@ namespace TriviaMazeGUI
         }
         public void Build(int n, Grid grid)
         {
-            if (grid==null)
+            if (grid == null)
                 throw new ArgumentNullException(nameof(grid), @"MazeGridBuilder.Build does not accept nulls.");
 
             this.size = n;
@@ -407,8 +407,6 @@ namespace TriviaMazeGUI
 
             int GetRandomTFQuestion()
             {
-                //Console.WriteLine("Number of unassigned TrueFalse questions: " + TrueFalseQNum.Count);
-
                 int index = rand.Next(0, trueFalseQNum.Count);
 
                 int valueAtIndex = (int)trueFalseQNum[index];
@@ -418,20 +416,15 @@ namespace TriviaMazeGUI
 
             int GetRandomMCQuestion()
             {
-                //Console.WriteLine("Number of unassigned MultipleChoice questions: " + MultipleChoiceQNum.Count);
-
                 int index = rand.Next(0, multipleChoiceQNum.Count);
 
                 int valueAtIndex = (int)multipleChoiceQNum[index];
                 multipleChoiceQNum.RemoveAt(index);
                 return valueAtIndex;
-
             }
 
             int GetRandomSAQuestion()
             {
-                //Console.WriteLine("Number of unassigned ShortAnswer questions: " + ShortAnswerQNum.Count);
-
                 int index = rand.Next(0, shortAnswerQNum.Count);
 
                 int valueAtIndex = (int)shortAnswerQNum[index];

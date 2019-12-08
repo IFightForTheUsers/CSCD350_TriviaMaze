@@ -45,7 +45,8 @@ namespace TriviaMazeGUI.Panels
                 throw new WallHackException();
         }
 
-        public Room kick(Room from) { // cheat to pass thru door
+        public Room kick(Room from)
+        { // cheat to pass thru door
             _locked = false;
             if (from == room1)
                 return room2;

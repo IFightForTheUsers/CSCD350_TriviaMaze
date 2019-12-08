@@ -2,9 +2,6 @@
 
 namespace TriviaMazeGUI
 {
-    /// <summary>
-    /// Quick edit fields for default appearance of application
-    /// </summary>
     class Regulations
     {
         public const int roomPixelSize = 80;
