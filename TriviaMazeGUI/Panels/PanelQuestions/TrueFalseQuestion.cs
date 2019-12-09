@@ -48,6 +48,7 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
 
             TF.SubmitButton.Click += (sender, routedArgs) =>
             {
+                asked = true;
                 if (TF.T.IsChecked == true && correctAnswer == "True")
                 {
                     UILock.Instance.Correct();

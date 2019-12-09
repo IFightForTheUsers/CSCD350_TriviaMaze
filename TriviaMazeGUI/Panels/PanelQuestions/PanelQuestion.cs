@@ -6,7 +6,7 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
     abstract class PanelQuestion : Panel
     {
         private Panel wrapped;
-        public Boolean asked { get; private set; }
+        public Boolean asked { get; protected set; }
 
         public bool locked
         {
@@ -19,7 +19,6 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
         {
             if (!asked)
             {
-                asked = true;
                 Ask();
                 return wrapped.Knock(from);
             }

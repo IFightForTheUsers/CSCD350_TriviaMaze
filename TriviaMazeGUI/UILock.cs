@@ -24,6 +24,7 @@ namespace TriviaMazeGUI
         // this is all the public interface for intializing the UILock and requesting movement updates
         public void Initialize(Entrance starting_point)
         {
+            MainWindow.Instance.maze.At = starting_point.Ghost(null);
             depth = 0;
             LoadAt(starting_point.Ghost(null));
         }

@@ -53,6 +53,7 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
             {
 
                 //MessageBox.Show("Correct Answer: " + correctAnswer);
+                asked = true;
 
 
                 if (MC.a.IsChecked == true && correctAnswer == "a")

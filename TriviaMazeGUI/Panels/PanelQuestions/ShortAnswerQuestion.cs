@@ -46,6 +46,7 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
 
             SA.SubmitButton.Click += (sender, routedArgs) =>
             {
+                asked = true;
                 if (SA.userInput.Text.Equals(correctAnswer, StringComparison.OrdinalIgnoreCase))
                 {
                     UILock.Instance.Correct();
