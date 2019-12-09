@@ -5,8 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TriviaMazeGUI"
         mc:Ignorable="d"
-        Title="About" Height="450" Width="800">
+        Title="About" Height="450" Width="453.934">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="161*"/>
+            <ColumnDefinition Width="358*"/>
+            <ColumnDefinition Width="127*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox IsEnabled = "false" HorizontalAlignment="Left" Height="272" TextWrapping="Wrap" Text="This Program was written by Jeff Nix, Steven Richmond, and Matthew Firmin for Tom Capaul's CSCD350 Final Project. The goal of this program is to provide an interactive trivia maze based on Computer Science Topics." VerticalAlignment="Top" Width="434" Margin="10,56,0,0" Grid.ColumnSpan="3"/>
+        <Button Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="_close_Click" Margin="69,365,0,0" Grid.Column="1"/>
     </Grid>
 </Window>

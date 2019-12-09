@@ -23,5 +23,10 @@ namespace TriviaMazeGUI
         {
             InitializeComponent();
         }
+
+        private void _close_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }

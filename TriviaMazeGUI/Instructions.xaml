@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TriviaMazeGUI"
         mc:Ignorable="d"
-        Title="Instructions" Height="450" Width="800">
+        Title="Instructions" Height="450" Width="455.076">
     <Grid>
-        
+        <TextBox IsEnabled = "false" HorizontalAlignment="Left" Height="272" TextWrapping="Wrap" Text="You goal is to traverse through  4X4 grid. You start in the top left corner and you need to find your way to the bottom right corner. You click on a grid to move it to, when you try to move through a door you haven't gone through you will be asked either a true or false question, multiple choice question, or a short answer. If you get it right you may proceed but if you get it wrong the door locks. If the grid is highlighted blue you can go through it. If you lock yourself out completely, you lose the game.  You may add questions to the game and if you have the correct password, you can view all of the questions and answers that are currently in the game as well as save and load previous games." VerticalAlignment="Top" Width="434" Margin="10,56,0,0" Grid.ColumnSpan="3"/>
+        <Button Content="Exit" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Click="_close_Click" Margin="179,361,0,0"/>
     </Grid>
 </Window>
