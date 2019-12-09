@@ -12,7 +12,7 @@ namespace TriviaMazeGUI
 
         public int depth => 1;
 
-        public Room knock(Room from)
+        public Room Knock(Room from)
         {
             if (from == room)
                 return from;
@@ -20,7 +20,7 @@ namespace TriviaMazeGUI
                 throw new WallHackException();
         }
 
-        public Room kick(Room from)
+        public Room Kick(Room from)
         {
             if (from == room)
                 return from;
@@ -28,7 +28,7 @@ namespace TriviaMazeGUI
                 throw new WallHackException();
         }
 
-        public Room ghost(Room from)
+        public Room Ghost(Room from)
         {
             return null;
         }
@@ -39,7 +39,7 @@ namespace TriviaMazeGUI
             return "Wall@" + GetHashCode().ToString();
         }
 
-        public void rewire(Panel obj)
+        public void Rewire(Panel obj)
         {
             if (room.north == this)
                 room.north = obj;

@@ -25,7 +25,7 @@ namespace TriviaMazeGUI
         public void Initialize(Entrance starting_point)
         {
             depth = 0;
-            LoadAt(starting_point.ghost(null));
+            LoadAt(starting_point.Ghost(null));
         }
 
         public void LoadAt(Room mew)
@@ -80,7 +80,7 @@ namespace TriviaMazeGUI
             }
             else
             {
-                canSolve = MainWindow.Instance.maze.check();
+                canSolve = MainWindow.Instance.maze.CheckSolvability();
                 Solveable.Reset();
                 QuestionResults r = new QuestionResults();
 
@@ -156,7 +156,7 @@ namespace TriviaMazeGUI
 
         private void There()
         {
-            Move(_using_door.ghost(here));
+            Move(_using_door.Ghost(here));
         }
 
         private void Move(Room to)
@@ -172,7 +172,7 @@ namespace TriviaMazeGUI
             {
                 if (!to.north.locked)
                 {
-                    Button temp = to.north.ghost(to).button;
+                    Button temp = to.north.Ghost(to).button;
                     temp.Click += this.Clicked_North;
                     EnableBtn(temp);
                 }
@@ -181,7 +181,7 @@ namespace TriviaMazeGUI
             {
                 if (!to.south.locked)
                 {
-                    Button temp = to.south.ghost(to).button;
+                    Button temp = to.south.Ghost(to).button;
                     temp.Click += this.Clicked_South;
                     EnableBtn(temp);
                 }
@@ -190,7 +190,7 @@ namespace TriviaMazeGUI
             {
                 if (!to.east.locked)
                 {
-                    Button temp = to.east.ghost(to).button;
+                    Button temp = to.east.Ghost(to).button;
                     temp.Click += this.Clicked_East;
                     EnableBtn(temp);
                 }
@@ -199,7 +199,7 @@ namespace TriviaMazeGUI
             {
                 if (!to.west.locked)
                 {
-                    Button temp = to.west.ghost(to).button;
+                    Button temp = to.west.Ghost(to).button;
                     temp.Click += this.Clicked_West;
                     EnableBtn(temp);
                 }
@@ -215,27 +215,27 @@ namespace TriviaMazeGUI
 
             if (here.north is Door || here.north is PanelQuestion)
             {
-                here.north.ghost(here).button.Click -= Clicked_North;
-                here.north.ghost(here).button.IsEnabled = false;
-                here.north.ghost(here).button.Background = Regulations.disabledColor;
+                here.north.Ghost(here).button.Click -= Clicked_North;
+                here.north.Ghost(here).button.IsEnabled = false;
+                here.north.Ghost(here).button.Background = Regulations.disabledColor;
             }
             if (here.south is Door || here.south is PanelQuestion)
             {
-                here.south.ghost(here).button.Click -= Clicked_South;
-                here.south.ghost(here).button.IsEnabled = false;
-                here.south.ghost(here).button.Background = Regulations.disabledColor;
+                here.south.Ghost(here).button.Click -= Clicked_South;
+                here.south.Ghost(here).button.IsEnabled = false;
+                here.south.Ghost(here).button.Background = Regulations.disabledColor;
             }
             if (here.east is Door || here.east is PanelQuestion)
             {
-                here.east.ghost(here).button.Click -= Clicked_East;
-                here.east.ghost(here).button.IsEnabled = false;
-                here.east.ghost(here).button.Background = Regulations.disabledColor;
+                here.east.Ghost(here).button.Click -= Clicked_East;
+                here.east.Ghost(here).button.IsEnabled = false;
+                here.east.Ghost(here).button.Background = Regulations.disabledColor;
             }
             if (here.west is Door || here.west is PanelQuestion)
             {
-                here.west.ghost(here).button.Click -= Clicked_West;
-                here.west.ghost(here).button.IsEnabled = false;
-                here.west.ghost(here).button.Background = Regulations.disabledColor;
+                here.west.Ghost(here).button.Click -= Clicked_West;
+                here.west.Ghost(here).button.IsEnabled = false;
+                here.west.Ghost(here).button.Background = Regulations.disabledColor;
             }
         }
 
@@ -294,7 +294,7 @@ namespace TriviaMazeGUI
                 if (((PanelQuestion)_using_door).asked == true)
                     asked = true;
             }
-            to = _using_door.knock(here);
+            to = _using_door.Knock(here);
             if (to != here && !asked)
             {
                 Clear();

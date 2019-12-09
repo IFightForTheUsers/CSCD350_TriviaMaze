@@ -62,6 +62,5 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
                 }
             };
         }
-
     }
 }

@@ -15,41 +15,41 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
         }
         public int depth => wrapped.depth + 1;
 
-        public Room knock(Room from)
+        public Room Knock(Room from)
         {
             if (!asked)
             {
                 asked = true;
                 Ask();
-                return wrapped.knock(from);
+                return wrapped.Knock(from);
             }
             else
             {
-                return wrapped.knock(from);
+                return wrapped.Knock(from);
             }
         }
 
         protected abstract void Ask();
 
-        public Room kick(Room from)
+        public Room Kick(Room from)
         {
-            return wrapped.kick(from);
+            return wrapped.Kick(from);
         }
 
-        public Room ghost(Room from)
+        public Room Ghost(Room from)
         {
-            return wrapped.ghost(from);
+            return wrapped.Ghost(from);
         }
 
-        public void rewire(Panel obj)
+        public void Rewire(Panel obj)
         {
-            wrapped.rewire(obj);
+            wrapped.Rewire(obj);
         }
 
         protected PanelQuestion(Panel wrapping)
         {
             wrapped = wrapping;
-            wrapped.rewire(this);
+            wrapped.Rewire(this);
         }
     }
 }

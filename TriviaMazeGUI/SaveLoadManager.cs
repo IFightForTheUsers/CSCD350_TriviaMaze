@@ -6,7 +6,7 @@ namespace TriviaMazeGUI
 {
     class SaveLoadManager
     {
-        public const string SaveFile = "save.dat";
+        internal const string SaveFile = "save.dat";
 
         public void SaveClick(object sender, RoutedEventArgs e)
         {

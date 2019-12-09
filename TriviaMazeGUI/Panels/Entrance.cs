@@ -15,17 +15,17 @@ namespace TriviaMazeGUI.Panels
 
         public int depth => 1;
 
-        public Room knock(Room from)
+        public Room Knock(Room from)
         {
             return from;
         }
 
-        public Room kick(Room from)
+        public Room Kick(Room from)
         {
             return from;
         }
 
-        public Room ghost(Room from)
+        public Room Ghost(Room from)
         {
             if (from == null)
                 return room;
@@ -35,7 +35,7 @@ namespace TriviaMazeGUI.Panels
 
         public override string ToString() => "Entrance@" + GetHashCode().ToString();
 
-        public void rewire(Panel obj)
+        public void Rewire(Panel obj)
         {
             if (room.north == this)
                 room.north = obj;

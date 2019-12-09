@@ -85,7 +85,7 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
 
                 else if (MC.a.IsChecked == false && MC.b.IsChecked == false && MC.c.IsChecked == false && MC.d.IsChecked == false)
                 {
-                    MessageBox.Show("Please select an answer before pressing Submit, Dingus.");
+                    MessageBox.Show("Please select an answer before submitting.");
                 }
 
                 else
@@ -96,8 +96,6 @@ namespace TriviaMazeGUI.Panels.PanelQuestions
                     UILock.Instance.Free();
                 }
             };
-
         }
-
     }
 }

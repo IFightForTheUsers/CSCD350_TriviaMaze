@@ -21,7 +21,7 @@ namespace TriviaMazeGUI
         internal Room At;
         enum QuestionType { TrueFalse = 0, MultipleChoice = 1, ShortAnswer = 2 };
 
-        public bool check()
+        public bool CheckSolvability()
         {
             bool temp = Solveable.CheckIfSolveable(ref this.rooms);
             ResetFlags();

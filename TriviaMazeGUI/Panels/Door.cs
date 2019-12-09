@@ -20,7 +20,7 @@ namespace TriviaMazeGUI.Panels
         private readonly Room room1;
         private readonly Room room2;
 
-        public Room knock(Room from)
+        public Room Knock(Room from)
         {
             if (!_locked)
             {
@@ -35,7 +35,7 @@ namespace TriviaMazeGUI.Panels
                 return from;
         }
 
-        public Room ghost(Room from)
+        public Room Ghost(Room from)
         {
             if (from == room1)
                 return room2;
@@ -45,7 +45,7 @@ namespace TriviaMazeGUI.Panels
                 throw new WallHackException();
         }
 
-        public Room kick(Room from)
+        public Room Kick(Room from)
         { // cheat to pass thru door
             _locked = false;
             if (from == room1)
@@ -62,7 +62,7 @@ namespace TriviaMazeGUI.Panels
             return "Door@" + this.GetHashCode().ToString();
         }
 
-        public void rewire(Panel obj)
+        public void Rewire(Panel obj)
         {
             if (room1.north == this)
             {

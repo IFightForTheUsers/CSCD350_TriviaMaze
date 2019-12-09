@@ -87,7 +87,7 @@ namespace TriviaMazeGUI
             return solv;
         }
 
-        public bool checkIfSolved(Room room)
+        public bool CheckIfSolved(Room room)
         {
             if (room.east is Exit)
             {
