@@ -37,6 +37,11 @@ namespace TriviaMazeGUI
 
         public void BuildMaze(int size)
         {
+            if (topicChoosen == false)
+            {
+                topicChoosen = true;
+                ConnectionInfo = @"Data Source=TriviaMazeQuestions.db;Version=3;";
+            }
             MazeSize = size;
             maze = new MazeGridBuilder();
             maze.Build(size, Board);
